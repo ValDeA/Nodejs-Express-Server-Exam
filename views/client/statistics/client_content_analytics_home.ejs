@@ -1,0 +1,145 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" data-toggle="dropdown" aria-expanded="true">
+              <span id="showDevice" class="text-dark">
+                Station Select
+              </span>
+            </a>
+            <div id="analytics_nav_dropdown" class="dropdown-menu dropdown-menu-left">
+    
+            </div>
+          </div>
+          <div class="col-6 text-right">
+            <div class="row">
+
+              <a class="col-form-label col-sm-3 nav-link dropdown-toggle d-none d-sm-inline-block" data-toggle="dropdown" aria-expanded="true">
+                <span id="showDate" class="text-dark">
+                  Time Select
+                </span>
+              </a>
+              <div id="analytics_nav_dropdown" class="col-form-label col-sm-1 dropdown-menu dropdown-menu-left">
+                <div class="dropdown-item dropdown-date" tick="hour" style="cursor: pointer;">
+                  Hour
+                </div>
+                <div class="dropdown-item dropdown-date" tick="day" style="cursor: pointer;">
+                  Day
+                </div>
+                <div class="dropdown-item dropdown-date" tick="month" style="cursor: pointer;">
+                  Month
+                </div>
+              </div>
+
+              <div class="col-sm-5 mt-1">
+                <input class="form-control text-center" type="text" id="datepicker" placeholder="날짜를 선택해 주세요." readonly/>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div id="analytics_nav_container">
+          <!-- label class="cs-nav-label" -->
+          <label class="cs-nav-label">
+            <input type="checkbox" name="PM 10" value="PM10Pval" disabled>
+            PM 10
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="PM 2.5" value="PM2P5val" disabled>
+            PM 2.5
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="PM 1.0" value="PM1P0val" disabled>
+            PM 1.0
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="PM 0.5" value="PM0P5val" disabled>
+            PM 0.5
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="PM 0.3" value="PM0P3val" disabled>
+            PM 0.3
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="Temperature" value="TEMPval" disabled>
+            Temperature
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="Humidity" value="HUMIDval" disabled>
+            Humidity
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="CO" value="COval" disabled>
+            CO
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="CO2" value="CO2val" disabled>
+            CO2
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="O3" value="O3val" disabled>
+            O3
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="TVOC" value="TVOCval" disabled>
+            TVOC
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="CH2O" value="CH2Oval" disabled>
+            CH2O
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="H2" value="H2val" disabled>
+            H2
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="H2S" value="H2Sval" disabled>
+            H2S
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="NH3" value="NH3val" disabled>
+            NH3
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="CH4" value="CH4val" disabled>
+            CH4
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="C3H8" value="C3H8val" disabled>
+            C3H8
+          </label>
+          <label class="cs-nav-label">
+            <input type="checkbox" name="NO2" value="NO2val" disabled>
+            NO2
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="chart">
+          <canvas id="overlay" style="position:absolute;pointer-events:none;"></canvas>
+          <canvas id="chart-mm"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

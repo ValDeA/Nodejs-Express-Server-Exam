@@ -1,0 +1,231 @@
+<div class="row">
+  <div class="col-xs-6 col-sm-12 col-lg-12 col-xl-12 col-xxl-6">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card" style="padding: 20px;">
+          <div class="row pt-4 pb-4 border-bottom">
+            <div class="col-6">
+              <p class="info_type">시리얼 번호</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="S/N" value="<%=device_id%>" disabled="">
+              </div>
+            </div>
+            <div class="col-6">
+              <p class="info_type">장치이름</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="안방">
+              </div>
+            </div>
+          </div>
+          <div class="row pt-4 pb-4 border-bottom">
+            <div class="col-6">
+              <p class="info_type">장치타입</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="Device Type" disabled="">
+              </div>
+            </div>
+            <div class="col-6">
+              <p class="info_type">공개여부</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="Y">
+              </div>
+            </div>
+          </div>
+          <div class="row pt-4 pb-4">
+            <div class="col-6">
+              <p class="info_type">장치현황</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="null">
+              </div>
+            </div>
+            <div class="col-6">
+              <p class="info_type">위치</p>
+              <div class="input_wrap">
+                <input class="info_input" type="text" placeholder="37.054255, 127.151678">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-2 mb-6">
+        <button class="btn_admin btn_check">확인</button>
+      </div>
+      <div class="col-sm-2 mb-6">
+        <button class="btn_admin btn_modify">수정</button>
+      </div>
+      <div class="col-sm-2 mb-6">
+        <button class="btn_admin btn_delete">삭제</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-xl-12 col-xxl-6">
+    <div class="sensor_list_flex">
+
+      <div id="temp" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">Temperature</div>
+          <div class="card-header-text-right">℃</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="TEMPval">0</h1>
+        </div>
+      </div>
+      <div id="hum" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">Humidity</div>
+          <div class="card-header-text-right">%RH</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="HUMIDval">0</h1>
+        </div>
+      </div>
+      <div id="pm10" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left" >PM 10</div>
+          <div class="card-header-text-right">ug/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="PM10Pval">0</h1>
+        </div>
+      </div>
+      <div id="pm2p5" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">PM 2.5</div>
+          <div class="card-header-text-right">ug/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="PM2P5val">0</h1>
+        </div>
+      </div>
+      <div id="pm1p0" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">PM 1.0</div>
+          <div class="card-header-text-right">ug/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="PM1P0val">0</h1>
+        </div>
+      </div>
+      <div id="pm0p5" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">PM 0.5</div>
+          <div class="card-header-text-right">ug/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="PM0P5val">0</h1>
+        </div>
+      </div>
+      <div id="pm0p3" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">PM 0.3</div>
+          <div class="card-header-text-right">ug/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="PM0P3val">0</h1>
+        </div>
+      </div>
+      <div id="tvoc" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">TVOC</div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="TVOCval">0</h1>
+        </div>
+      </div>
+      <div id="co" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">CO</div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="COval">0</h1>
+        </div>
+      </div>
+      <div id="co2" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">CO<sub>2</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="CO2val">0</h1>
+        </div>
+      </div>
+      <div id="o3" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">O<sub>3</sub></div>
+          <div class="card-header-text-right">mg/m<sup>3</sup></div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="O3val">0</h1>
+        </div>
+      </div>
+      <div id="h2" class="card col-4 list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">H<sub>2</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="H2val">0</h1>
+        </div>
+      </div>
+      <div id="ch4" class="card col-4 list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">CH<sub>4</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="CH4val">0</h1>
+        </div>
+      </div>
+      <div id="nh3" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">NH<sub>3</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="NH3val">0</h1>
+        </div>
+      </div>
+      <div id="ch2o" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">CH<sub>2</sub>O</div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="CH2Oval">0</h1>
+        </div>
+      </div>
+      <div id="c3h8" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">C<sub>3</sub>H<sub>8</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="C3H8val">0</h1>
+        </div>
+      </div>
+      <div id="h2s" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">H<sub>2</sub>S</div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="H2Sval">0</h1>
+        </div>
+      </div>
+      <div id="no2" class="card list-layout" hidden>
+        <div class="card-header">
+          <div class="card-header-text-left">NO<sub>2</sub></div>
+          <div class="card-header-text-right">ppm</div>
+        </div>
+        <div class="card-body text-right">
+          <h1 id="NO2val">0</h1>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+</div>

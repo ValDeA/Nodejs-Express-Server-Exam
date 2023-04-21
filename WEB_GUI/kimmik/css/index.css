@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #f2f2f7;
+}
+p {
+    font-family: 'Noto Sans KR',sans-serif;
+}
+
+
+#wrapper {
+    width: 1680px;
+    height: 100%;
+    margin: 0 auto;
+    transition: 0.7s ease;
+}
+.header {
+    width: 100%;
+    height: 18.5vh;
+    position: relative;
+}
+
+.header > img {
+    position: absolute;
+    bottom: 20px;
+}
+.header> .status {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 800px;
+}
+
+.header> .status > span {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.contents {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 63vh;
+}
+.contents > .box {
+    float: left;
+    width: 30%;
+    height: 100%;
+    background: white;
+}
+.contents > .box > h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: 600;
+    text-align: center;
+    
+}
+.contents > .box > span {
+    text-align: center;
+}
+.contents > .box > span > p {
+    font-size: 24px;
+}
+.contents > .box > span > p:nth-child(2n-1) {
+    float: left;
+    color: red;
+}
+.contents > .box > span > p:nth-child(2n) {
+    
+    color: blue;
+}
+
+.footer {
+    width: 100%;
+    height: 18.5vh;
+}
+/*----------------------------------미디어쿼리 시작-------------------------------*/
+@media (max-width:1680px){
+    #wrapper {
+        width: 1440px;
+        height: 100vh;
+    }    
+}
+
+@media (max-width:1440px){
+    #wrapper {
+        width: 1200px;
+        height: 100vh;
+    }
+}
+@media (max-width:1200px){
+    #wrapper {
+        width:90vw;
+        height: 100vh;
+    }
+}
+
+@media (max-width:1024px) and (min-width:768px){
+    #wrapper {
+        width: 90vw;
+        height: 100%;
+        margin: 0 auto;
+        
+    }
+    .header {
+        height: 10vh;
+    }
+    .contents {
+        height: 80vh;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .contents > .box {
+        height: 60vh;
+    }
+    .contents > .box:first-child {
+        height: 20vh;
+        
+        width: 100%;
+        
+    }
+    .contents > .box:nth-child(2) {
+        width: 30%;
+    }
+    .contents > .box:nth-child(3) {
+        width: 30%;
+    }
+    .contents > .box:nth-child(4) {
+        width: 30%;
+    }
+    
+    .footer {
+        height: 10vh;
+    }
+}
+
+@media (max-width:767px){
+    #wrapper {
+        width: 90vw;
+    }
+    .header {
+        display: none;
+    }
+    .contents {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        height: 100%;
+    }
+    .contents > .box:first-child {
+        width: 90vw;
+        height: 30%;
+        background: red;
+    }
+    .footer {
+        display: none;
+    }
+}
+/*----------------------------------미디어쿼리 끝-------------------------------*/

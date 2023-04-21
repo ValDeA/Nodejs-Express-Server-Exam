@@ -1,0 +1,17 @@
+<div class="main">
+  <%-include('./common/admin_nav_main')%>
+  <main class="content">
+    <%-include('./notice/admin_content_notice_nav')%>
+    <% if(screen === "read") { %>
+      <!-- Notice Read -->
+      <%-include('./notice/admin_content_notice_read')%>
+    <% } else if(screen === "write") { %>
+      <!-- Notice Write -->
+    <% } else if(screen === "modify") { %>
+      <!-- Notice Modify -->
+    <% } else { %>
+      <!-- Notice Home -->
+      <%-include('./notice/admin_content_notice_home')%>
+    <% } %>
+  </main>
+</div>

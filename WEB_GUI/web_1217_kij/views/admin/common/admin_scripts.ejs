@@ -1,0 +1,734 @@
+<%-include('../../common_script')%>
+<!-- DataTables Script -->
+<script type="text/javascript" src="/js/jquery3_6_0.js"></script>
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+
+<!-- Initialize Script -->
+<script>
+  const GET_DEVICE_RANGE_DATE = 14;
+  const lang_kor = {
+    "decimal": "",
+    "emptyTable": "데이터가 없습니다.",
+    "info": "_START_ - _END_ (총 _TOTAL_ 명)",
+    "infoEmpty": "0명",
+    "infoFiltered": "(전체 _MAX_ 명 중 검색결과)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "_MENU_ 개씩 보기",
+    "loadingRecords": "로딩중...",
+    "processing": "처리중...",
+    "zeroRecords": "검색된 데이터가 없습니다.",
+    "select": {
+      rows: " %d 개 선택됨"
+    },
+    "paginate": {
+      "first": "첫 페이지",
+      "last": "마지막 페이지",
+      "next": "다음",
+      "previous": "이전"
+    },
+    "aria": {
+      "sortAscending": " :  오름차순 정렬",
+      "sortDescending": " :  내림차순 정렬"
+    }
+  };
+  const dt_buttons = [
+    {
+      text: '편집',
+      action: function (event, table, node, config) {
+        if (table.row('.selected').length === 0) return;
+
+
+      }
+    },
+    {
+      text: '삭제',
+      action: function (event, table, node, config) {
+        if (table.row('.selected').length === 0) return;
+
+        var result = confirm("정말로 삭제하시겠습니까?");
+        if (result == true) {
+          var request = {
+            func: "delete",
+            type: "user",
+            device_id: table.row('.selected').data()[0],
+          }
+          xhrConnect(POST, REQUEST_DATABASE, request, function (res) {
+            if (res.succsess == true) {
+              table.rows('.selected').remove().draw(false);
+            }
+          });
+        }
+      }
+    }
+  ];
+</script>
+<% if(idx === 00) { %>
+  <% if(screen === "home") { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var request = {
+      count: ""
+    }
+    xhrConnect(POST, GET_NOTICE, request, function(res) {
+      for(var i=0; i<res.length; i++) {
+        generateNoticeTable(
+          'container_all', 
+          res.notice[i].notice_id,
+          res.notice[i].notice_category,
+          res.notice[i].notice_title,
+          i,
+          res.notice[i].notice_date
+        );
+        generateNoticeTable(
+          'container_gen', 
+          res.notice[i].notice_id,
+          res.notice[i].notice_category,
+          res.notice[i].notice_title,
+          i,
+          res.notice[i].notice_date,
+          "일반"
+        );
+        generateNoticeTable(
+          'container_sys', 
+          res.notice[i].notice_id,
+          res.notice[i].notice_category,
+          res.notice[i].notice_title,
+          i,
+          res.notice[i].notice_date,
+          "시스템"
+        );
+        generateNoticeTable(
+          'container_faq', 
+          res.notice[i].notice_id,
+          res.notice[i].notice_category,
+          res.notice[i].notice_title,
+          i,
+          res.notice[i].notice_date,
+          "FAQ"
+        );
+      }
+    });
+
+    function generateNoticeTable(target, id, category, title, viewCount, date, filter = undefined) {
+      if(filter != undefined && filter != category) return;
+      var table = document.getElementById(target);
+
+      id += "";
+      id = id.padStart(8, '0');
+
+      var tr = '<tr>';
+      var tr_close = '</tr>';
+      var td = '<td>';
+      var td_close = '</td>';
+      var a = "<a href='admin_notice?screen=read&notice_id=" + id + "'>";
+      var a_close = "</a>";
+
+      var table_content = tr;
+      table_content += td + id + td_close;
+      table_content += td + category + td_close;
+      table_content += td + a + title + a_close + td_close;
+      table_content += td + "Envinode" + td_close;
+      table_content += td + viewCount + td_close;
+      table_content += td + date + td_close;
+      table_content += tr_close;
+
+      table.innerHTML += table_content;
+    }
+  })
+</script>
+  <% } else if(screen == "read") { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementsByClassName('btn')[0].addEventListener('click', function() {
+      window.history.back();
+    })
+  })
+</script>
+  <% } %>
+<% } %>
+<% if(idx === 10) { %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var request = {
+      count: 5
+    }
+    // 공지사항 가져오기
+    xhrConnect(POST, GET_NOTICE, request, function(res) {
+      for(var i=0; i<res.length; i++) {
+        appendNoticeData(
+          "notice_container",
+          "notice",
+          res.notice[i].notice_id,
+          res.notice[i].notice_title,
+          res.notice[i].notice_date
+        );
+      }
+
+      var notice = document.getElementsByClassName('notice');
+      for(var i=0; i<notice.length; i++) {
+        notice[i].addEventListener('click', function() {
+          window.location.href = "/admin_notice?screen=read&notice_id=" + this.getAttribute('value');
+        })
+      }
+    });
+
+    var request = {
+      message_to: "admin",
+      checked: 0,
+      count: 5
+    }
+    // 메시지 가져오기
+    xhrConnect(POST, GET_MESSAGE, request, function(res) {
+      for(var i=0; i<res.length; i++) {
+        appendNoticeData(
+          "message_container",
+          "message",
+          res.message[i].message_id,
+          res.message[i].message_title,
+          res.message[i].message_date
+        );
+      }
+
+      var notice = document.getElementsByClassName('message');
+      for(var i=0; i<notice.length; i++) {
+        notice[i].addEventListener('click', function() {
+          window.location.href = "/admin_message?screen=message&message_id=" + this.getAttribute('value');
+        })
+      }
+    });
+
+    var request = {
+      device_id: "",
+      user_id: ""
+    }
+    // 디바이스 연결 상태 가져오기
+    xhrConnect(POST, DEVICE_INFO, request, function(res) {
+      var state_connect = 0, state_disconnect = 0;
+
+      for(var i=0; i<res.length; i++) {
+        if(res.device[i].device_connect_state == 0) state_connect++;
+        else  state_disconnect++;
+      }
+
+      document.getElementById('state_connect').innerHTML = state_connect;
+      document.getElementById('state_disconnect').innerHTML = state_disconnect;
+      document.getElementById('state_total').innerHTML = state_connect + state_disconnect;
+    })
+
+    var endDate = new Date();
+    var startDate = calcStartDate(endDate);
+    var request = {
+      startDate: startDate.format("yyyy-MM-dd"),
+      endDate: endDate.format("yyyy-MM-dd"),
+      device_id: "",
+      user_id: "",
+      dateTick: "day",
+      length: 2,
+      sensor: [00, 01, 02, 03, 10, 12]
+    }
+
+    xhrConnect(POST, GET_STATE, request, function(res) {
+      // 차트 구성
+      var labels = new Array();
+      var data = new Array();
+      
+      var html = "";
+
+      for(var i=0; i<res.dateLength; i++) {
+        res.date[i] = new Date(res.date[i]);
+        data.push(0);
+      }
+
+      res.state.filter(function(v, i, arr) {
+        if(v.state_old == 10 || v.state_old == 12
+        || v.state_old == 12 || v.state_old == 10) {
+          var state_date = new Date(v.state_date);
+          for(var i=0; i<res.dateLength; i++) {
+            if(state_date.format("yyyy-MM-dd") == res.date[i].format("yyyy-MM-dd")) {
+              data[i]++;
+            }
+          }
+        } else {
+          var tr = '<tr class="tv_row">', tr_close = '</tr>';
+          var td = '<td>', td_close = '</td>';
+
+          html += tr;
+          html += td + v.device_id + td_close;
+          html += td + v.device_name + td_close;
+          html += td + v.sensor + td_close;
+          html += td + v.state_old + td_close;
+          html += td + v.state_now + td_close;
+          html += td + v.state_date + td_close;
+          html += tr_close;
+        }
+      });
+      document.getElementById('log_container').innerHTML = html;
+
+
+      if(res.date[0].getMonth() == res.date[res.date.length - 1].getMonth()) {
+        labels.push(res.date[0].format("dd"));
+        
+        for(var i=1;i <res.dateLength; i++) {
+          var day = res.date[i].format("dd");
+          labels.push(day);
+
+        }
+      } else {
+        labels.push(res.date[0].format("yyyy-MM-dd"));
+        for(var i=1;i <res.dateLength; i++) {
+          if(res.date[i-1].getMonth() == res.date[i].getMonth()) {
+            labels.push(res.date[i].format("dd"));
+          } else {
+            labels.push(res.date[i].format("yyyy-MM-dd"));
+          }
+        }
+      }
+      console.log(labels);
+      const chart = getChart_Line('chart_connect_state', labels, data);
+    });
+
+
+    function appendNoticeData(target, type, id, title, date) {
+      var table = document.getElementById(target);
+      var str_id = id + "";
+      str_id = str_id.padStart(8, '0');
+
+      var tr = '<tr class="tr-index ' + type + '" value="' + str_id + '">';
+      var tr_close = '</tr>';
+      var td_left = '<td class="td-left">';
+      var td_right = '<td class="float right td-right">';
+      var td_close = '</td>';
+
+      var html = tr;
+      html += td_left + title + td_close;
+      html += td_right + date + td_close;
+      html += tr_close;
+
+      table.innerHTML += html;
+    }
+  })
+</script>
+<% } else if(idx === 20) { %>
+  <% if(screen === "main") { %>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var request = {
+      device_id: "",
+      user_id: ""
+    }
+    function getDeviceType(id) {
+      switch (id.substring(0, 1)) {
+        case "S":
+          return "S";
+        case "M":
+          return "S+";
+        case "T":
+          return "Mini";
+        default:
+          return "Error";
+      }
+    }
+    // 디바이스 List 가져오기
+    xhrConnect(POST, DEVICE_INFO, request, function (resDevice) {
+      var request = {
+        user_id: ""
+      }
+      // User Info 가져오기
+      xhrConnect(POST, USER_INFO, request, function (resUser) {
+        let dt_data = new Array();
+        let col_kor = [
+          { title: "User ID", className: "cs-td-pointer" },
+          { title: "유저 이름" },
+          { title: "S/N", className: "cs-td-pointer" },
+          { title: "Device Name" },
+          { title: "Device Type" },
+          { title: "소속" },
+          { title: "연결 상태" }
+        ]
+
+        for (var i = 0; i < resDevice.length; i++) {
+          var user_id = "", user_name = "", user_group = "";
+
+          resUser.user.filter(function(object) { 
+            if(object['user_id'] === resDevice.device[i].user_id) {
+              user_id = "<a href='/admin_manage?screen=user&user_id=" + 
+                        resDevice.device[i].user_id + "'>" + 
+                        resDevice.device[i].user_id + "</a>";
+              user_name = object['user_name'];
+              user_group = object['user_group'];
+            }
+          });
+
+          var device_id = "<a href='/admin_manage?screen=device&device_id=" + 
+                          resDevice.device[i].device_id + "'>" + 
+                          resDevice.device[i].device_id + "</a>";
+
+          // DT Data 구성
+          dt_data.push([
+            user_id,
+            user_name,
+            device_id,
+            resDevice.device[i].device_name,
+            getDeviceType(resDevice.device[i].device_id),
+            user_group,
+            resDevice.device[i].device_connect_state == 0 ? "정상" : "비정상"
+          ])
+        }
+
+        // DT 생성
+        let table = new DataTable('#example', {
+          data: dt_data,
+          columns: col_kor,
+          language: lang_kor,
+          lengthMenu: [5, 10, 25, 50, 100],
+          displayLength: 25,
+          dom: 'lfrtip',
+          //buttons: dt_buttons,
+          select: false, // 'single', 'multi', false
+          responsive: true
+        });
+        // DT 버튼 삽입
+        //table.buttons().container().appendTo($('#btnContainer'));
+        // DT DeSelect 이벤트 삽입
+        table.on('length.dt', function (e, settings, len) {
+          var rowCount = table.rows().count();
+
+          for (var i = 1; i < rowCount + 1; i++) {
+            if (len < i) {
+              table.row(':eq(' + i + ')', { page: 'all' }).deselect();
+            }
+          }
+        })
+      });
+    });
+
+
+    // DT 새로운 Data 집어넣기
+    function dtRedrawNewData(dt, data) {
+      dt.clear().draw();
+      dt.rows.add(data);
+      dt.columns.adjust().draw();
+    }
+  })
+</script>
+  <% } else if(screen === "user") { %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var query = getUrlParams();
+    var user_id = query.user_id;
+
+    if(user_id == undefined) {
+      alert("잘못된 경로입니다.");
+      window.location.href = "/admin_manage";
+    }
+
+    var request = {
+      user_id: user_id
+    }
+
+    // 유저 정보 가져오기
+    xhrConnect(POST, USER_INFO, request, function(res) {
+      var info_input = document.getElementsByClassName('info_input');
+
+      if(res.length != 1) {
+        alert("잘못된 데이터입니다.");
+        window.location.href = "/admin_manage";
+        return;
+      }
+
+      info_input[1].value = res.user[0].user_group;
+      info_input[2].value = res.user[0].user_phone;
+      info_input[3].value = res.user[0].user_email;
+    });
+
+    var request = {
+      device_id: "",
+      user_id: user_id
+    }
+
+    // 디바이스 목록 가져오기
+    xhrConnect(POST, DEVICE_INFO, request, function(res) {
+      for(var i=0; i<res.length; i++) {
+        appendDeviceListData(
+          i+1, 
+          res.device[i].device_id, 
+          res.device[i].device_name, 
+          res.device[i].info_permission, 
+          res.device[i].device_firmware,
+          res.device[i].device_setupdate
+        );
+      }
+    })
+
+
+    function appendDeviceListData(cnt, device_id, device_name, info_permission, device_firmware, device_setupdate) {
+      var table = document.getElementById('listTable_container');
+
+      var tr = '<tr class="tr-h">';
+      var tr_close = '</tr>';
+      var td_idx = '<td class="td-w-10p">';
+      var td_common = '<td class="td-w-30p">';
+      var td_close = '</td>';
+      var a = '<a href="./admin_manage?screen=device&device_id=' + device_id + '">';
+      var a_close = '</a>';
+      
+      var html = tr;
+      html += td_idx + cnt  + td_close;
+      html += td_common + a + device_id + a_close + td_close;
+      html += td_common + getDeviceType(device_id) + td_close;
+      html += td_common + device_name + td_close;
+      html += td_common + info_permission + td_close;
+      html += td_common + device_firmware + td_close;
+      html += td_common + device_setupdate + td_close;
+      html += tr_close;
+
+      table.innerHTML += html;
+    }
+  })
+</script>
+  <% } else if(screen === "device") { %>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var query = getUrlParams();
+    var device_id = query.device_id;
+    var device_type = getDeviceType(device_id);
+
+    let sensor_equipment = new Array();
+    let sensor_valid = new Array();
+
+    if(device_id == undefined) {
+      alert("잘못된 경로입니다.");
+      window.location.href = "/admin_manage";
+    }
+
+    var request = {
+      device_id: device_id
+    }
+    xhrConnect(POST, DEVICE_INFO, request, function(res) {
+      var info_input = document.getElementsByClassName('info_input');
+      var connect_state = "비정상";
+
+      if(res.length != 1) {
+        alert("잘못된 데이터입니다.");
+        window.location.href = "/admin_manage";
+        return;
+      }
+
+      res.device[0].device_connect_state = 1;
+
+      if(res.device[0].device_connect_state == 0) {
+        connect_state = "정상";
+      }
+
+      info_input[1].value = res.device[0].device_name;
+      info_input[2].value = device_type;
+      info_input[3].value = res.device[0].info_permission;
+      info_input[4].value = connect_state;
+      info_input[5].value = res.device[0].device_gps[0] + ", " + res.device[0].device_gps[1];
+    });
+    xhrConnect(POST, GET_EQUIPMENT, request, function(res) {
+      // 센서 리스트 추가
+      var sensor_list = document.getElementsByClassName('sensor_list card');
+      for(var i=0; i<13; i++) {
+        if(res[i] == '1') {
+          classifySensor(i, sensor_list, device_type);
+        }
+      }
+
+      var request = {
+        device_id: device_id
+      }
+      xhrConnect(POST, GET_SENSOR_DATA, request, function(res) {
+        setData(sensor_equipment, res);
+      })
+    })
+
+    function setData(equip, data) {
+      for(var i=0; i<equip.length; i++) {
+        var sensor_data;
+        if(data[sensor_valid[i]] === '0' /* '0' */) sensor_data = "InValid";
+        else sensor_data = data[equip[i]];
+
+        sensor_data *= 1;
+        sensor_data = sensor_data.toFixed(2);
+        document.getElementById(equip[i]).innerText = sensor_data;
+      }
+    }
+    function classifySensor(index, div, device_type) {
+      switch(index) {
+        case 0:
+          sensor_valid.push("ValidPM");
+          if(device_type === DEVICE_TYPE_S_PLUS || device_type === DEVICE_TYPE_PRO) {
+            sensor_equipment.push("PM10Pval");
+            sensor_equipment.push("PM2P5val");
+            sensor_equipment.push("PM1P0val");
+            sensor_equipment.push("PM0P5val");
+            sensor_equipment.push("PM0P3val");
+            div[2].hidden = false;
+            div[3].hidden = false;
+            div[4].hidden = false;
+            div[5].hidden = false;
+            div[6].hidden = false;
+          } else {
+            sensor_equipment.push("PM2P5val");
+            div[3].hidden = false;
+          }
+          return;
+        case 1:
+          div[0].hidden = false;
+          div[1].hidden = false;
+          sensor_valid.push("ValidTH");
+          sensor_equipment.push("TEMPval");
+          sensor_equipment.push("HUMIDval");
+          return;
+        case 2:
+          div[8].hidden = false;
+          sensor_valid.push("ValidCO");
+          sensor_equipment.push("COval");
+          return;
+        case 3:
+          div[9].hidden = false;
+          sensor_valid.push("ValidCO2");
+          sensor_equipment.push("CO2val");
+          return;
+        case 4:
+        div[10].hidden = false;
+          sensor_valid.push("ValidO3");
+          sensor_equipment.push("O3val");
+          return;
+        case 5:
+          div[7].hidden = false;
+          sensor_valid.push("ValidTVOC");
+          sensor_equipment.push("TVOCval");
+          return;
+        case 6:
+          div[14].hidden = false;
+          sensor_valid.push("ValidCH2O");
+          sensor_equipment.push("CH2Oval");
+          return;
+        case 7:
+          div[11].hidden = false;
+          sensor_valid.push("ValidH2");
+          sensor_equipment.push("H2val");
+          return;
+        case 8:
+          div[16].hidden = false;
+          sensor_valid.push("ValidH2S");
+          sensor_equipment.push("H2Sval");
+          return;
+        case 9:
+          div[13].hidden = false;
+          sensor_valid.push("ValidNH3");
+          sensor_equipment.push("NH3val");
+          return;
+        case 10:
+          div[12].hidden = false;
+          sensor_valid.push("ValidCH4");
+          sensor_equipment.push("CH4val");
+          return;
+        case 11:
+          div[15].hidden = false;
+          sensor_valid.push("ValidC3H8");
+          sensor_equipment.push("C3H8val");
+          return;
+        case 12:
+          div[17].hidden = false;
+          sensor_valid.push("ValidNO2");
+          sensor_equipment.push("NO2val");
+          return;
+      }
+    }
+  })
+</script>
+  <% } %>
+<% } else if(idx === 30) { %>
+<% } else if(idx === 40) { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let col_kor = [
+      { title: "Index" },
+      { title: "Device S/N" },
+      { title: "Device Name" },
+      { title: "Device Owner" },
+      { title: "Sensor" },
+      { title: "Old State" },
+      { title: "New State" },
+      { title: "Time of Change" }
+    ];
+    // idx, device_id, device_name, user_id, sensor, state a, state b, date
+    let dt_data = new Array();
+
+    var endDate = new Date();
+    var startDate = calcStartDate(endDate);
+    var request = {
+      startDate: startDate.format("yyyy-MM-dd"),
+      endDate: endDate.format("yyyy-MM-dd"),
+      device_id: "",
+      user_id: "",
+      dateTick: "day",
+      length: 2,
+      sensor: [00, 01, 02, 03, 10, 12]
+    }
+    xhrConnect(POST, GET_STATE, request, function(res) {
+      console.log(res);
+
+      for(var i=0; i<res.length; i++) {
+        dt_data.push(
+          [
+            i,
+            "<a href='/admin_manage?screen=device&device_id=" + res.state[i].device_id + "'>" + res.state[i].device_id + "</a>",
+            res.state[i].device_name,
+            "<a href='/admin_manage?screen=user&user_id=" + res.state[i].user_id + "'>" + res.state[i].user_id + "</a>",
+            res.state[i].sensor,
+            classifyState(res.state[i].state_old),
+            classifyState(res.state[i].state_now),
+            res.state[i].state_date
+          ]
+        )
+      }
+      // DT 생성
+      let table = new DataTable('#example', {
+        data: dt_data,
+        columns: col_kor,
+        language: lang_kor,
+        lengthMenu: [5, 10, 25, 50, 100],
+        displayLength: 10,
+        dom: 'lfrtBp',
+        buttons: ['copy', 'excel', 'pdf'],
+        select: false, // 'single', 'multi', false
+        responsive: true
+      });
+    });
+
+
+    function classifyState(state_code) {
+      var state;
+      switch(state_code) {
+        case 00:
+          state = "Good";
+          break;
+        case 01:
+          state = "Normal";
+          break;
+        case 02:
+          state = "Bad";
+          break;
+        case 03:
+          state = "Hazard";
+          break;
+        case 10:
+          state = "Connect";
+          break;
+        case 11:
+          state = "Delay";
+          break;
+        case 12:
+          state = "Disconnect";
+          break;
+      }
+      return state;
+    }
+  })
+</script>
+<% } %>

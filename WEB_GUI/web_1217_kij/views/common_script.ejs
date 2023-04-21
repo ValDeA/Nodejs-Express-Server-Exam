@@ -1,0 +1,191 @@
+<!-- Bootstrap -->
+<script src="js/app.js"></script>
+<!-- Initialize -->
+<script>
+  const DEVICE_TYPE_S = "S";
+  const DEVICE_TYPE_S_PLUS = "S+";
+  const DEVICE_TYPE_MINI = "Mini";
+  const DEVICE_TYPE_PRO = "Pro";
+
+  function getDeviceType(id) {
+    switch (id.substring(0, 1)) {
+      case "T":
+        return DEVICE_TYPE_MINI;
+      case "S":
+        return DEVICE_TYPE_S;
+      case "P":
+        return DEVICE_TYPE_S_PLUS;
+      case "M":
+        return DEVICE_TYPE_PRO;
+      default:
+        return "Device Type Error";
+    }
+  }
+  function getUrlParams() {     
+    var params = {};  
+    
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+      function(str, key, value) { 
+          params[key] = value; 
+        }
+    );     
+    
+    return params; 
+  }
+
+  // 날짜 변환 포맷함수
+  Date.prototype.format = function (f) {
+    if (!this.valueOf()) return " ";
+    var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+    var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var d = this;
+
+    return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+      switch ($1) {
+        case "yyyy": return d.getFullYear(); // 년 (4자리)
+        case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+        case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+        case "dd": return d.getDate().zf(2); // 일 (2자리)
+        case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+        case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+        case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+        case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+        case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+        case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+        case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+        case "ss": return d.getSeconds().zf(2); // 초 (2자리)
+        case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+        default: return $1;
+      }
+    });
+  };
+  String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+  String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+  Number.prototype.zf = function (len) { return this.toString().zf(len); };
+
+  function calcStartDate(endDate) {
+    var end_year = endDate.getFullYear(), start_year = endDate.getFullYear();
+    var end_month = endDate.getMonth(), start_month = endDate.getMonth();
+    var end_day = endDate.getDate(), start_day = 1;
+
+    if(end_day - start_day <= GET_DEVICE_RANGE_DATE) {
+      start_month--;
+      if(start_month == 0) {
+        start_month += 12;
+        start_year--;
+      }
+      start_day = new Date(start_year, start_month, 0).getDate() - 14 + (end_day + 1);
+    }
+    return new Date(start_year, start_month, start_day);
+  }
+  function createLoading() {
+    var spinner = document.getElementById('loading-spinner');
+    if(spinner == undefined) {
+      spinner = document.createElement('div');
+      spinner.setAttribute('id', 'loading-spinner');
+      spinner.setAttribute('class', 'spinner-border text-primary');
+      spinner.setAttribute('role', 'status');
+      spinner.setAttribute('style', 'align-items: center; position: fixed; top: 45%; left: 50%;');
+      document.body.appendChild(spinner);
+    } else {
+      return undefined;
+    }
+
+    return spinner;
+  }
+  function fnExcelReport(id, fileName) {
+    var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    tab_text = tab_text + '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">';
+    tab_text = tab_text + '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
+    tab_text = tab_text + '<x:Name>Test Sheet</x:Name>';
+    tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+    tab_text = tab_text + "<table border='1px'>";
+    var exportTable = $('#' + id).clone();
+    exportTable.find('input').each(function (index, elem) { $(elem).remove(); });
+    tab_text = tab_text + exportTable.html();
+    tab_text = tab_text + '</table></body></html>';
+    var data_type = 'data:application/vnd.ms-excel';
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+    var fileName = fileName + '.xls';
+    //Explorer 환경에서 다운로드
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+      if (window.navigator.msSaveBlob) {
+        var blob = new Blob([tab_text], {
+          type: "application/csv;charset=utf-8;"
+        });
+        navigator.msSaveBlob(blob, fileName);
+      }
+    } else {
+      var blob2 = new Blob([tab_text], {
+        type: "application/csv;charset=utf-8;"
+      });
+      var filename = fileName;
+      var elem = window.document.createElement('a');
+      elem.href = window.URL.createObjectURL(blob2);
+      elem.download = filename;
+      document.body.appendChild(elem);
+      elem.click();
+      document.body.removeChild(elem);
+    }
+  }
+  function createDropdown(target, addEvent) {
+    var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+
+    for(var i=0; i<r.length; i++) {
+      var dropdown = document.getElementById(target);
+      // 자식 노드 생성
+      var child = document.createElement('div');
+      // 자식 노드 속성 입력
+      child.setAttribute('class', 'dropdown-item dropdown-nav');
+      child.setAttribute('style', 'cursor:pointer');
+      child.setAttribute('tag', r.device[i].device_id);
+      child.setAttribute('index', i);
+      child.innerText = r.device[i].device_name;
+      
+      dropdown.appendChild(child);
+
+      // 자식 노드 이벤트 추가
+      child.addEventListener('click', function() {
+        var device_name = document.getElementById('showDevice');
+        var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+        var i = r.device.findIndex((v, i, a) => v.device_name === this.innerHTML);
+
+        device_name.innerHTML = r.device[i].device_name;
+
+        var active = document.getElementsByClassName('dropdown-nav active');
+        if(active[0] != undefined) {
+          active[0].classList.remove('active');
+        }
+        this.classList.add("active");
+
+        addEvent(r.device, i);
+      });
+    }
+  }
+  function getSensorDataBetweenDate(device_id, startDate, endDate, tick, sensorArray, cb) {
+    if(device_id == undefined || tick == null || startDate == null || endDate == null) {
+      alert('올바른 시간을 선택해 주세요.');
+      clearChart();
+      return;
+    }
+    var request = {
+      device_id: device_id,
+      startDate: startDate,
+      endDate: endDate,
+      dateTick: tick,
+      length: sensorArray.length,
+      sensor: sensorArray
+    }
+
+    xhrConnect(POST, GET_RANGE_DATA, request, function(result) {
+      cb(result);
+    });
+  }
+</script>
+<script type="text/javascript" src="../js/xhr.js"></script>
+<!-- 차트 -->
+<script type="text/javascript" src="../js/chartjs_render.js"></script>

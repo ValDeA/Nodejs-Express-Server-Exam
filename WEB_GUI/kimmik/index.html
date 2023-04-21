@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>iSAS-Air</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!-- 스크립트  -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./socketmanger.js"></script>
+    <div id="wrapper">
+        <div class="header"> 
+            <img src="img/logo.png" alt="" class="logo">
+            <div class="status">
+                <span>
+                    <p></p>
+                    <p>유해화학가스센서</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>흡기팬</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>폭발성가스센서</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>배기팬</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>공기질센서</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>온습도</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>미세먼지센서</p>
+                </span>
+                <span>
+                    <p></p>
+                    <p>GPS</p>
+                </span>
+            </div>
+        </div>
+        <div class="contents">
+
+<!--            유해화학가스 센서-->
+            <div class="box box2">
+                <h3>유해화학가스 센서</h3>
+                <span>
+                    <p class="item">황화수소</p>
+                    <p class="value" id="toxic_h2s_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">포스핀</p>
+                    <p class="value" id="toxic_ph3_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">암모니아</p>
+                    <p class="value" id="toxic_nh3_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">불화수소</p>
+                    <p class="value" id="toxic_hf_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">염화수소</p>
+                    <p class="value" id="toxic_hc1_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">시안화수소</p>
+                    <p class="value" id="toxic_hcn_value">
+                        0 ppm
+                    </p>
+                </span>
+            </div>
+<!--            폭발성/미세먼지 센서-->
+            <div class="box box3">
+                <h3>폭발성가스 센서</h3>
+                <span>
+                    <p class="item">가스 종류</p>
+                    <p class="value" id="flammable_name">
+                        0.0 % LEL
+                    </p>
+                </span>
+                <span>
+                    <p class="item">농도</p>
+                    <p class="value" id="flammable_concentration">
+                        0.0 % LEL
+                    </p>
+                </span>
+                
+                <h3>미세먼지 센서</h3>
+                <span>
+                    <p class="item">PM 10</p>
+                    <p class="value" id="pm_pm10p0_value">
+                        0 µg/㎥
+                    </p>
+                </span>
+                <span>
+                    <p class="item">PM 4.0</p>
+                    <p class="value" id="pm_pm4p0_value">
+                        0 µg/㎥
+                    </p>
+                </span>
+                <span>
+                    <p class="item">PM 2.5</p>
+                    <p class="value" id="pm_pm2p5_value">
+                        0 µg/㎥
+                    </p>
+                </span>
+                <span>
+                    <p class="item">PM 1.0</p>
+                    <p class="value" id="pm_pm1p0_value">
+                        0 µg/㎥
+                    </p>
+                </span>
+            </div>
+<!--            공기질 센서-->
+            <div class="box box4">
+                <h3>공기질 센서</h3>
+                <span>
+                    <p class="item">이산화질소</p>
+                    <p class="value" id="aq_no2_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">일산화질소</p>
+                    <p class="value" id="aq_no_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">이산화탄소</p>
+                    <p class="value" id="aq_co2_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">일산화탄소</p>
+                    <p class="value" id="aq_co_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">이산화황</p>
+                    <p class="value" id="aq_so2_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">산소</p>
+                    <p class="value" id="aq_o2_value">
+                        0 ppm
+                    </p>
+                </span>
+                <span>
+                    <p class="item">오존</p>
+                    <p class="value" id="aq_o3_value">
+                        0 ppm
+                    </p>
+                </span>
+            </div>
+        </div>
+        <div class="footer"></div>
+        
+    </div>
+</body>
+</html>

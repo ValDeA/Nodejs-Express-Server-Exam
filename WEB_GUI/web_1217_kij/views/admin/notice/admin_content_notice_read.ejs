@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-2">
+
+  </div>
+
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+    
+        <h5 class="card-subtitle text-muted">공지사항</h5>
+        <h2 class="ml-1"><%=notice.notice_title %></h2>
+    
+        <div class="d-flex align-items-start">
+          <img src="img/envinode_logo.png" width="36" height="36" class="rounded-circle mr-2" alt="Vanessa Tucker">
+          <div class="flex-grow-1">
+            
+            <strong>Vanessa Tucker</strong>
+            <a href="#" class="badge bg-primary ml-1">Message</a>
+            <br />
+    
+            <small class="text-muted">
+              <%=notice.notice_date %>
+            </small><br />
+    
+          </div>
+        </div>
+    
+      </div>
+    
+      <hr style="margin-left: 1.25rem; margin-right: 1.25rem;">
+    
+      <div class="card-body">
+        <%=notice.notice_content %>
+      </div>
+    
+    </div>
+    
+    <button class="btn btn-primary btn-lg float-right">
+      목록
+    </button>
+  </div>
+
+  <div class="col-2">
+    
+  </div>
+</div>
+
+

@@ -1,0 +1,248 @@
+<div class="row">
+  <div class="col-6" style="margin-bottom: 60px;">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">유저 정보</h5>
+    </div>
+    <div class="card flex-fill w-100" style="height: 216px; overflow: hidden;">
+      <div class="row row-info">
+        <div class="col-6">
+          <p class="info_type">ID</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="ENVINODE"
+            value="<%=user_id%>" disabled>
+          </div>
+
+        </div>
+        <div class="col-6">
+          <p class="info_type">소속</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="개인" disabled>
+          </div>
+
+        </div>
+      </div>
+      <div class="row row-info" style="border-bottom: 1px solid #eaeaea;">
+        <div class="col-6">
+          <p class="info_type">전화번호</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="031-721-6375" disabled>
+          </div>
+
+        </div>
+        <div class="col-6">
+          <p class="info_type">이메일</p>
+          <div class="input_wrap">
+            <input class="info_input" type="email" placeholder="sales@envinode.com" disabled>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">장치 연결 로그</h5>
+    </div>
+    <div class="card flex-fill w-100" style="height: 216px; overflow: auto;">
+      <table class="product_list">
+        <thead class="th-sticky">
+          <tr class="tr-h-44">
+            <th class="td-w-10p">인덱스</th>
+            <th class="td-w-30p">장치 ID</th>
+            <th class="td-w-30p">센서</th>
+            <th class="td-w-30p">기존 상태</th>
+            <th class="td-w-30p">변동 상태</th>
+            <th class="td-w-30p">변동 시각</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!--
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+        -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">디바이스 목록</h5>
+    </div>
+    <div class="card flex-fill w-100" style="max-height: 400px; overflow: auto;">
+      <table class="product_list">
+        <thead class="th-sticky">
+          <tr class="tr-h-44">
+            <th class="td-w-10p">인덱스</th>
+            <th class="td-w-30p">S/N</th>
+            <th class="td-w-30p">장치타입</th>
+            <th class="td-w-30p">장치이름</th>
+            <th class="td-w-30p">연결정보</th>
+            <th class="td-w-30p">F/W정보</th>
+            <th class="td-w-30p">설치날짜</th>
+          </tr>
+        </thead>
+        <tbody id="listTable_container">
+          <!--
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AS00100</td>
+            <td class="td-w-30p">S</td>
+            <td class="td-w-30p">안방</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+        -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

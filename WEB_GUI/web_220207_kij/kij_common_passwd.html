@@ -1,0 +1,89 @@
+<html lang="en"><head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+	<title>AS Cloud</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/sign_page.css">
+</head>
+
+<body>
+	<main class="d-flex w-100">
+		<div class="container d-flex flex-column">
+			<div class="row vh-100">
+				<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+					<div class="d-table-cell align-middle">
+
+						<div class="text-center mt-4">
+							<h1 class="h2">비밀번호 찾기</h1>
+							<p class="lead">
+								가입시 입력한 아이디와 이메일 주소를 입력해주세요
+							</p>
+						</div>
+
+						<div class="card">
+							<div class="card-body">
+								<div class="m-sm-4">
+									<form id="forget_form" method="post" action="/forget">
+
+										<div class="mb-3">
+											<label class="form-label">User ID</label>
+											<input class="form-control form-control-lg" type="text" name="user_id" placeholder="AS Cloud 아이디">
+										</div>
+
+										<div class="mb-3">
+											<label class="form-label">Email</label>
+											<input class="form-control form-control-lg" type="email" name="user_email" placeholder="아이디를 가입할 때 입력한 이메일 주소">
+										</div>
+
+
+                    <div class="row">
+
+                      <div class="col-3"></div>
+
+                      <div class="col-3">
+                        <div class="text-center mt-3">
+                          <!-- <a href="/" class="btn btn-lg btn-primary">Sign up</a> -->
+                          <input id="btn_submit" type="button" class="btn btn-lg btn-primary" style="width: 100%;" value="확인">
+                        </div>
+                      </div>
+
+                      <div class="col-3">
+                        <div class="text-center mt-3">
+                          <a href="/" class="btn btn-lg btn-primary" style="width: 100%;">취소</a>
+                          <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+                        </div>
+                      </div>
+
+                      <div class="col-3"></div>
+                    </div>
+
+									</form>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<script src="js/app.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('btn_submit').addEventListener('click', function() {
+				document.getElementById('forget_form').submit();
+			});
+		})
+	</script>
+
+
+</body></html>

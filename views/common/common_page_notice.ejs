@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if(id == "admin") { %>
+      <%-include('../admin/common/admin_head')%>
+    <% } else { %>
+      <%-include('../client/common/client_head')%>
+    <% } %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <% if(id == "admin") { %>
+        <%-include('../admin/common/admin_sidebar')%>
+      <% } else { %>
+        <%-include('../client/common/client_sidebar')%>
+      <% } %>
+
+      <div class="main">
+        <% if(id == "admin") { %>
+          <%-include('../admin/common/admin_nav_main')%>
+        <% } else { %>
+          <%-include('../client/common/client_nav_main')%>
+        <% } %>
+      
+        <% if(screen === "read") { %>
+          <!-- Notice Read -->
+          <div class="row">
+            <div class="col-2">
+          
+            </div>
+          
+            <div class="col-8">
+              <div class="card">
+                <div class="card-header">
+              
+                  <h5 class="card-subtitle text-muted">공지사항</h5>
+                  <h2 class="ml-1"><%=notice.notice_title %></h2>
+              
+                  <div class="d-flex align-items-start">
+                    <img src="img/envinode_logo.png" width="36" height="36" class="rounded-circle mr-2" alt="Vanessa Tucker">
+                    <div class="flex-grow-1">
+                      
+                      <strong>Vanessa Tucker</strong>
+                      <a href="#" class="badge bg-primary ml-1">Message</a>
+                      <br />
+              
+                      <small class="text-muted">
+                        <%=notice.notice_date %>
+                      </small><br />
+              
+                    </div>
+                  </div>
+              
+                </div>
+              
+                <hr style="margin-left: 1.25rem; margin-right: 1.25rem;">
+              
+                <div class="card-body">
+                  <%=notice.notice_content %>
+                </div>
+              
+              </div>
+              
+              <button class="btn btn-primary btn-lg float-right">
+                목록
+              </button>
+            </div>
+          
+            <div class="col-2">
+              
+            </div>
+          </div>
+        <% } else if(screen === "write") { %>
+          <!-- Notice Write -->
+        <% } else if(screen === "modify") { %>
+          <!-- Notice Modify -->
+        <% } else { %>
+          <!-- Notice Home -->
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <ul class="nav cs-tab nav-tabs card-header-tabs pull-right">
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/notice?category=all&page=1">전체</a>
+                  </li>
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/notice?category=gen&page=1">일반</a>
+                  </li>
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/notice?category=sys&page=1">시스템</a>
+                  </li>
+          
+                  <li class="nav-item">
+                    <a class="nav-link" href="/notice?category=faq&page=1">FAQ</a>
+                  </li>
+          
+                </ul>
+              </div>
+          
+              <div class="card-body">
+          
+          
+                <!-- 전체 공지사항 -->
+                <table class="table table-hover my-0">
+                  <thead>
+                    <tr>
+                      <th>
+                        ID
+                      </th>
+                      <th>
+                        구분
+                      </th>
+                      <th>
+                        제목
+                      </th>
+                      <th>
+                        글쓴이
+                      </th>
+                      <th>
+                        조회
+                      </th>
+                      <th>
+                        날짜
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody id="container">
+          
+                  </tbody>
+                </table>
+          
+          
+          
+                <div class="col-12 mt-4">
+                  <nav aria-label="breadcrumb">
+                    <ol id="notice_index" class="breadcrumb bg-transparent p-0 mt-1 mb-0" style="justify-content: center;">
+          
+                    </ol>
+                  </nav>
+                </div>
+          
+          
+              </div>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      
+    </div>
+    
+    <% if(id == "admin") { %>
+      <%-include('../admin/common/admin_scripts')%>
+    <% } else { %>
+      <%-include('../client/common/client_scripts')%>
+    <% } %>
+  </body>
+</html>

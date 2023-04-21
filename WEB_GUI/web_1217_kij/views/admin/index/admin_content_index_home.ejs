@@ -1,0 +1,210 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card flex-fill w-100">
+      <div class="card-header card-header-padding">
+        <h5 class="card-title mb-0 float-left">공지사항</h5>
+        <h5 class="card-title-more mb-0 float-right">
+          <a href="/admin_notice">
+            더보기
+          </a>
+        </h5>
+
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-primary">
+
+          </thead>
+          <tbody id="notice_container">
+          <!--
+            <tr class="tr-index">
+              <td class="td-left">공지사항test5</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">공지사항test4</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">공지사항test3</td>
+              <td class="float-right td-right">2021-11-10</td>
+            <tr class="tr-index">
+              <td class="td-left">공지사항test2</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">공지사항test1</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+          -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card flex-fill w-100">
+      <div class="card-header card-header-padding">
+        <h5 class="card-title mb-0 float-left">메시지</h5>
+        <h5 class="card-title-more mb-0 float-right">
+          <a href="/admin_message">
+            더보기
+          </a>
+        </h5>
+
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead class="thead-primary">
+
+          </thead>
+          <tbody id="message_container">
+          <!--
+            <tr class="tr-index">
+              <td class="td-left">메시지테스트5</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">메시지테스트4</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">메시지테스트3</td>
+              <td class="float-right td-right">2021-11-10</td>
+            <tr class="tr-index">
+              <td class="td-left">메시지테스트2</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+            <tr class="tr-index">
+              <td class="td-left">메시지테스트1</td>
+              <td class="float-right td-right">2021-11-10</td>
+            </tr>
+          -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card flex-fill w-100 card-connect-1">
+      <div class="card-header card-header-padding ">
+        <h5 class="card-title mb-0 float-left">연결됨</h5>
+        <h5 id="state_connect" class="connect-count-1 mb-0 float-right">4</h5>
+      </div>
+    </div>
+    <div class="card flex-fill w-100 card-connect-2">
+      <div class="card-header card-header-padding ">
+        <h5 class="card-title mb-0 float-left">연결끊김</h5>
+        <h5 id="state_disconnect" class="connect-count-2 mb-0 float-right">5</h5>
+      </div>
+    </div>
+    <div class="card flex-fill w-100 card-connect-3">
+      <div class="card-header card-header-padding ">
+        <h5 class="card-title mb-0 float-left">총 장치개수</h5>
+        <h5 id="state_total" class="connect-count-3 mb-0 float-right">9</h5>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-6">
+    <div class="card flex-fill w-100">
+      <div class="card-header card-header-padding">
+        <h5 class="card-title mb-0">
+          디바이스 연결 현황
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="chart chart-sm">
+          <canvas id="chart_connect_state"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card flex-fill w-100">
+      <div class="card-header card-header-padding">
+        <h5 class="card-title mb-0">
+          데이터 로그
+        </h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover my-0">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>디바이스 이름</th>
+              <th>센서</th>
+              <th>이전 상태</th>
+              <th>현재 상태</th>
+              <th>업데이트 시각</th>
+            </tr>
+          </thead>
+          <tbody id="log_container">
+            <!-- all 더미 데이터 
+            <tr class="tb_row">
+              <td>
+                00000001
+              </td>
+              <td>
+                일반
+              </td>
+              <td>
+                첫 공지사항
+              </td>
+              <td>
+                Envinode
+              </td>
+              <td>
+                0
+              </td>
+              <td>
+                2021-11-17 10:56:35
+              </td>
+            </tr>
+            <tr class="tb_row">
+              <td>
+                00000002
+              </td>
+              <td>
+                FAQ
+              </td>
+              <td>
+                자주 묻는 질문
+              </td>
+              <td>
+                Envinode
+              </td>
+              <td>
+                97
+              </td>
+              <td>
+                2021-11-17 11:01:54
+              </td>
+            </tr>
+            <tr class="tb_row">
+              <td>
+                00000003
+              </td>
+              <td>
+                시스템
+              </td>
+              <td>
+                시스템 공지사항
+              </td>
+              <td>
+                Envinode
+              </td>
+              <td>
+                2
+              </td>
+              <td>
+                2021-11-17 11:09:14
+              </td>
+            </tr>
+            <!-- all 더미 데이터 끝 -->
+          </tbody>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,634 @@
+<html><head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+<meta name="author" content="AdminKit">
+<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+<title>AS Cloud</title>
+
+<link href="css/app.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/lightpick.css">
+<link href="css/app_add.css" rel="stylesheet">
+<link rel="stylesheet" href="css/kij.css">
+  <style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style></head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+    <a class="sidebar-brand" href="/">
+
+      <!--     로고 SVG-->
+      <svg id="그룹_2" data-name="그룹 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.948" height="20.964" viewBox="0 0 32.948 20.964">
+        <defs>
+          <clipPath id="clip-path">
+            <rect id="사각형_1" data-name="사각형 1" width="32.948" height="20.964" fill="none"></rect>
+          </clipPath>
+        </defs>
+        <g id="그룹_1" data-name="그룹 1" clip-path="url(#clip-path)">
+          <path id="패스_1" data-name="패스 1" d="M16.045,20.962H7.41A7.033,7.033,0,0,1,3.7,19.956,7.2,7.2,0,0,1,0,13.2,7.352,7.352,0,0,1,6.277,6.225a.663.663,0,0,0,.571-.4A10.263,10.263,0,0,1,14.631.134a10.417,10.417,0,0,1,10.6,5.011.562.562,0,0,0,.515.323,7.752,7.752,0,0,1,1.779,15.125,8.178,8.178,0,0,1-2.433.368q-4.523.007-9.047,0" transform="translate(0 0)" fill="#4360ed"></path>
+          <path id="패스_2" data-name="패스 2" d="M191.852,7.765a1.444,1.444,0,0,1-1.468-1.449,1.459,1.459,0,1,1,2.917.008,1.436,1.436,0,0,1-1.449,1.441" transform="translate(-162.648 -4.148)" fill="#4361ed"></path>
+        </g>
+      </svg>
+      <!--      로고 SVG 끝-->
+
+      <span class="align-middle">AS-CLOUD</span>
+    </a>
+
+    <!-- 페이지 네비게이트 -->
+    <ul class="sidebar-nav">
+
+      
+      <li class="sidebar-item active">
+      
+
+        <a class="sidebar-link" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell align-middle"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/analytics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2 align-middle"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span class="align-middle">
+            통계분석
+          </span>
+        </a>
+      </li>
+
+
+      
+      <li class="sidebar-item">
+      
+
+        <!--<a class="sidebar-link" href="/control">-->
+        <a class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity align-middle"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span class="align-middle">
+            원격제어
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail align-middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+    </ul>
+
+  </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 969px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+</nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+
+  <div class="navbar-collapse collapse">
+    <h3 class="text-center logo ml-5 mt-2 h">
+      <strong></strong>
+    </h3>
+
+    <ul class="navbar-nav navbar-align">
+      <!--
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+          <div class="position-relative">
+            <i class="align-middle" data-feather="bell"></i>
+            <span class="indicator">4</span>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
+          <div class="dropdown-menu-header">
+            4 New Notifications
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-danger" data-feather="alert-circle"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Update completed</div>
+                  <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
+                  <div class="text-muted small mt-1">30m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-warning" data-feather="bell"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Lorem ipsum</div>
+                  <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-primary" data-feather="home"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Login from 192.186.1.8</div>
+                  <div class="text-muted small mt-1">5h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-success" data-feather="user-plus"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">New connection</div>
+                  <div class="text-muted small mt-1">Christina accepted your request.</div>
+                  <div class="text-muted small mt-1">14h ago</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="#" class="text-muted">Show all notifications</a>
+          </div>
+        </div>
+      </li>
+      -->
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+          <div id="container_message_indicator" class="position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <!--<span id="message_indicator" class="indicator">4</span>-->
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+          <div class="dropdown-menu-header">
+            <div id="message_dropdown_header" class="position-relative">No Messages</div>
+          </div>
+          <div id="message_dropdown_group" class="list-group">
+            <!--
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle"
+                    alt="Vanessa Tucker">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Vanessa Tucker</div>
+                  <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+                  <div class="text-muted small mt-1">15m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle"
+                    alt="William Harris">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">William Harris</div>
+                  <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle"
+                    alt="Christina Mason">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Christina Mason</div>
+                  <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+                  <div class="text-muted small mt-1">4h ago</div>
+                </div>
+              </div>
+            </a>
+            -->
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="./message" class="text-muted">메시지 더 보기</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </a>
+
+        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+          <img src="img/Envinode.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+          <span id="user_id" class="text-dark">
+            signal
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <!--
+          <a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i>
+            Profile</a>
+          <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>
+            Analytics</a>
+          <div class="dropdown-divider"></div>
+          -->
+          <a class="dropdown-item" href="/settings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle mr-1"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</a>
+          <!--
+          <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help
+            Center</a>
+          -->
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+      
+        <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card" style="height: 120px;">
+
+        <div class="card-body">
+          <div class="me-2">
+            <div class="card-text mb-2">스테이션</div>
+              <select name="PIAQDEMO000003" id="showDevice" class="cs-select col-12">
+              <option value="bio-sentinel-200" name="PIAQDEMO000003" selected="true">bio-sentinel-200</option><option value="테스트 장치 5" name="SIAQTEST000011">테스트 장치 5</option></select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+
+      <div class="card card-connect" style="height: 120px;">
+        <div class="card-body cnt-list ">
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-1">
+            <div class="me-2">
+              <div class="card-text">연결됨</div>
+              <div id="state_connect" class="display-6 font-weight-bold">1</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/connect.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-2">
+            <div class="me-2">
+              <div class="card-text">연결안됨</div>
+              <div id="state_disconnect" class="display-6 font-weight-bold">1</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/disconnect.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-3">
+            <div class="me-2">
+              <div class="card-text">총 장치 개수</div>
+              <div id="state_total" class="display-6 font-weight-bold">2</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/totalconnect.png" alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-2 cs-tab nav-tablist" role="tablist">
+      <div class="card card_mpas_btn">
+
+        <div id="toggleTab" class="card-text maps_btn" style="cursor: pointer;" data-toggle="tab" href="#tab-map">
+          <p style="margin-bottom: 0;">지도보기</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="tab-content">
+  <div class="tab-pane fade active show" id="tab-dashboard" role="tabpanel">
+  <div class="row">
+
+    <div class="col-xs-6 col-sm-12 col-lg-12 col-xl-12 col-xxl-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              스테이션 공기질 인덱스
+            </div>
+            <div class="card-body d-flex"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <canvas id="chart_cai" style="display: block; width: 206px; height: 206px;" width="206" height="206" class="chartjs-render-monitor"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              공기질 인덱스
+            </div>
+            <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <canvas id="chart_aqi" width="206" height="206" style="display: block; width: 206px; height: 206px;" class="chartjs-render-monitor"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">PM 2.5 Trend</div>
+            <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+              <canvas id="chart_trend" width="476" height="206" style="display: block; width: 476px; height: 206px;" class="chartjs-render-monitor"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-xl-12 col-xxl-6">
+      <div class="sensor_list_flex">
+
+        <div id="temp" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">Temperature</div>
+            <div class="card-header-text-right">℃</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="TEMPval">20.40</h1>
+          </div>
+        </div>
+        <div id="hum" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">Humidity</div>
+            <div class="card-header-text-right">%RH</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="HUMIDval">23.99</h1>
+          </div>
+        </div>
+
+        <div id="pm10" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">PM 10</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM10Pval">21.00</h1>
+          </div>
+        </div>
+
+        <div id="pm25" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">PM 2.5</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM2P5val">20.00</h1>
+          </div>
+        </div>
+
+        <div id="pm1" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">PM 1.0</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM1P0val">10.51</h1>
+          </div>
+        </div>
+
+        <div id="pm05" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">PM 0.5</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM0P5val">5.89</h1>
+          </div>
+        </div>
+
+        <div id="pm03" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">PM 0.3</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM0P3val">2.66</h1>
+          </div>
+        </div>
+
+        <div id="tvoc" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">TVOC</div>
+            <div class="card-header-text-right">℃</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="TVOCval">0.05</h1>
+          </div>
+        </div>
+
+        <div id="co" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">CO</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="COval">0.00</h1>
+          </div>
+        </div>
+
+        <div id="co2" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">CO<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CO2val">400.00</h1>
+          </div>
+        </div>
+
+        <div id="o3" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">O<sub>3</sub></div>
+            <div class="card-header-text-right">mg/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="O3val">0.012</h1>
+          </div>
+        </div>
+
+        <div id="h2" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">H<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="H2val">0</h1>
+          </div>
+        </div>
+
+        <div id="ch4" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">CH<sub>4</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CH4val">0</h1>
+          </div>
+        </div>
+
+        <div id="nh3" class="card pointer list-layout">
+          <div class="card-header">
+            <div class="card-header-text-left">NH<sub>3</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="NH3val">0.00</h1>
+          </div>
+        </div>
+
+        <div id="ch2o" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">CH<sub>2</sub>O</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CH2Oval">45.82</h1>
+          </div>
+        </div>
+
+        <div id="c3h8" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">C<sub>3</sub>H<sub>8</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="C3H8val">0</h1>
+          </div>
+        </div>
+
+        <div id="h2s" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">H<sub>2</sub>S</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="H2Sval">0</h1>
+          </div>
+        </div>
+
+        <div id="no2" class="card pointer list-layout" hidden="">
+          <div class="card-header">
+            <div class="card-header-text-left">NO<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="NO2val">1.2</h1>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+  <div class="tab-pane fade" id="tab-map" role="tabpanel">
+
+  <div class="col-12 d-flex">
+    <div class="card flex-fill w-100">
+        <div class="card-header">
+          <h5 class="card-title mb-0">Map</h5>
+        </div>
+        <div class="card-body px-4">
+          <div id="map" class="cs-map-container"></div>
+        </div>
+    </div>
+  </div>
+
+</div>
+</div>
+      </div>
+    </div>
+    <!-- Bootstrap -->
+<script src="js/app.js"></script>
+
+
+  
+</body></html>

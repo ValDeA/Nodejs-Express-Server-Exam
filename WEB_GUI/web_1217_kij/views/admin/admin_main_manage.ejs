@@ -1,0 +1,22 @@
+<div class="main">
+  <%-include('./common/admin_nav_main')%>
+  <main class="content">
+    <%-include('./manage/admin_content_manage_nav')%>
+
+    <% if(screen === "main") { %>
+      <!-- Default Manage screen -->
+      <%-include('./manage/admin_content_manage_home')%>
+    <% } %>
+
+    <% if(screen === "user") { %>
+      <!-- User Infomation screen -->
+      <%-include('./manage/admin_content_manage_user')%>
+    <% } %>
+
+    <% if(screen === "device") { %>
+      <!-- Device Information screen -->
+      <%-include('./manage/admin_content_manage_device')%>
+    <% } %>
+
+  </main>
+</div>

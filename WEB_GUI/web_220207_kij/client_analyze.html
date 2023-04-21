@@ -1,0 +1,1152 @@
+<html><head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+<meta name="author" content="AdminKit">
+<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+<title>AS Cloud</title>
+
+<link href="css/app.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/lightpick.css">
+<link href="css/app_add.css" rel="stylesheet">
+<link rel="stylesheet" href="css/kij.css">
+  <style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style></head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+    <a class="sidebar-brand" href="/">
+
+      <!--     로고 SVG-->
+      <svg id="그룹_2" data-name="그룹 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32.948" height="20.964" viewBox="0 0 32.948 20.964">
+        <defs>
+          <clipPath id="clip-path">
+            <rect id="사각형_1" data-name="사각형 1" width="32.948" height="20.964" fill="none"></rect>
+          </clipPath>
+        </defs>
+        <g id="그룹_1" data-name="그룹 1" clip-path="url(#clip-path)">
+          <path id="패스_1" data-name="패스 1" d="M16.045,20.962H7.41A7.033,7.033,0,0,1,3.7,19.956,7.2,7.2,0,0,1,0,13.2,7.352,7.352,0,0,1,6.277,6.225a.663.663,0,0,0,.571-.4A10.263,10.263,0,0,1,14.631.134a10.417,10.417,0,0,1,10.6,5.011.562.562,0,0,0,.515.323,7.752,7.752,0,0,1,1.779,15.125,8.178,8.178,0,0,1-2.433.368q-4.523.007-9.047,0" transform="translate(0 0)" fill="#4360ed"></path>
+          <path id="패스_2" data-name="패스 2" d="M191.852,7.765a1.444,1.444,0,0,1-1.468-1.449,1.459,1.459,0,1,1,2.917.008,1.436,1.436,0,0,1-1.449,1.441" transform="translate(-162.648 -4.148)" fill="#4361ed"></path>
+        </g>
+      </svg>
+      <!--      로고 SVG 끝-->
+
+      <span class="align-middle">AS-CLOUD</span>
+    </a>
+
+    <!-- 페이지 네비게이트 -->
+    <ul class="sidebar-nav">
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell align-middle"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item active">
+      
+
+        <a class="sidebar-link" href="/analytics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2 align-middle"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+          <span class="align-middle">
+            통계분석
+          </span>
+        </a>
+      </li>
+
+
+      
+      <li class="sidebar-item">
+      
+
+        <!--<a class="sidebar-link" href="/control">-->
+        <a class="sidebar-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity align-middle"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          <span class="align-middle">
+            원격제어
+          </span>
+        </a>
+      </li>
+
+      
+      <li class="sidebar-item">
+      
+
+        <a class="sidebar-link" href="/message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail align-middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+    </ul>
+
+  </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 969px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+</nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+
+  <div class="navbar-collapse collapse">
+    <h3 class="text-center logo ml-5 mt-2 h">
+      <strong></strong>
+    </h3>
+
+    <ul class="navbar-nav navbar-align">
+      <!--
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+          <div class="position-relative">
+            <i class="align-middle" data-feather="bell"></i>
+            <span class="indicator">4</span>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
+          <div class="dropdown-menu-header">
+            4 New Notifications
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-danger" data-feather="alert-circle"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Update completed</div>
+                  <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
+                  <div class="text-muted small mt-1">30m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-warning" data-feather="bell"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Lorem ipsum</div>
+                  <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-primary" data-feather="home"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">Login from 192.186.1.8</div>
+                  <div class="text-muted small mt-1">5h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <i class="text-success" data-feather="user-plus"></i>
+                </div>
+                <div class="col-10">
+                  <div class="text-dark">New connection</div>
+                  <div class="text-muted small mt-1">Christina accepted your request.</div>
+                  <div class="text-muted small mt-1">14h ago</div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="#" class="text-muted">Show all notifications</a>
+          </div>
+        </div>
+      </li>
+      -->
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+          <div id="container_message_indicator" class="position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <!--<span id="message_indicator" class="indicator">4</span>-->
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+          <div class="dropdown-menu-header">
+            <div id="message_dropdown_header" class="position-relative">No Messages</div>
+          </div>
+          <div id="message_dropdown_group" class="list-group">
+            <!--
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle"
+                    alt="Vanessa Tucker">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Vanessa Tucker</div>
+                  <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+                  <div class="text-muted small mt-1">15m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle"
+                    alt="William Harris">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">William Harris</div>
+                  <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle"
+                    alt="Christina Mason">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Christina Mason</div>
+                  <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+                  <div class="text-muted small mt-1">4h ago</div>
+                </div>
+              </div>
+            </a>
+            -->
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="./message" class="text-muted">메시지 더 보기</a>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </a>
+
+        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+          <img src="img/Envinode.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+          <span id="user_id" class="text-dark">
+            signal
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <!--
+          <a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i>
+            Profile</a>
+          <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>
+            Analytics</a>
+          <div class="dropdown-divider"></div>
+          -->
+          <a class="dropdown-item" href="/settings"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle mr-1"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings</a>
+          <!--
+          <a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help
+            Center</a>
+          -->
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+      
+        <div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-8 col-md-12 col-lg-6">
+        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" data-toggle="dropdown" aria-expanded="true">
+          <span id="showDevice" class="text-dark">
+            Station Select
+          </span>
+        </a>
+        <div id="analytics_nav_dropdown" class="dropdown-menu dropdown-menu-left">
+
+        <div class="dropdown-item dropdown-nav" style="cursor:pointer" tag="PIAQDEMO000003" index="0">bio-sentinel-200</div><div class="dropdown-item dropdown-nav" style="cursor:pointer" tag="SIAQTEST000011" index="1">테스트 장치 5</div></div>
+      </div>
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <div class="row ml-3">
+
+          <a class="col-sm-6 col-md-3 col-lg-4 nav-link dropdown-toggle d-none d-sm-inline-block" data-toggle="dropdown" aria-expanded="true">
+            <span id="showDate" class="text-dark">
+              Time Select
+            </span>
+          </a>
+          <div id="analytics_nav_dropdown" class="col-form-label col-sm-1 dropdown-menu dropdown-menu-left">
+            <div class="dropdown-item dropdown-date" tick="hour" style="cursor: pointer;">
+              Hour
+            </div>
+            <div class="dropdown-item dropdown-date" tick="day" style="cursor: pointer;">
+              Day
+            </div>
+            <div class="dropdown-item dropdown-date" tick="month" style="cursor: pointer;">
+              Month
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-9 col-lg-8 mt-1">
+            <input class="form-control text-center" type="text" id="datepicker" placeholder="날짜를 선택해 주세요." readonly="">
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="card">
+  <div class="card-body">
+    <span class="card-title ml-3">기간 별 다중 그래프</span>
+    <div id="analytics_nav_container" class="mt-3 ml-3 mr-3">
+      <!-- label class="cs-nav-label" -->
+      <label class="cs-nav-label">
+        <input type="checkbox" name="PM 10" value="PM10Pval" disabled="">
+        PM 10
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="PM 2.5" value="PM2P5val" disabled="">
+        PM 2.5
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="PM 1.0" value="PM1P0val" disabled="">
+        PM 1.0
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="PM 0.5" value="PM0P5val" disabled="">
+        PM 0.5
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="PM 0.3" value="PM0P3val" disabled="">
+        PM 0.3
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="Temperature" value="TEMPval" disabled="">
+        Temperature
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="Humidity" value="HUMIDval" disabled="">
+        Humidity
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="CO" value="COval" disabled="">
+        CO
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="CO2" value="CO2val" disabled="">
+        CO2
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="O3" value="O3val" disabled="">
+        O3
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="TVOC" value="TVOCval" disabled="">
+        TVOC
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="CH2O" value="CH2Oval" disabled="">
+        CH2O
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="H2" value="H2val" disabled="">
+        H2
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="H2S" value="H2Sval" disabled="">
+        H2S
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="NH3" value="NH3val" disabled="">
+        NH3
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="CH4" value="CH4val" disabled="">
+        CH4
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="C3H8" value="C3H8val" disabled="">
+        C3H8
+      </label>
+      <label class="cs-nav-label">
+        <input type="checkbox" name="NO2" value="NO2val" disabled="">
+        NO2
+      </label>
+    </div>
+    <hr class="ml-3 mr-3 mb-3 mt-3">
+    <div class="chart"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+      <canvas id="overlay" style="position:absolute;pointer-events:none;" width="1016" height="300"></canvas>
+      <canvas id="chart-mm" style="display: block; width: 1016px; height: 300px;" width="1016" height="300" class="chartjs-render-monitor"></canvas>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <!-- Bootstrap -->
+<script src="js/app.js"></script>
+<!-- Initialize -->
+<script>
+  const DEVICE_TYPE_S = "Bio-Sentinel 100";
+  const DEVICE_TYPE_S_PLUS = "Bio-Sentinel 200";
+  const DEVICE_TYPE_MINI = "Bio-Sentinel Mini";
+  const DEVICE_TYPE_PRO = "Bio-Sentinel Pro";
+
+  function handleOnInput(e, l) {
+    if(e.value.length > l) {
+      e.value = e.value.substr(0, l);
+    }
+  }
+  function getDeviceType(id) {
+    switch (id.substring(0, 1)) {
+      case "T":
+        return DEVICE_TYPE_MINI;
+      case "S":
+        return DEVICE_TYPE_S;
+      case "P":
+        return DEVICE_TYPE_S_PLUS;
+      case "M":
+        return DEVICE_TYPE_PRO;
+      default:
+        return "Device Type Error";
+    }
+  }
+  function getUrlParams() {     
+    var params = {};  
+    
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+      function(str, key, value) { 
+          params[key] = value; 
+        }
+    );     
+    
+    return params; 
+  }
+
+  // 날짜 변환 포맷함수
+  Date.prototype.format = function (f) {
+    if (!this.valueOf()) return " ";
+    var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+    var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var d = this;
+
+    return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+      switch ($1) {
+        case "yyyy": return d.getFullYear(); // 년 (4자리)
+        case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+        case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+        case "dd": return d.getDate().zf(2); // 일 (2자리)
+        case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+        case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+        case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+        case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+        case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+        case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+        case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+        case "ss": return d.getSeconds().zf(2); // 초 (2자리)
+        case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+        default: return $1;
+      }
+    });
+  };
+  String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+  String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+  Number.prototype.zf = function (len) { return this.toString().zf(len); };
+
+  function calcStartDate(endDate, num) {
+    var year = endDate.getFullYear();
+    var month = endDate.getMonth();
+    var day = endDate.getDate();
+
+    return new Date(year, month, day - num, 0, 0, 0);
+  }
+  function loadingStart() {
+    var div = document.createElement('div');
+    div.setAttribute('id', 'loading');
+    div.style.width = '100%';
+    div.style.height = '100%';
+    div.style.left = 0;
+    div.style.top = 0;
+    div.style.position = 'fixed';
+    div.style.display = 'block';
+    div.style.backgroundColor = "#ffffff";
+    div.style.zIndex = 99;
+    div.style.textAlign = 'center';
+
+    var img = document.createElement('img');
+    img.style.position = 'absolute';
+    img.style.zIndex = 100;
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.marginTop = '45vh';
+    img.src = './img/envinode_logo.png';
+
+    div.append(img);
+    //document.getElementsByClassName('main')[0].prepend(div);
+    document.body.prepend(div);
+  }
+  function loadingEnd() {
+    //document.getElementsByClassName('main')[0].removeChild(document.getElementById('loading'));
+    document.body.removeChild(document.getElementById('loading'));
+  }
+  function fnExcelReport(id, fileName) {
+    var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    tab_text = tab_text + '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">';
+    tab_text = tab_text + '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
+    tab_text = tab_text + '<x:Name>Test Sheet</x:Name>';
+    tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+    tab_text = tab_text + "<table border='1px'>";
+    var exportTable = $('#' + id).clone();
+    exportTable.find('input').each(function (index, elem) { $(elem).remove(); });
+    tab_text = tab_text + exportTable.html();
+    tab_text = tab_text + '</table></body></html>';
+    var data_type = 'data:application/vnd.ms-excel';
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+    var fileName = fileName + '.xls';
+    //Explorer 환경에서 다운로드
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+      if (window.navigator.msSaveBlob) {
+        var blob = new Blob([tab_text], {
+          type: "application/csv;charset=utf-8;"
+        });
+        navigator.msSaveBlob(blob, fileName);
+      }
+    } else {
+      var blob2 = new Blob([tab_text], {
+        type: "application/csv;charset=utf-8;"
+      });
+      var filename = fileName;
+      var elem = window.document.createElement('a');
+      elem.href = window.URL.createObjectURL(blob2);
+      elem.download = filename;
+      document.body.appendChild(elem);
+      elem.click();
+      document.body.removeChild(elem);
+    }
+  }
+  function createDropdown(target, addEvent) {
+    var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+
+    for(var i=0; i<r.length; i++) {
+      var dropdown = document.getElementById(target);
+      // 자식 노드 생성
+      var child = document.createElement('div');
+      // 자식 노드 속성 입력
+      child.setAttribute('class', 'dropdown-item dropdown-nav');
+      child.setAttribute('style', 'cursor:pointer');
+      child.setAttribute('tag', r.device[i].device_id);
+      child.setAttribute('index', i);
+      child.innerText = r.device[i].device_name;
+      
+      dropdown.appendChild(child);
+
+      // 자식 노드 이벤트 추가
+      child.addEventListener('click', function() {
+        var device_name = document.getElementById('showDevice');
+        var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+        var i = r.device.findIndex((v, i, a) => v.device_name === this.innerHTML);
+
+        device_name.innerHTML = r.device[i].device_name;
+
+        var active = document.getElementsByClassName('dropdown-nav active');
+        if(active[0] != undefined) {
+          active[0].classList.remove('active');
+        }
+        this.classList.add("active");
+
+        addEvent(r.device, i);
+      });
+    }
+  }
+  function getSensorDataBetweenDate(device_id, startDate, endDate, tick, sensorArray, cb) {
+    if(device_id == undefined || tick == null || startDate == null || endDate == null) {
+      alert('올바른 시간을 선택해 주세요.');
+      clearChart();
+      return;
+    }
+    var request = {
+      device_id: device_id,
+      startDate: startDate,
+      endDate: endDate,
+      dateTick: tick,
+      length: sensorArray.length,
+      sensor: sensorArray
+    }
+
+    xhrConnect(POST, GET_RANGE_DATA, request, function(result) {
+      cb(result);
+    });
+  }
+  function modifyTimeDiff(date) {
+      var now = new Date().getTime();
+      var diff = now - date;
+      var time = 0;
+
+      if(diff / (1000 * 60) < 1) {
+        time = parseInt(diff / 1000) + "초 전";
+      } else if(diff / (1000 * 60) < 60) {
+        time = parseInt(diff / (1000 * 60)) + "분 전";
+      } else if(diff / (1000 * 60 * 60) < 24) {
+        time = parseInt(diff / (1000 * 60 * 60)) + "시간 전";
+      } else {
+        time = parseInt(diff / (1000 * 60 * 60 * 24)) + "일 전";
+      }
+      return time;
+    }
+</script>
+<script type="text/javascript" src="../js/xhr.js"></script>
+<!-- 차트 -->
+<script type="text/javascript" src="../js/chartjs_render.js"></script>
+<!-- 메시지 체크 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    //var user = JSON.parse(sessionStorage.getItem('userInfo')).user[0];
+    var request = {
+      //message_to: user.user_id,
+      message_to: sessionStorage.getItem('user_id'),
+      checked: 1,
+      count: 10
+    }
+    xhrConnect(POST, SHOW_MESSAGE, request, function(res) {
+      try {
+        if(res.length > 0) {
+          var length;
+          var indicator = document.createElement('span');
+          indicator.setAttribute('class', 'indicator');
+
+          document.getElementById('message_dropdown_header').innerText = "New " + res.length + " Messages";
+
+          if(res.length >= 4) length = 4;
+          if(res.length >= 9) {
+            indicator.innerText = "9+";
+            //length = 9;
+          } else {
+            indicator.innerText = res.length;
+            //length = res.length;
+          }
+
+          document.getElementById('container_message_indicator').append(indicator);
+
+
+          for(var i=0; i<length; i++) {
+            var a = document.createElement('a');
+            a.setAttribute('class', 'list-group-item');
+            a.setAttribute('href', './message?message_id=' + String(res.message[i].message_id).padStart(8, '0'));
+            
+            var row = document.createElement('div');
+            row.setAttribute('class', 'row g-0 align-items-center');
+            
+              var col2 = document.createElement('div');
+              col2.setAttribute('class', 'col-2');
+
+                var img = document.createElement('img');
+                img.setAttribute('class', 'avatar img-fluid rounded-circle');
+                img.setAttribute('src', '../../img/profile_init.png');
+                img.setAttribute('alt', res.message[i].message_to);
+
+              col2.append(img);
+
+              var col10 = document.createElement('div');
+              col10.setAttribute('class', 'col-10 pl-2 mt-4');
+              
+                var to = document.createElement('div');
+                to.setAttribute('class', 'text-dark');
+                to.innerText = res.message[i].message_to;
+                
+                var msg = document.createElement('div');
+                msg.setAttribute('class', 'text-muted small mt-1');
+                msg.innerText = res.message[i].message_title;
+
+                var date = document.createElement('div');
+                date.setAttribute('class', 'text-muted small mt-1 float-right');
+                date.innerText = modifyTimeDiff(new Date(res.message[i].message_date));
+
+              col10.append(to);
+              col10.append(msg);
+              col10.append(date);
+
+            row.append(col2);
+            row.append(col10);
+
+            a.append(row);
+
+            document.getElementById('message_dropdown_group').append(a);
+          }
+        } else {
+          document.getElementById('message_dropdown_header').innerText = "No Messages";
+        }
+      } catch(e) { console.log(e); }
+    });
+  })
+</script>
+
+
+
+
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+-->
+<script src="js/lightpick.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const MAX_CHECK_COUNT = 4;
+
+    let deviceID = null;
+    // Date Picker 생성
+    let datepicker = new Lightpick({
+      field: document.getElementById('datepicker'),
+      singleDate: false,
+      //numberOfMonths: 2,
+      maxDate: new Date(),
+      lang: 'ko',
+      format: "YYYY/MM/DD",
+      onClose: function() {
+        var label = document.getElementsByClassName('cs-nav-label');
+        for(var i=0; i<label.length; i++) {
+          label[i].childNodes[1].disabled = false;
+          label[i].childNodes[1].checked = false;
+        }
+      }
+    });
+
+    // MultiLine Chart 객체
+    var arr = new Array();
+    var multiLineChart_container = document.getElementById('chart-mm');
+    var multiLineChart_context = multiLineChart_container.getContext('2d');
+    var multiLineChart = getChart_MultiLine('chart-mm');
+    var checkboxCount = 0;
+    var date_tick = null;
+
+    let multiLineChart_data = multiLineChart.data;
+
+    // MultiLine Chart Overlay 설정
+    var overlay = document.getElementById('overlay');
+    var startIndex = 0;
+    overlay.width = multiLineChart_container.width;
+    overlay.height = multiLineChart_container.height;
+    var selectionContext = overlay.getContext('2d');
+    var selectionRect = {
+      w: 0,
+      startX: 0,
+      startY: 0
+    };
+    var drag = false;
+
+    multiLineChart_container.addEventListener('pointerdown', evt => {
+      const points = multiLineChart.getElementsAtEventForMode(evt, 'index', {
+        intersect: false
+      });
+      startIndex = points[0]._index;
+      const rect = multiLineChart_container.getBoundingClientRect();
+      selectionRect.startX = evt.clientX - rect.left;
+      selectionRect.startY = multiLineChart.chartArea.top;
+      drag = true;
+    });
+    multiLineChart_container.addEventListener('pointermove', evt => {
+
+    const rect = multiLineChart_container.getBoundingClientRect();
+    if (drag) {
+      const rect = multiLineChart_container.getBoundingClientRect();
+      selectionRect.w = (evt.clientX - rect.left) - selectionRect.startX;
+      selectionContext.globalAlpha = 0.5;
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+      selectionContext.fillRect(
+        selectionRect.startX,
+        selectionRect.startY,
+        selectionRect.w,
+        multiLineChart.chartArea.bottom - multiLineChart.chartArea.top
+      );
+    } else {
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+      var x = evt.clientX - rect.left;
+      if (x > multiLineChart.chartArea.left) {
+        selectionContext.fillRect(
+          x,
+          multiLineChart.chartArea.top,
+          1,
+          multiLineChart.chartArea.bottom - multiLineChart.chartArea.top
+        );
+      }
+    }
+    });
+    multiLineChart_container.addEventListener('pointerup', evt => {
+      const points = multiLineChart.getElementsAtEventForMode(evt, 'index', {
+        intersect: false
+      });
+      drag = false;
+      
+      var newChartData = {
+        labels: multiLineChart.data.labels.filter(function(v, i, a) {
+          var max = Math.max(startIndex, points[0]._index);
+          var min = Math.min(startIndex, points[0]._index);
+          return i >= min && i <= max;
+        }),
+        datasets: multiLineChart.data.datasets.map(function(v, i, a) {
+          return {
+            label: v.label,
+            data: v.data.filter(function(v, i, a) {
+              var max = Math.max(startIndex, points[0]._index);
+              var min = Math.min(startIndex, points[0]._index);
+              return i >= min && i <= max;
+            }),
+            fill: v.fill,
+            yAxisID: v.yAxisID,
+            borderColor: v.borderColor,
+            backgroundColor: v.backgroundColor
+          };
+        })
+      };
+      multiLineChart.data = newChartData;
+      multiLineChart.update();
+
+      multiLineChart_context.fillRect(25, 25, 100, 100);
+    });
+    multiLineChart_container.addEventListener('mouseout', evt => {
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+    });
+
+    init();
+
+    function init() {
+      // 드롭다운 Nav 생성
+      createDropdown('analytics_nav_dropdown', dropDownAddEvent_setCheckBox);
+      addClickEventCheckBox();
+
+      var dropdown_date = document.getElementsByClassName('dropdown-date');
+      for(var i=0; i<dropdown_date.length; i++) {
+        dropdown_date[i].addEventListener('click', function() {
+          if(date_tick == this.getAttribute('tick')) return;
+          date_tick = this.getAttribute('tick');
+          document.getElementById('showDate').innerHTML = this.innerHTML;
+
+          var active = document.getElementsByClassName('dropdown-date active');
+          if(active[0] != undefined) {
+            active[0].classList.remove('active');
+          }
+          this.classList.add('active');
+
+          var label = document.getElementsByClassName('cs-nav-label');
+          for(var i=0; i<label.length; i++) {
+            label[i].childNodes[1].disabled = false;
+            label[i].childNodes[1].checked = false;
+          }
+
+          clearChart();
+        });
+      }
+    }
+    function dropDownAddEvent_setCheckBox(r, i) {
+      var device_id = r[i].device_id;
+      var index = i
+      var req = {
+        device_id: device_id
+      };
+      deviceID = device_id;
+      xhrConnect(POST, GET_EQUIPMENT, req, function(result) {
+        // Device Checkbox 변경
+        sessionStorage.setItem("equipment", JSON.stringify(result));
+        visibleCheckBox(index);
+      });
+      clearChart();
+    }
+    function visibleCheckBox(index) {
+      var label = document.getElementsByClassName('cs-nav-label');
+      var binary = JSON.parse(sessionStorage.getItem("equipment"));
+      var cnt = 0;
+
+      for(var i=0; i<13; i++) {
+        if(i == 1) {
+          if(binary[i] == '1') {
+            label[cnt].hidden = false;
+            label[cnt+1].hidden = false;
+            label[cnt].childNodes[1].disabled = false;
+            label[cnt+1].childNodes[1].disabled = false;
+          } else {
+            label[cnt].hidden = true;
+            label[cnt+1].hidden = true;
+            label[cnt].childNodes[1].disabled = true;
+            label[cnt+1].childNodes[1].disabled = true;
+          }
+          cnt += 2;
+          continue;
+        }
+        if((binary[i] == '1') === true) {
+          if(i == 0) {
+            var r = JSON.parse(sessionStorage.getItem('deviceInfo'));
+            var type = getDeviceType(r.device[index].device_id);
+            label[1].hidden = false;
+            label[1].childNodes[1].disabled = false;
+            if(type === DEVICE_TYPE_S || type === DEVICE_TYPE_MINI) {
+              label[0].hidden = true;
+              label[2].hidden = true;
+              label[3].hidden = true;
+              label[4].hidden = true;   
+              label[0].childNodes[1].disabled = false;
+              label[2].childNodes[1].disabled = false;
+              label[3].childNodes[1].disabled = false;
+              label[4].childNodes[1].disabled = false;
+            }
+            if(type === DEVICE_TYPE_S_PLUS || type === DEVICE_TYPE_PRO) {
+              label[0].hidden = false;
+              label[2].hidden = false;
+              label[3].hidden = false;
+              label[4].hidden = false;
+              label[0].childNodes[1].disabled = false;
+              label[2].childNodes[1].disabled = false;
+              label[3].childNodes[1].disabled = false;
+              label[4].childNodes[1].disabled = false;
+            }
+            cnt = 5;
+          } else {
+            label[cnt].hidden = false;
+            label[cnt].childNodes[1].disabled = false;
+            cnt++;
+          }
+        } else {
+          label[cnt].hidden = true;
+          label[cnt].childNodes[1].disabled = true;
+          cnt++;
+        }
+      }
+    }
+    function disabledCheckbox(disable = true) {
+      var label = document.getElementsByClassName('cs-nav-label');
+      for(var idx=0; idx<label.length; idx++) {
+        var checkbox = label[idx].childNodes[1];
+        if(disable == true) {
+          if(checkbox.checked == false) {
+            checkbox.disabled = true;
+          } else {
+            checkbox.disabled = false;
+          }
+        } else {
+          checkbox.disabled = false;
+        }
+      }
+    }
+    function addClickEventCheckBox() {
+      var label = document.getElementsByClassName('cs-nav-label');
+      
+      for(var idx=0; idx<label.length; idx++) {
+        var checkbox = label[idx].childNodes[1];
+
+        checkbox.addEventListener('click', function() {
+          if(this.checked == false) {
+            checkboxCount--;
+            if(checkboxCount == MAX_CHECK_COUNT - 1)
+              disabledCheckbox(false);
+          } else {
+            checkboxCount++;
+            if(checkboxCount == MAX_CHECK_COUNT)
+              disabledCheckbox();
+          }
+          
+          generateChartOptions(calcChecked());
+        })
+      }
+    }
+    function calcChecked() {
+      var label = document.getElementsByClassName('cs-nav-label');
+      var checked = new Array();
+      for(var i=0; i<label.length; i++) {
+        var checkbox = label[i].childNodes[1];
+
+        if(checkbox.checked == true)
+          checked.push(checkbox.value);
+        else
+          checked.push(undefined);
+      }
+
+      return checked;
+    }
+    function clearChart() {
+      arr = [];
+      generateChartOptions(arr);
+      
+      var label = document.getElementsByClassName('cs-nav-label');
+      for(var i=0; i<label.length; i++) {
+        var checkbox = label[i].childNodes[1];
+        checkbox.checked = false;
+        checkboxCount = 0;
+      }
+    }
+    function modifySensorName(name) {
+      var modifyName;
+      if(name.match('PM')) {
+        switch(name) {
+          case 'PM10Pval':
+            modifyName = "PM 10";
+            break;
+          case 'PM2P5val':
+            modifyName = "PM 2.5";
+            break;
+          case 'PM1P0val':
+            modifyName = "PM 1.0";
+            break;
+          case 'PM0P5val':
+            modifyName = "PM 0.5";
+            break;
+          case 'PM0P3val':
+            modifyName = "PM 0.3";
+            break;
+          case "TEMP":
+            modifyName = "Temperature";
+            break;
+          case "HUMID":
+            modifyName = "Humidity";
+            break;
+        }
+      } else {
+        modifyName = name.split('val')[0];
+
+        if(modifyName == "TEMP") modifyName = "Temperature";
+        if(modifyName == "HUMID") modifyName = "Humidity";
+      }
+      return modifyName;
+    }
+    function generateChartOptions(arr) {
+      var requestData = new Array();
+    
+      for(var i=0; i<arr.length; i++) {
+        if(arr[i] != undefined)
+          requestData.push(arr[i]);
+      }
+      var label = getLabelForTrend();
+      if(requestData.length == 0) {
+        var data = {
+          labels: label.hourList,
+          datasets: []
+        }
+        updateChartMultiLine(multiLineChart, data);
+      } else {
+        var date = document.getElementsByClassName('date');
+        getSensorDataBetweenDate(
+          deviceID,
+          new Date(datepicker.getStartDate()).format("yyyy-MM-dd 00:00:00"), 
+          new Date(datepicker.getEndDate()).format("yyyy-MM-dd 23:59:59"), 
+          date_tick, 
+          requestData, 
+          function(res) {
+            var datasets = new Array();
+            var labels = new Array();
+
+            for(var i=0; i<res.length; i++) {
+              datasets.push({
+                label: modifySensorName(res.sensor[i].sensorName),
+                fill: false,
+                backgroundColor: "white",
+                borderColor: getColor(i),
+                data: res.sensor[i].value,
+                yAxisID: i
+              })
+            }
+            for(var i=0; i<res.date.length; i++) {
+              switch(date_tick) {
+                case "hour":
+                  labels.push(new Date(res.date[i]).format("MM-dd HH:00"));
+                  break;
+                case "day":
+                  labels.push(new Date(res.date[i]).format("MM-dd"));
+                  break;
+                case "month":
+                  labels.push(new Date(res.date[i]).format("yyyy-MM"));
+                  break;
+              }
+              
+            }
+            var data = {
+              labels: labels, // x축 
+              datasets: datasets
+            }
+            multiLineChart_data = data;
+            updateChartMultiLine(multiLineChart, data);
+          }
+        );
+      }
+    }
+    function restoreMultilineChart() {
+      multiLineChart.data = multiLineChart_data;
+      multiLineChart.update();
+    }
+  })
+  </script>
+
+  
+<section class="lightpick lightpick--1-columns is-hidden"><div class="lightpick__inner"><div class="lightpick__months"></div><div class="lightpick__tooltip" style="visibility: hidden"></div></div></section></body></html>

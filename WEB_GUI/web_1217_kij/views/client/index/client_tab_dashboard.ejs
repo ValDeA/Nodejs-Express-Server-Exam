@@ -1,0 +1,226 @@
+<div class="tab-pane fade active show" id="tab-dashboard" role="tabpanel">
+  <div class="row">
+
+    <div class="col-xs-6 col-sm-12 col-lg-12 col-xl-12 col-xxl-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              스테이션 공기질 인덱스
+            </div>
+            <div class="card-body d-flex">
+              <canvas id="chart_cai"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              공기질 인덱스
+            </div>
+            <div class="card-body">
+              <canvas id="chart_aqi"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="card" style="height: 300px;">
+            <div class="card-header">
+              PM 2.5 Trend
+            </div>
+            <div class="card-body">
+              <canvas id="chart_trend"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-xl-12 col-xxl-6">
+      <div class="sensor_list_flex">
+
+        <div id="temp" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">Temperature</div>
+            <div class="card-header-text-right">℃</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="TEMPval">25.2</h1>
+          </div>
+        </div>
+        <div id="hum" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">Humidity</div>
+            <div class="card-header-text-right">%RH</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="HUMIDval">47.1</h1>
+          </div>
+        </div>
+
+        <div id="pm10" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">PM 10</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM10Pval">37.2</h1>
+          </div>
+        </div>
+
+        <div id="pm25" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">PM 2.5</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM2P5val">16.58</h1>
+          </div>
+        </div>
+
+        <div id="pm1" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">PM 1.0</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM1P0val">38.7</h1>
+          </div>
+        </div>
+
+        <div id="pm05" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">PM 0.5</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM0P5val">10.6</h1>
+          </div>
+        </div>
+
+        <div id="pm03" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">PM 0.3</div>
+            <div class="card-header-text-right">ug/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="PM0P3val">8.24</h1>
+          </div>
+        </div>
+
+        <div id="tvoc" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">TVOC</div>
+            <div class="card-header-text-right">℃</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="TVOCval">0.62</h1>
+          </div>
+        </div>
+
+        <div id="co" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">CO</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="COval">0.2</h1>
+          </div>
+        </div>
+
+        <div id="co2" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">CO<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CO2val">1239.48</h1>
+          </div>
+        </div>
+
+        <div id="o3" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">O<sub>3</sub></div>
+            <div class="card-header-text-right">mg/m<sup>3</sup></div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="O3val">0.012</h1>
+          </div>
+        </div>
+
+        <div id="h2" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">H<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="H2val">0</h1>
+          </div>
+        </div>
+
+        <div id="ch4" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">CH<sub>4</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CH4val">0</h1>
+          </div>
+        </div>
+
+        <div id="nh3" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">NH<sub>3</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="NH3val">11.09</h1>
+          </div>
+        </div>
+
+        <div id="ch2o" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">CH<sub>2</sub>O</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="CH2Oval">45.82</h1>
+          </div>
+        </div>
+
+        <div id="c3h8" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">C<sub>3</sub>H<sub>8</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="C3H8val">0</h1>
+          </div>
+        </div>
+
+        <div id="h2s" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">H<sub>2</sub>S</div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="H2Sval">0</h1>
+          </div>
+        </div>
+
+        <div id="no2" class="card pointer list-layout" hidden>
+          <div class="card-header">
+            <div class="card-header-text-left">NO<sub>2</sub></div>
+            <div class="card-header-text-right">ppm</div>
+          </div>
+          <div class="card-body text-right">
+            <h1 id="NO2val">1.2</h1>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>

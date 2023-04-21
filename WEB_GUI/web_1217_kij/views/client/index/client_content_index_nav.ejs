@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card" style="height: 120px;">
+
+        <div class="card-body">
+          <div class="me-2">
+            <div class="card-text">스테이션</div>
+            <label for="">
+              <select name="" id="showDevice">
+              </select>
+
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-7">
+
+      <div class="card card-connect" style="height: 120px;">
+        <div class="card-body cnt-list ">
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-1">
+            <div class="me-2">
+              <div class="card-text">연결됨</div>
+              <div id="state_connect" class="display-6 font-weight-bold">0</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/connect.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-2">
+            <div class="me-2">
+              <div class="card-text">연결안됨</div>
+              <div id="state_disconnect" class="display-6 font-weight-bold">0</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/disconnect.png" alt="">
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mb-2 cnt-list-3">
+            <div class="me-2">
+              <div class="card-text">총 장치 개수</div>
+              <div id="state_total" class="display-6 font-weight-bold">0</div>
+            </div>
+            <div class=" ">
+              <img src="img/elements/totalconnect.png" alt="">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="col-sm-2 cs-tab nav-tablist" role="tablist">
+      <div class="card card_mpas_btn">
+
+        <div id="toggleTab" class="card-text maps_btn" data-toggle="tab" href="#tab-map">
+          <p style="margin-bottom: 0;">지도보기</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1019 @@
+<%-include('../../common/common_script')%>
+<% if(idx === 00) { %>
+  <% if(screen === "main") { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const SHOW_NOTICE_INDEX = 10;
+
+    const category = getUrlParams().category;
+    const page = getUrlParams().page;
+    let str_category = null;
+
+    var nav = document.getElementsByClassName('nav-link');
+    switch(category) {
+      case "all":
+        str_category = "전체";
+        nav[1].setAttribute('class', 'nav-link active');
+        break;
+      case "gen":
+        str_category = "일반";
+        nav[2].setAttribute('class', 'nav-link active');
+        break;
+      case "sys":
+        str_category = "시스템";
+        nav[3].setAttribute('class', 'nav-link active');
+        break;
+      case "faq":
+        str_category = "FAQ";
+        nav[4].setAttribute('class', 'nav-link active');
+        break;
+    }
+
+    var request = {
+      count: ""
+    }
+    xhrConnect(POST, GET_NOTICE, request, function(res) {
+      var ol = document.getElementById('notice_index');
+      var notice = new Array();
+      
+      if(category != "all") {
+        for(var i=0; i<res.length; i++) {
+          if(str_category == res.notice[i].notice_category) {
+            notice.push(res.notice[i]);
+          }
+        }
+      } else {
+        notice = res.notice;
+      }
+
+      // 인덱스 계산
+      var quotient = Math.ceil(notice.length / SHOW_NOTICE_INDEX);
+
+      // 인덱스 초기화
+      while ( ol.hasChildNodes() ) { ol.removeChild( ol.firstChild ); }
+      // 인덱스 생성
+      for(var i=0; i<quotient; i++) {
+        createNoticeIndex(category, i+1);
+      }
+
+      if(notice.length < page * SHOW_NOTICE_INDEX) {
+        for(var i=(page-1) * SHOW_NOTICE_INDEX; i<notice.length; i++) {
+          generateNoticeTable(
+            'container', 
+            notice[i].notice_id,
+            notice[i].notice_category,
+            notice[i].notice_title,
+            i,
+            notice[i].notice_date,
+            str_category
+          );
+        }
+      } else {
+        for(var i=(page-1) * SHOW_NOTICE_INDEX; i<page * SHOW_NOTICE_INDEX; i++) {
+          generateNoticeTable(
+            'container', 
+            notice[i].notice_id,
+            notice[i].notice_category,
+            notice[i].notice_title,
+            i,
+            notice[i].notice_date,
+            str_category
+          );
+        }
+      }
+
+    });
+
+    function createNoticeIndex(p_category, index) {
+      var container = document.getElementById('notice_index');
+      var li = document.createElement('li');
+      if(index == page) {
+        li.setAttribute('class', 'breadcrumb-item active');
+        li.innerText = index;
+      } else {
+        li.setAttribute('class', 'breadcrumb-item');
+
+        var a = document.createElement('a');
+        a.setAttribute('href', '/notice?category=' + p_category + '&page=' + index);
+        a.innerText = index;
+        li.append(a);
+      }
+      container.append(li);
+    }
+    function generateNoticeTable(target, id, p_category, title, viewCount, date, filter) {
+      if(filter != "전체" && filter != p_category) return;
+      var table = document.getElementById(target);
+
+      id += "";
+      id = id.padStart(8, '0');
+
+      var tr = '<tr>';
+      var tr_close = '</tr>';
+      var td = '<td>';
+      var td_close = '</td>';
+      var a = "<a href='notice?screen=read&notice_id=" + id + "'>";
+      var a_close = "</a>";
+
+      var table_content = tr;
+      table_content += td + id + td_close;
+      table_content += td + p_category + td_close;
+      table_content += td + a + title + a_close + td_close;
+      table_content += td + "Envinode" + td_close;
+      table_content += td + viewCount + td_close;
+      table_content += td + date + td_close;
+      table_content += tr_close;
+
+      table.innerHTML += table_content;
+    }
+  })
+</script>
+  <% } else if(screen == "read") { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementsByClassName('btn')[0].addEventListener('click', function() {
+      window.history.back();
+    })
+  })
+</script>
+  <% } %>
+<% } %>
+<% if(idx == 10) { %>
+<!-- 카카오 지도 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=66f99b3d16c84463f8614fb87c41e011&libraries=clusterer"></script>
+<!-- 메인 화면 -->
+<script> 
+  document.addEventListener("DOMContentLoaded", function() {
+    const INTERVAL_TIME = 1000 * 10;
+    const CHART_NAME_CAI = ["CAI"];
+    const CHART_NAME_AQI_S = ["PM 2.5"];
+    const CHART_NAME_AQI_S_PLUS = ["PM 10", "PM 2.5", "PM 1.0"];
+
+    let sensor_equipment = new Array();
+    let sensor_valid = new Array();
+
+    // 차트 변수 선언
+    let chart_cai = undefined;
+    let chart_aqi = undefined;
+    let chart_trend = undefined;
+    // 인터벌 핸들러 선언
+    let interval_Request_SensorData = undefined;
+    // 초기 디바이스 변수 선언
+    let device_id = undefined, device_type = undefined;
+    // 지도 관련 변수
+    let map = null;
+    let mouseOverlay = new Array();
+
+    // 임시 세션 저장
+    // 세션 저장소 초기화
+    var request = {
+      user_id: document.getElementById('user_id').innerText
+    }
+    xhrConnect(POST, USER_INFO, request, function(res) {
+      res.user[0].user_id = document.getElementById('user_id').innerText;
+      sessionStorage.setItem('userInfo', JSON.stringify(res));
+
+      var request = {
+        device_id: "",
+        user_id: JSON.parse(sessionStorage.getItem('userInfo')).user[0].user_id
+      }
+      xhrConnect(POST, DEVICE_INFO, request, function(res) {
+        sessionStorage.setItem("deviceInfo", JSON.stringify(res));
+
+        let user = JSON.parse(sessionStorage.getItem('userInfo')).user;
+        let device = JSON.parse(sessionStorage.getItem('deviceInfo')).device;
+        init(user, device);
+      });
+    });
+
+
+    function createChart(device_id) {
+      chart_cai = createVirusChart('chart_cai');
+      chart_aqi = createAQIChart('chart_aqi', device_id);
+    }
+    function init(user, device) {
+      // 대시보드 초기화
+      //document.getElementById('showDevice').innerHTML = device[0].device_name;
+      // 초기 디바이스 선택
+      device_id = device[0].device_id;
+      device_type = getDeviceType(device_id);
+
+      // 탭 이벤트 추가
+      document.getElementById('toggleTab').addEventListener('click', function() {
+        this.toggleAttribute('tab');
+        this.classList.remove('active');
+        var p = this.lastElementChild;
+
+        if(this.getAttribute('href') == "#tab-map") {
+          this.setAttribute('href', "#tab-dashboard");
+          p.innerText = "정보보기";
+        } else {
+          this.setAttribute('href', "#tab-map");
+          p.innerText = "지도보기";
+        }
+      });
+
+      // 차트 생성
+      createChart(device[0].device_id);
+      // 센서 클릭 이벤트
+      var sensor_list = document.getElementsByClassName('card pointer list-layout');
+      for(var i=0; i<sensor_list.length; i++) {
+        sensor_list[i].addEventListener('click', function() {
+          changeTrendChart(this.getAttribute('id'));
+        });
+      }
+
+      // 지도 초기화
+      initMap(device);
+      
+      // 드롭다운 메뉴 생성 (디바이스 리스트)
+      //createDropdown('main_nav_dropdown', addMainNavEvent);
+      var dropdown = document.getElementById('showDevice');
+      var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+      
+      for(var i=0; i<r.length; i++) {
+        var option = document.createElement("option");
+        option.setAttribute("value", r.device[i].device_name);
+        option.innerText = r.device[i].device_name;
+        dropdown.append(option);
+      }
+
+      dropdown.addEventListener('change', function() {
+        var i = r.device.findIndex((v, i, a) => v.device_name === this.value);
+        device_id = r.device[i].device_id;
+        device_type = getDeviceType(device_id);
+
+        //this.setAttribute('selected', i);
+        addMainNavEvent(r.device, i);
+      });
+      addMainNavEvent(device, 0);
+      //document.getElementsByClassName('dropdown-nav')[0].classList.add('active');
+
+      // 디바이스 연결 상태 초기화
+      getDevicesConnecState();
+    }
+    function changeTrendChart(target) {
+      var t_dom = document.getElementById(target);
+      var chart = document.getElementById('chart_trend');
+      chart.parentNode.parentNode.childNodes[1].innerHTML = modifyName(t_dom.childNodes[1].childNodes[1].innerHTML);
+      var select = t_dom.childNodes[3].childNodes[1].getAttribute('id');
+
+      var line_label = getLabelForTrend();
+      getSensorDataBetweenDate(
+        device_id,
+        line_label.start,
+        line_label.end,
+        "hour",
+        [select],
+        function(res) {
+          var data = new Array();
+
+          for(var i=0; i<line_label.hourList.length; i++) {
+            var filter = res.date.find((v, idx, a) => v.match(line_label.hourList[i]));
+
+            if(filter == undefined) {
+              res.sensor[0].value.splice(i, 0, 0);
+            }
+            data.push(res.sensor[0].value[i]);
+          }
+
+          if(chart_trend != undefined) chart_trend.destroy();
+          chart_trend = getChart_Line('chart_trend', line_label.hourList, data);
+        }
+      );
+    }
+    function modifyName(name) {
+      return name + " Trend";
+    }
+    function getDevicesConnecState() {
+      var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+      var state_connect = 0, state_disconnect = 0;
+      for(var i=0; i<r.length; i++) {
+        if(r.device[i].device_connect_state == 0) {
+          state_connect++;
+        } else if(r.device[i].device_connect_state == 2) {
+          state_disconnect++;
+        }
+      }
+      document.getElementById('state_connect').innerText = state_connect;
+      document.getElementById('state_disconnect').innerText = state_disconnect;
+      document.getElementById('state_total').innerText = state_connect + state_disconnect;
+    }
+    function initMap(device) {
+      // 지도 생성
+      var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+      var mapOption = {
+        center: new kakao.maps.LatLng(
+          device[0].device_gps[0],
+          device[0].device_gps[1]
+        ), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+      };
+
+      // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+      map = new kakao.maps.Map(mapContainer, mapOption);
+
+      // 지도 컨트롤 생성
+      var mapTypeControl = new kakao.maps.MapTypeControl();
+      map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+
+      var zoomControl = new kakao.maps.ZoomControl();
+      map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+
+      // 지도 클릭 이벤트
+      kakao.maps.event.addListener(map, 'click', function() {
+        clearMouseOverlay();
+      });
+
+      // 오버레이 표시
+      for(var i=0; i<device.length; i++) {
+        // 마커
+        //var marker = createMarker(device[i].device_gps[0], device[i].device_gps[1]);
+        //marker.setMap(map);
+        //marker.setTitle(device[i].device_name);
+        
+        var markers = device.map(function(v, i, arr) {
+          var marker = createMarker(v.device_gps[0], v.device_gps[1]);
+          marker.setTitle(v.device_name);
+
+          // Marker Event 등록
+          kakao.maps.event.addListener(marker, 'click', function() {
+            var device_name = this.getTitle();
+            var r = JSON.parse(sessionStorage.getItem('deviceInfo'));
+            var i = r.device.findIndex((v, i, a) => v.device_name == device_name);
+            var mMarker = this;
+            var request = {
+              device_id: r.device[i].device_id
+            }
+            // 지도 중심 이동
+            setMapCenterPoint(r.device[i].device_gps);
+
+            var device_name = this.getTitle();
+            xhrConnect(POST, GET_SENSOR_DATA, request, function(res) {
+              mouseOverlay.push(createOverlay(mMarker.getPosition(), res.CAilvl, res.CAival, device_name));
+              
+              mouseOverlay[mouseOverlay.length - 1].setMap(map);
+            });
+          });
+          return marker;
+        });
+
+        // 마커 클러스터
+        var cluster = new kakao.maps.MarkerClusterer({
+          map: map,
+          averageCenter: true,
+          minLevel: 6
+        });
+        cluster.addMarkers(markers);
+      }
+    }
+    function clearMouseOverlay() {
+      mouseOverlay.forEach(function(v, i, arr) {
+        v.setMap(null);
+      });
+    }
+    function createOverlay(position, lvl, val, device_name, xAnchor = 0.5, yAnchor = 2) {
+      var level, level_char;
+      switch(lvl) {
+        case 0: level = "alert-primary"; level_char = "낮음"; break;
+        case 1: level = "alert-success"; level_char = "보통"; break;
+        case 2: level = "alert-warning"; level_char = "다소 높음"; break;
+        case 3: level = "alert-danger";  level_char = "매우 높음"; break;
+      }
+
+      var div_alert = document.createElement('div');
+      div_alert.setAttribute('class', 'alert ' + level + ' alert-dismissible pointer');
+      div_alert.setAttribute('role', 'alert');
+      div_alert.setAttribute('id', 'overlay');
+
+      
+      var div_message = document.createElement('div');
+      div_message.setAttribute('class', 'alert-message');
+      div_message.innerHTML = device_name + "의 바이러스 위험도 " +
+        "<strong>" + level_char + "</strong>" +
+        " (" + val + ")";
+      // 스타일 재정의
+      div_message.style.paddingRight = "0";
+      div_alert.append(div_message);
+
+      
+      var btn_close = document.createElement('button');
+      btn_close.setAttribute('type', 'button');
+      btn_close.setAttribute('class', 'btn-close');
+      btn_close.setAttribute('data-dismiss', 'alert');
+      btn_close.setAttribute('aria-label', 'Close');
+      // 스타일 재정의
+      btn_close.style.position = "relative";
+      div_alert.append(btn_close);
+
+      btn_close.addEventListener('click', function(e) {
+        // 버블링 방지
+        e.stopPropagation();
+      });
+
+      div_alert.addEventListener('click', function() {
+        var r = JSON.parse(sessionStorage.getItem('deviceInfo'));
+        var i = r.device.findIndex((v, i, a) => v.device_name == device_name);
+        document.getElementById('toggleTab').click();
+        addMainNavEvent(r.device, i);
+
+        /*
+        document.getElementById('main_nav_dropdown')
+          .getElementsByClassName('dropdown-item')[i]
+          .click();
+        */
+       document.getElementById('showDevice').childNodes[i+1].setAttribute('selected', 'selected');
+      });
+
+      return new kakao.maps.CustomOverlay({
+        position: position, // Point
+        content: div_alert,
+        xAnchor: xAnchor,
+        yAnchor: yAnchor,
+        clickable: true
+      });
+    }
+    function setMapCenterPoint(gps) {
+      var point = new kakao.maps.LatLng(gps[0], gps[1]);
+      // 부드럽게 이동
+      map.panTo(point);
+    }
+    function createMarker(lat, lng) {
+      return new kakao.maps.Marker({
+        position: new kakao.maps.LatLng(lat, lng)
+      });
+    }
+    function addMainNavEvent(r, i) {
+      var request = { device_id: r[i].device_id };
+      var device = r, idx = i;
+
+      // 센서 목록 최신화
+      xhrConnect(POST, GET_EQUIPMENT, request, function(res) {
+        // Interval 초기화
+        intervalGetSensorData(request);
+        // 지도 중심 이동
+        setMapCenterPoint(device[idx].device_gps);
+
+        var sensor_list = document.getElementsByClassName('card pointer list-layout');
+        sensor_equipment = new Array();
+        sensor_valid = new Array();
+
+        for(var i=0; i<sensor_list.length; i++) { sensor_list[i].hidden = true; }
+        for(var i=0; i<13; i++) {
+          if(res[i] == '1') {
+            classifySensor(i, sensor_list, device_type);
+          }
+        }
+        changeTrendChart("pm25");
+      });
+    }
+    function intervalGetSensorData(request) {
+      clearInterval(interval_Request_SensorData);
+      interval_Request_SensorData = setInterval(() => {
+        refreshSensorData(request);
+      }, INTERVAL_TIME);
+      refreshSensorData(request);
+    }
+    function updateChart_CAI(val, lvl) {
+      var color = getColorScale(val);
+      chart_cai.data.datasets[0].data = [val, 500 - val];
+      chart_cai.data.datasets[0].backgroundColor[0] = color;
+      chart_cai.options.elements.center.text = val;
+      chart_cai.options.elements.center.color = color;
+      chart_cai.update();
+    }
+    function updateChart_AQI(device_id, res) {
+      var device_type = getDeviceType(device_id);
+      var val, lvl;
+      if(device_type === DEVICE_TYPE_S || device_type === DEVICE_TYPE_MINI) {
+        val = res.PM2P5aqi;
+        lvl = [res.PM2P5lvl];
+      } else if(device_type === DEVICE_TYPE_S_PLUS || device_type === DEVICE_TYPE_PRO) {
+        val = [res.PM10Paqi, res.PM2P5aqi, res.PM1P0aqi];
+        lvl = [res.PM10Plvl, res.PM2P5lvl, res.PM1P0lvl];
+      }
+
+      if(device_type === DEVICE_TYPE_S || device_type === DEVICE_TYPE_MINI) {
+        var name = CHART_NAME_AQI_S;
+        var color = getColorScale(val);
+        chart_aqi.data.datasets[0].data = [val, 500 - val];
+        chart_aqi.data.datasets[0].backgroundColor[0] = color;
+        chart_aqi.options.elements.center.text = val;
+        chart_aqi.options.elements.center.color = color; 
+      } else if(device_type === DEVICE_TYPE_S_PLUS || device_type === DEVICE_TYPE_PRO) {
+        var name = CHART_NAME_AQI_S_PLUS;
+        var color = [
+          getColorScale(val[0]), 
+          getColorScale(val[1]), 
+          getColorScale(val[2])
+        ];
+        chart_aqi.data.datasets[0].data = val;
+        chart_aqi.data.datasets[0].backgroundColor = color;
+      }
+      chart_aqi.update();
+    }
+    function changeChart_AQI(target, device_id) {
+      var device_type = getDeviceType(device_id);
+      var chart_type;
+      if(device_type == DEVICE_TYPE_S || device_type == DEVICE_TYPE_MINI) chart_type = "doughnut";
+      else chart_type = "polarArea";
+
+      if(chart_aqi.config.type == chart_type) { return; }
+
+      chart_aqi.destroy();
+      chart_aqi = createAQIChart(target, device_id);
+    }
+    function refreshSensorData(request) {
+      xhrConnect(POST, GET_SENSOR_DATA, request, function(res) {
+        // CAI 차트 업데이트
+        updateChart_CAI(res.CAival, res.CAilvl);
+        // AQI 차트 업데이트
+        changeChart_AQI('chart_aqi', request.device_id);
+        updateChart_AQI(request.device_id, res);
+
+        // 센서 개별 항목 업데이트
+        setData(sensor_equipment, res);
+      });
+    }
+    function setData(equip, data) {
+      for(var i=0; i<equip.length; i++) {
+        var sensor_data;
+        if(data[sensor_valid[i]] === '0' /* '0' */) sensor_data = "InValid";
+        else sensor_data = data[equip[i]];
+
+        sensor_data *= 1;
+        sensor_data = sensor_data.toFixed(2);
+        document.getElementById(equip[i]).innerText = sensor_data;
+      }
+    }
+    function classifySensor(index, div, device_type) {
+      switch(index) {
+        case 0:
+          sensor_valid.push("ValidPM");
+          if(device_type === DEVICE_TYPE_S_PLUS
+           || device_type === DEVICE_TYPE_PRO) {
+
+            sensor_equipment.push("PM10Pval");
+            sensor_equipment.push("PM2P5val");
+            sensor_equipment.push("PM1P0val");
+            sensor_equipment.push("PM0P5val");
+            sensor_equipment.push("PM0P3val");
+            div[2].hidden = false;
+            div[3].hidden = false;
+            div[4].hidden = false;
+            div[5].hidden = false;
+            div[6].hidden = false;
+          } else {
+            sensor_equipment.push("PM2P5val");
+            div[3].hidden = false;
+          }
+          return;
+        case 1:
+          div[0].hidden = false;
+          div[1].hidden = false;
+          sensor_valid.push("ValidTH");
+          sensor_equipment.push("TEMPval");
+          sensor_equipment.push("HUMIDval");
+          return;
+        case 2:
+          div[8].hidden = false;
+          sensor_valid.push("ValidCO");
+          sensor_equipment.push("COval");
+          return;
+        case 3:
+          div[9].hidden = false;
+          sensor_valid.push("ValidCO2");
+          sensor_equipment.push("CO2val");
+          return;
+        case 4:
+        div[10].hidden = false;
+          sensor_valid.push("ValidO3");
+          sensor_equipment.push("O3val");
+          return;
+        case 5:
+          div[7].hidden = false;
+          sensor_valid.push("ValidTVOC");
+          sensor_equipment.push("TVOCval");
+          return;
+        case 6:
+          div[14].hidden = false;
+          sensor_valid.push("ValidCH2O");
+          sensor_equipment.push("CH2Oval");
+          return;
+        case 7:
+          div[11].hidden = false;
+          sensor_valid.push("ValidH2");
+          sensor_equipment.push("H2val");
+          return;
+        case 8:
+          div[16].hidden = false;
+          sensor_valid.push("ValidH2S");
+          sensor_equipment.push("H2Sval");
+          return;
+        case 9:
+          div[13].hidden = false;
+          sensor_valid.push("ValidNH3");
+          sensor_equipment.push("NH3val");
+          return;
+        case 10:
+          div[12].hidden = false;
+          sensor_valid.push("ValidCH4");
+          sensor_equipment.push("CH4val");
+          return;
+        case 11:
+          div[15].hidden = false;
+          sensor_valid.push("ValidC3H8");
+          sensor_equipment.push("C3H8val");
+          return;
+        case 12:
+          div[17].hidden = false;
+          sensor_valid.push("ValidNO2");
+          sensor_equipment.push("NO2val");
+          return;
+      }
+    }
+})
+</script>
+<% } %>
+<% if(idx == 50) { %>
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+-->
+<script src="js/lightpick.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const MAX_CHECK_COUNT = 4;
+
+    // Device ID
+    let deviceID = null;
+    // Date Picker 생성
+    let datepicker = new Lightpick({
+      field: document.getElementById('datepicker'),
+      singleDate: false,
+      //numberOfMonths: 2,
+      maxDate: new Date(),
+      lang: 'ko',
+      format: "YYYY/MM/DD"
+    });
+
+    // MultiLine Chart 객체
+    var arr = new Array();
+    var multiLineChart_container = document.getElementById('chart-mm');
+    var multiLineChart_context = multiLineChart_container.getContext('2d');
+    var multiLineChart = getChart_MultiLine('chart-mm');
+    var checkboxCount = 0;
+    var date_tick = null;
+
+    let multiLineChart_data = multiLineChart.data;
+
+    // MultiLine Chart Overlay 설정
+    var overlay = document.getElementById('overlay');
+    var startIndex = 0;
+    overlay.width = multiLineChart_container.width;
+    overlay.height = multiLineChart_container.height;
+    var selectionContext = overlay.getContext('2d');
+    var selectionRect = {
+      w: 0,
+      startX: 0,
+      startY: 0
+    };
+    var drag = false;
+
+    multiLineChart_container.addEventListener('pointerdown', evt => {
+      const points = multiLineChart.getElementsAtEventForMode(evt, 'index', {
+        intersect: false
+      });
+      startIndex = points[0]._index;
+      const rect = multiLineChart_container.getBoundingClientRect();
+      selectionRect.startX = evt.clientX - rect.left;
+      selectionRect.startY = multiLineChart.chartArea.top;
+      drag = true;
+    });
+    multiLineChart_container.addEventListener('pointermove', evt => {
+
+    const rect = multiLineChart_container.getBoundingClientRect();
+    if (drag) {
+      const rect = multiLineChart_container.getBoundingClientRect();
+      selectionRect.w = (evt.clientX - rect.left) - selectionRect.startX;
+      selectionContext.globalAlpha = 0.5;
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+      selectionContext.fillRect(
+        selectionRect.startX,
+        selectionRect.startY,
+        selectionRect.w,
+        multiLineChart.chartArea.bottom - multiLineChart.chartArea.top
+      );
+    } else {
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+      var x = evt.clientX - rect.left;
+      if (x > multiLineChart.chartArea.left) {
+        selectionContext.fillRect(
+          x,
+          multiLineChart.chartArea.top,
+          1,
+          multiLineChart.chartArea.bottom - multiLineChart.chartArea.top
+        );
+      }
+    }
+    });
+    multiLineChart_container.addEventListener('pointerup', evt => {
+      const points = multiLineChart.getElementsAtEventForMode(evt, 'index', {
+        intersect: false
+      });
+      drag = false;
+      
+      var newChartData = {
+        labels: multiLineChart.data.labels.filter(function(v, i, a) {
+          var max = Math.max(startIndex, points[0]._index);
+          var min = Math.min(startIndex, points[0]._index);
+          return i >= min && i <= max;
+        }),
+        datasets: multiLineChart.data.datasets.map(function(v, i, a) {
+          return {
+            label: v.label,
+            data: v.data.filter(function(v, i, a) {
+              var max = Math.max(startIndex, points[0]._index);
+              var min = Math.min(startIndex, points[0]._index);
+              return i >= min && i <= max;
+            }),
+            fill: v.fill,
+            yAxisID: v.yAxisID,
+            borderColor: v.borderColor,
+            backgroundColor: v.backgroundColor
+          };
+        })
+      };
+      multiLineChart.data = newChartData;
+      multiLineChart.update();
+
+      multiLineChart_context.fillRect(25, 25, 100, 100);
+    });
+    multiLineChart_container.addEventListener('mouseout', evt => {
+      selectionContext.clearRect(0, 0, multiLineChart_container.width, multiLineChart_container.height);
+    });
+
+    init();
+
+    function init() {
+      // 드롭다운 Nav 생성
+      createDropdown('analytics_nav_dropdown', dropDownAddEvent_setCheckBox);
+      addClickEventCheckBox();
+
+      var dropdown_date = document.getElementsByClassName('dropdown-date');
+      for(var i=0; i<dropdown_date.length; i++) {
+        dropdown_date[i].addEventListener('click', function() {
+          if(date_tick == this.getAttribute('tick')) return;
+          date_tick = this.getAttribute('tick');
+          document.getElementById('showDate').innerHTML = this.innerHTML;
+
+          var active = document.getElementsByClassName('dropdown-date active');
+          if(active[0] != undefined) {
+            active[0].classList.remove('active');
+          }
+          this.classList.add('active');
+
+          var label = document.getElementsByClassName('cs-nav-label');
+          for(var i=0; i<label.length; i++) {
+            label[i].checked = false;
+          }
+
+          clearChart();
+        });
+      }
+    }
+    function dropDownAddEvent_setCheckBox(r, i) {
+      var device_id = r[i].device_id;
+      var index = i
+      var req = {
+        device_id: device_id
+      };
+      deviceID = device_id;
+      console.log(deviceID);
+
+      xhrConnect(POST, GET_EQUIPMENT, req, function(result) {
+        // Device Checkbox 변경
+        sessionStorage.setItem("equipment", JSON.stringify(result));
+        visibleCheckBox(index);
+      });
+      clearChart();
+    }
+    function visibleCheckBox(index) {
+      var label = document.getElementsByClassName('cs-nav-label');
+      var binary = JSON.parse(sessionStorage.getItem("equipment"));
+      var cnt = 0;
+
+      for(var i=0; i<13; i++) {
+        if(i == 1) {
+          if(binary[i] == '1') {
+            label[cnt].hidden = false;
+            label[cnt+1].hidden = false;
+            label[cnt].childNodes[1].disabled = false;
+            label[cnt+1].childNodes[1].disabled = false;
+          } else {
+            label[cnt].hidden = true;
+            label[cnt+1].hidden = true;
+            label[cnt].childNodes[1].disabled = true;
+            label[cnt+1].childNodes[1].disabled = true;
+          }
+          cnt += 2;
+          continue;
+        }
+        if((binary[i] == '1') === true) {
+          if(i == 0) {
+            var r = JSON.parse(sessionStorage.getItem('deviceInfo'));
+            var type = getDeviceType(r.device[index].device_id);
+            label[1].hidden = false;
+            label[1].childNodes[1].disabled = false;
+            if(type === DEVICE_TYPE_S || type === DEVICE_TYPE_MINI) {
+              label[0].hidden = true;
+              label[2].hidden = true;
+              label[3].hidden = true;
+              label[4].hidden = true;   
+              label[0].childNodes[1].disabled = false;
+              label[2].childNodes[1].disabled = false;
+              label[3].childNodes[1].disabled = false;
+              label[4].childNodes[1].disabled = false;
+            }
+            if(type === DEVICE_TYPE_S_PLUS || type === DEVICE_TYPE_PRO) {
+              label[0].hidden = false;
+              label[2].hidden = false;
+              label[3].hidden = false;
+              label[4].hidden = false;
+              label[0].childNodes[1].disabled = false;
+              label[2].childNodes[1].disabled = false;
+              label[3].childNodes[1].disabled = false;
+              label[4].childNodes[1].disabled = false;
+            }
+            cnt = 5;
+          } else {
+            label[cnt].hidden = false;
+            label[cnt].childNodes[1].disabled = false;
+            cnt++;
+          }
+        } else {
+          label[cnt].hidden = true;
+          label[cnt].childNodes[1].disabled = true;
+          cnt++;
+        }
+      }
+    }
+    function disabledCheckbox(disable = true) {
+      var label = document.getElementsByClassName('cs-nav-label');
+      for(var idx=0; idx<label.length; idx++) {
+        var checkbox = label[idx].childNodes[1];
+        if(disable == true) {
+          if(checkbox.checked == false) {
+            checkbox.disabled = true;
+          } else {
+            checkbox.disabled = false;
+          }
+        } else {
+          checkbox.disabled = false;
+        }
+      }
+    }
+    function addClickEventCheckBox() {
+      var label = document.getElementsByClassName('cs-nav-label');
+      
+      for(var idx=0; idx<label.length; idx++) {
+        var checkbox = label[idx].childNodes[1];
+
+        checkbox.addEventListener('click', function() {
+          if(this.checked == false) {
+            checkboxCount--;
+            if(checkboxCount == MAX_CHECK_COUNT - 1)
+              disabledCheckbox(false);
+          } else {
+            checkboxCount++;
+            if(checkboxCount == MAX_CHECK_COUNT)
+              disabledCheckbox();
+          }
+          
+          generateChartOptions(calcChecked());
+        })
+      }
+    }
+    function calcChecked() {
+      var label = document.getElementsByClassName('cs-nav-label');
+      var checked = new Array();
+      for(var i=0; i<label.length; i++) {
+        var checkbox = label[i].childNodes[1];
+
+        if(checkbox.checked == true)
+          checked.push(checkbox.value);
+        else
+          checked.push(undefined);
+      }
+
+      return checked;
+    }
+    function clearChart() {
+      arr = [];
+      generateChartOptions(arr);
+      
+      var label = document.getElementsByClassName('cs-nav-label');
+      for(var i=0; i<label.length; i++) {
+        var checkbox = label[i].childNodes[1];
+        checkbox.checked = false;
+        checkboxCount = 0;
+      }
+    }
+    function modifySensorName(name) {
+      var modifyName;
+      if(name.match('PM')) {
+        switch(name) {
+          case 'PM10Pval':
+            modifyName = "PM 10";
+            break;
+          case 'PM2P5val':
+            modifyName = "PM 2.5";
+            break;
+          case 'PM1P0val':
+            modifyName = "PM 1.0";
+            break;
+          case 'PM0P5val':
+            modifyName = "PM 0.5";
+            break;
+          case 'PM0P3val':
+            modifyName = "PM 0.3";
+            break;
+          case "TEMP":
+            modifyName = "Temperature";
+            break;
+          case "HUMID":
+            modifyName = "Humidity";
+            break;
+        }
+      } else {
+        modifyName = name.split('val')[0];
+
+        if(modifyName == "TEMP") modifyName = "Temperature";
+        if(modifyName == "HUMID") modifyName = "Humidity";
+      }
+      return modifyName;
+    }
+    function generateChartOptions(arr) {
+      var requestData = new Array();
+    
+      for(var i=0; i<arr.length; i++) {
+        if(arr[i] != undefined)
+          requestData.push(arr[i]);
+      }
+      var label = getLabelForTrend();
+      if(requestData.length == 0) {
+        var data = {
+          labels: label.hourList,
+          datasets: []
+        }
+        updateChartMultiLine(multiLineChart, data);
+      } else {
+        var date = document.getElementsByClassName('date');
+        getSensorDataBetweenDate(
+          deviceID, 
+          new Date(datepicker.getStartDate()).format("yyyy-MM-dd 00:00:00"), 
+          new Date(datepicker.getEndDate()).format("yyyy-MM-dd 23:59:59"), 
+          date_tick, 
+          requestData, 
+          function(res) {
+            var datasets = new Array();
+            var labels = new Array();
+
+            for(var i=0; i<res.length; i++) {
+              datasets.push({
+                label: modifySensorName(res.sensor[i].sensorName),
+                fill: false,
+                backgroundColor: "white",
+                borderColor: getColor(i),
+                data: res.sensor[i].value,
+                yAxisID: i
+              })
+            }
+            for(var i=0; i<res.date.length; i++) {
+              switch(date_tick) {
+                case "hour":
+                  labels.push(new Date(res.date[i]).format("MM-dd HH:00"));
+                  break;
+                case "day":
+                  labels.push(new Date(res.date[i]).format("MM-dd"));
+                  break;
+                case "month":
+                  labels.push(new Date(res.date[i]).format("MM"));
+                  break;
+              }
+            }
+            var data = {
+              labels: labels, // x축 
+              datasets: datasets
+            }
+            multiLineChart_data = data;
+            updateChartMultiLine(multiLineChart, data);
+          }
+        );
+      }
+    }
+    function restoreMultilineChart() {
+      multiLineChart.data = multiLineChart_data;
+      multiLineChart.update();
+    }
+  })
+  </script>
+<% } %>

@@ -1,0 +1,67 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+  <meta name="author" content="AdminKit">
+  <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+  <link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+  <title>AS-CLOUD</title>
+
+  <link href="css/app.css" rel="stylesheet">
+  <link href="css/app_add.css" rel="stylesheet">
+  <link href="css/sign_page.css" rel="stylesheet" >
+
+</head>
+
+<body style="overflow: hidden;">
+  <div class="wrapper"  style="height: 100%;">
+   <div class="container-fluid sign-container">
+    <div class="row" style="height: 100%;">
+        <div class="col-6 mh-100 sign_page_l"></div>
+        <div class="col-6 sign_page_r">
+            <div class="col-6 sign_container text-center center-block">
+                <p class="p_title">아이디와 비밀번호를 입력하세요</p>
+                        <form action="/login" method="POST" class="sign_form">
+                        <div class="mb-3">
+                          <input id="input_id" class="form-control form-control-lg form_layout" type="text" name="user_id" placeholder="아이디">
+                        </div>
+                        <div class="mb-3">
+                          <input class="form-control form-control-lg form_layout" type="password" name="password" placeholder="비밀번호">
+                        </div>
+                        <p class="error_log">아이디 비밀번호를 다시 확인해주세요</p>
+                        <div class="text-center mt-3">
+                          <!-- <input type="submit" class="btn btn-lg btn-primary cs-btn-fill" value="Sign in" /> -->
+                          <input id="btn_submit" type="button" class="btn btn-lg btn-primary cs-btn-fill submit_btn" value="로그인">
+
+                          <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb cs-nav-center">
+                              <li class="breadcrumb-item">
+                                <a href="/register">
+                                  회원가입
+                                </a>
+                              </li>
+                              <li class="breadcrumb-item">
+                                <a href="/forget">
+                                  비밀번호 찾기
+                                </a>
+                              </li>
+                            </ol>
+                          </nav>
+    
+                        </div>
+                      </form>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+
+
+
+</body></html>

@@ -1,0 +1,127 @@
+/*--------------
+    로그인페이지
+---------------*/
+body {
+    background: white !important;
+}
+.sign_container {
+    height: 100%;
+}
+
+.sign_page_l {
+    background: url(../img/sign_bg2.jpg);
+    background-repeat: no-repeat;
+}
+
+.sign_page_r {
+    height: 100%;
+    background: white;
+    
+    
+}
+.sign_container_wrapper {
+    
+}
+
+.sign_container {
+    padding-top: 240px;
+    height: auto;
+}
+
+
+.sign_container {
+    margin: 0 auto;
+}
+
+
+
+.p_title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.sign_form {
+    margin-top: 52px; 
+}
+
+
+.form_layout {
+    color: #acacac;
+    font-size: 20px;
+    height: 78px;
+    border-radius: 10px;
+    border: 1px solid #d8d8d8;
+}
+
+.form_layout::placeholder {
+    color: #acacac;
+    font-size: 20px;
+}
+.form_layout:focus {
+}
+
+.error_log {
+    margin: 24px 0;
+    color: #FF6D6D;
+    font-size: 16px;
+}
+
+.submit_btn {
+    height: 78px;
+    background: #415BEC;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-size: 20px;
+    transition: 0.7s ease;
+}
+
+.breadcrumb-item > a {
+    color: #415BEC;
+}
+
+
+
+
+/*---------------------
+    회원가입 페이지
+-----------------------*/
+
+.signup_title {
+    border-bottom: 1px solid black;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+.signup_category {
+    line-height: 40px;
+    font-size: 16px;
+}
+
+.check_btn {
+    width: 100%;
+    height: 40px;
+    background: white;
+    border: 1px solid #d8d8d8;
+}
+
+.form_layout2 {
+    height: 40px;
+}
+
+.signup_user_btn {
+    height: 100px;
+    width: 100%;
+    background: white;
+    border: 1px solid #d8d8d8;
+    border-radius: 15px;
+}
+
+.submit_btn2 {
+    height: 78px;
+    background: #415BEC;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    font-size: 20px;
+    transition: 0.7s ease;
+}

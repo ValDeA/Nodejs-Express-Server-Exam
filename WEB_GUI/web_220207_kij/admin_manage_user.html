@@ -1,0 +1,479 @@
+<html><head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+<meta name="author" content="AdminKit">
+<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+<title>AS Cloud - Admin</title>
+
+<!-- DOM CSS -->
+<link href="css/app.css" rel="stylesheet">
+<link href="css/app_add.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<!-- <link rel="stylesheet" href="/DataTables/datatables.css"> -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<!--김익재 추가-->
+<link rel="stylesheet" href="css/kij.css">
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.foundation.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.foundation.min.css">
+-->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+    <a class="sidebar-brand" href="/admin">
+      <span class="align-middle">AS-Admin</span>
+    </a>
+
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell align-middle"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+
+        <li class="sidebar-item active">
+
+        <a class="sidebar-link" href="/admin_manage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package align-middle"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <span class="align-middle">
+            관리
+          </span>
+        </a>
+      </li>
+
+      <!--
+        <li class="sidebar-item">
+        <a href="#notice" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">알림</span>
+        </a>
+        <ul id="notice" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=notice">공지사항</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=message">메시지</a></li>
+        </ul>
+      </li>
+      
+      <li class="sidebar-item">
+        <a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+        </a>
+        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+        </ul>
+      </li>
+    -->
+
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail align-middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/admin_statistics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database align-middle"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span class="align-middle">
+            데이터 로그
+          </span>
+        </a>
+      </li>
+
+    </ul>
+
+
+  </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 969px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+</nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav navbar-align">
+    
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+          <div id="container_message_indicator" class="position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <!--<span id="message_indicator" class="indicator">4</span>-->
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+          <div class="dropdown-menu-header">
+            <div id="message_dropdown_header" class="position-relative">No Messages</div>
+          </div>
+          <div id="message_dropdown_group" class="list-group">
+            <!--
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Vanessa Tucker</div>
+                  <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+                  <div class="text-muted small mt-1">15m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">William Harris</div>
+                  <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Christina Mason</div>
+                  <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+                  <div class="text-muted small mt-1">4h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Sharon Lessman</div>
+                  <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
+                  <div class="text-muted small mt-1">5h ago</div>
+                </div>
+              </div>
+            </a>
+            -->
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="./message" class="text-muted">메시지 더 보기</a>
+          </div>
+        </div>
+      </li>
+    
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </a>
+
+        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+          <img src="img/envinode_logo.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+          <span id="user_id" class="text-dark">
+            admin
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+        
+          <a class="dropdown-item" href="/logout">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+      
+        
+      
+        
+          <!-- User Infomation screen -->
+          <div class="row">
+  <div class="col-6" style="margin-bottom: 60px;">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">유저 정보</h5>
+    </div>
+    <div class="card flex-fill w-100" style="height: 216px; overflow: hidden;">
+      <div class="row row-info">
+        <div class="col-6">
+          <p class="info_type">ID</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="ENVINODE" value="ebt" disabled="">
+          </div>
+
+        </div>
+        <div class="col-6">
+          <p class="info_type">소속</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="개인" disabled="">
+          </div>
+
+        </div>
+      </div>
+      <div class="row row-info" style="border-bottom: 1px solid #eaeaea;">
+        <div class="col-6">
+          <p class="info_type">전화번호</p>
+          <div class="input_wrap">
+            <input class="info_input" type="text" placeholder="031-721-6375" disabled="">
+          </div>
+
+        </div>
+        <div class="col-6">
+          <p class="info_type">이메일</p>
+          <div class="input_wrap">
+            <input class="info_input" type="email" placeholder="sales@envinode.com" disabled="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">장치 연결 로그</h5>
+    </div>
+    <div class="card flex-fill w-100" style="height: 216px; overflow: auto;">
+      <table class="product_list">
+        <thead class="th-sticky">
+          <tr class="tr-h-44">
+            <th class="td-w-10p">인덱스</th>
+            <th class="td-w-30p">장치 ID</th>
+            <th class="td-w-30p">센서</th>
+            <th class="td-w-30p">기존 상태</th>
+            <th class="td-w-30p">변동 상태</th>
+            <th class="td-w-30p">변동 시각</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!--
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AAAA</td>
+            <td class="td-w-30p">BBBB</td>
+            <td class="td-w-30p">CCCC</td>
+            <td class="td-w-30p">DDDD</td>
+            <td class="td-w-30p">EEEE</td>
+          </tr>
+        -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="row" style="margin-bottom: 20px;">
+      <h5 class="card-title" style="font-size: 20px;">디바이스 목록</h5>
+    </div>
+    <div class="card flex-fill w-100" style="max-height: 400px; overflow: auto;">
+      <table class="product_list">
+        <thead class="th-sticky">
+          <tr class="tr-h-44">
+            <th class="td-w-10p">인덱스</th>
+            <th class="td-w-30p">S/N</th>
+            <th class="td-w-30p">장치타입</th>
+            <th class="td-w-30p">장치이름</th>
+            <th class="td-w-30p">연결정보</th>
+            <th class="td-w-30p">F/W정보</th>
+            <th class="td-w-30p">설치날짜</th>
+          </tr>
+        </thead>
+        <tbody id="listTable_container">
+          <!--
+          <tr class="tr-h">
+            <td class="td-w-10p">1</td>
+            <td class="td-w-30p">AS00100</td>
+            <td class="td-w-30p">S</td>
+            <td class="td-w-30p">안방</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+          <tr class="tr-h">
+            <td class="td-w-10p">2</td>
+            <td class="td-w-30p">AS00101</td>
+            <td class="td-w-30p">S+</td>
+            <td class="td-w-30p">거실</td>
+            <td class="td-w-30p">O</td>
+            <td class="td-w-30p">1.25</td>
+            <td class="td-w-30p">2021-06-25</td>
+          </tr>
+        -->
+        <tr class="tr-h"><td class="td-w-10p">1</td><td class="td-w-30p"><a href="./admin_manage?screen=device&amp;device_id=SIAQDEMO000002">SIAQDEMO000002</a></td><td class="td-w-30p">Bio-Sentinel 100</td><td class="td-w-30p">Enable-100</td><td class="td-w-30p">0</td><td class="td-w-30p">1.0.0</td><td class="td-w-30p">2022-01-01</td></tr><tr class="tr-h"><td class="td-w-10p">2</td><td class="td-w-30p"><a href="./admin_manage?screen=device&amp;device_id=SIAQDEMO000001">SIAQDEMO000001</a></td><td class="td-w-30p">Bio-Sentinel 100</td><td class="td-w-30p">bio-sentinel-100</td><td class="td-w-30p">1</td><td class="td-w-30p">1.0.0</td><td class="td-w-30p">2022-01-02</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+        
+      
+        
+      </div>
+    </div>
+    <!-- Bootstrap -->
+<script src="js/app.js"></script>
+
+  
+
+  
+</body></html>

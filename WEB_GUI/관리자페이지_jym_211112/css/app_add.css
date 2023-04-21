@@ -1,0 +1,245 @@
+h1 {
+  margin: 0;
+  padding-right: 2rem;
+}
+h2 {
+  margin-top: .5rem;
+}
+
+hr {
+  margin: .5rem;
+}
+
+/* 사이드 바 */
+.sidebar {
+  min-width: 300px;
+  max-width: 300px;
+}
+.sidebar.collapsed {
+  margin-left: -300px;
+}
+@media (min-width:1px) and (max-width:991.98px) {
+  .sidebar {
+    margin-left: -300px;
+  }
+  .sidebar-.collapsed {
+    margin-left: 0;
+  }
+}
+.sidebar-cta-content {
+  margin: 0;
+  border-radius: 0;
+  background: #2b3947;
+  background-image: url('');
+  color:#e9ecef;
+}
+
+.content {
+  padding: 1.5rem 1.5rem 1rem;
+}
+
+.tab-content > .tab-pane:not(.active) { display: block; height: 0; overflow-y: hidden; }
+
+
+/* 본문 상단 (nav) */
+.nav-tablist {
+  justify-content: space-between;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.nav-link-gone {
+  display: none;
+}
+.pd-0 {
+  padding: 0;
+}
+.cs-nav-xs {
+  width: 15%;
+}
+.cs-nav-s {
+  width: 20%;
+}
+.cs-nav-ms {
+  width: 23.5%;
+}
+.cs-nav-m {
+  width: 25%;
+}
+.cs-nav-l {
+  width: 32%;
+}
+
+.cs-nav-label > input {
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+}
+.nav-item-state {
+  text-align: center;
+}
+.nav-item-count {
+  text-align: end;
+}
+
+.cs-mt-100 {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.cs-login-img {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  
+  background-image: url('../img/tempbackground.jpg');
+  background-repeat: repeat;
+}
+
+
+
+.alert {
+  margin-bottom: 0;
+}
+.alert-add {
+  /*border: 1px solid white;*/
+  border-radius: 5px 5px 0px 0px;
+}
+.alert-header {
+  padding: .2rem;
+}
+.alert-text {
+  margin-bottom: 0;
+  padding: .2rem;
+  /*border: 1px solid white;*/
+  border-radius: 0px 0px 5px 5px;
+  background-color: white;
+}
+.dropdown-pointer {
+  cursor: pointer;
+  padding: .3rem 0rem .3rem 0rem;
+}
+
+
+/* card 관련 */
+.card-header {
+  padding: 0.5rem 0.6125rem;
+}
+.card-body {
+  padding: 0.6125rem;
+}
+.card-header-text-left {
+  width: 70%;
+  float: left;
+  text-align: left;
+}
+.card-header-text-right {
+  width: 30%;
+  float: right;
+  text-align: right;
+}
+.card-body-text-left {
+  width: 40%;
+  float: left;
+  text-align: left;
+}
+.card-body-text-right {
+  width: 60%;
+  float: right;
+  text-align: right;
+}
+
+/* nav 관련 */
+.cs-nav-center {
+  justify-content: center;
+  background-color: transparent;
+}
+
+/* 버튼 관련 */
+.cs-btn-fill {
+  width: 100%;
+}
+.cs-img-fill {
+  width: 100%;
+  height: 100%;
+}
+
+/* 지도 관련 */
+.cs-map-container {
+  height: 500px;
+}
+
+
+.logo {
+  width: 80%;
+}
+.img-logo {
+  margin-left: 7.5rem;
+  width: 8rem;
+}
+.img-iaq {
+  width: 50%;
+  margin-left: 8rem;
+}
+
+/* 텍스트 관련 */
+.text-color-green {
+  color: green;
+}
+.text-color-yellow {
+  color: gold;
+}
+.text-color-red {
+  color: red;
+}
+ .text-size-18 {
+   font-size: 18px;
+ }
+ .text-size-24 {
+  font-size: 24px;
+}
+
+.cs-side-list-header {
+  margin-bottom: 0;
+}
+.cs-side-list-content {
+  height: 30vh;
+  margin-bottom: 1.5rem;
+  overflow: auto;
+  background: #2b3947;
+}
+
+ .icon-color-white {
+   stroke: white;
+ }
+
+.sensor-level {
+  padding: 0.4375rem;
+}
+.sensor-pd {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.level-r {
+  background-color: red;
+}
+.level-y {
+  background-color: yellow;
+}
+.level-g {
+  background-color: green;
+}
+.level-b {
+  background-color: blue;
+}
+
+.form-lg {
+  font-size: 1.2rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+.pointer:hover, .pointer:hover > .card-header, .pointer:hover > .card-body > h1 {
+  background-color: #55c;
+  color: white;
+}

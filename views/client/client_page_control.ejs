@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('./common/client_head')%>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%-include('./common/client_sidebar')%>
+      <div class="main">
+        <%-include('./common/client_nav_main')%>
+      
+        <form id="form" method="post" onsubmit="submitHandle(evt)">
+          <input type="email" name="ee">
+          <button type="submit" id="btn">submit</button>
+        </form>
+      </div>
+    </div>
+    <%-include('./common/client_scripts')%>
+    <script>
+      function submitHandle(evt) {
+        evt.preventDefault();
+      }
+      document.querySelector('#btn').addEventListener('click', function() {
+        document.querySelector('#form').submit();
+      });
+    </script>
+  </body>
+</html>

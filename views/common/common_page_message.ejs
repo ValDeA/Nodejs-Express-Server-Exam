@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% if(id == "admin") { %>
+      <%-include('../admin/common/admin_head')%>
+    <% } else { %>
+      <%-include('../client/common/client_head')%>
+    <% } %>
+  </head>
+  <body>
+    <div class="wrapper">
+      <% if(id == "admin") { %>
+        <%-include('../admin/common/admin_sidebar')%>
+      <% } else { %>
+        <%-include('../client/common/client_sidebar')%>
+      <% } %>
+      <div class="main">
+        <% if(id == "admin") { %>
+          <%-include('../admin/common/admin_nav_main')%>
+        <% } else { %>
+          <%-include('../client/common/client_nav_main')%>
+        <% } %>
+      
+        <div class="row">
+          <div class="col-xl-4">
+            <div class="card" style="height: 720px">
+        
+              <div class="card-header">
+                <ul class="nav cs-tab nav-pills card-header-pills pull-right" role="tablist">
+                  <li class="nav-item col-6 text-center">
+                    <a class="nav-link active" data-toggle="tab" href="#all">
+                      모든 메시지
+                    </a>
+                  </li>
+        
+                  <li class="nav-item col-6 text-center">
+                    <a class="nav-link" data-toggle="tab" href="#read">
+                      안읽은 메시지
+                    </a>
+                  </li>
+                </ul>
+              </div>
+        
+              <div class="card-body" style="overflow: auto;">
+                <div class="tab-content">
+                  <!-- 모든 메시지 시작 -->
+                  <ul class="nav nav-pills card-header-pills pull-right tab-pane fade active show" id="all" role="tabpanel">
+        
+                    <!--
+                    <li class="nav-item message_list">
+                      <div class="nav-link d-flex align-items-start" style="padding-top: 24px; padding-bottom: 24px;">
+                        <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2"
+                          alt="Vanessa Tucker">
+                        <div class="flex-grow-1">
+                          <small class="float-right text-navy lh-36">5m ago</small>
+                          <strong class="mr-3 lh-36">Vanessa Tucker</strong>
+                          안읽은내용내용내용
+                        </div>
+                      </div>
+                    </li>
+        
+                    <li class="nav-item message_list">
+                      <div class="nav-link d-flex align-items-start active" style="padding-top: 24px; padding-bottom: 24px;">
+                        <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2"
+                          alt="Vanessa Tucker">
+                        <div class="flex-grow-1">
+                          <small class="float-right text-navy lh-36">12m ago</small>
+                          <strong class="mr-3 lh-36">Vanessa Tucker</strong>
+                          내용내용내용
+                        </div>
+                      </div>
+                    </li>
+        
+                    <li class="nav-item message_list">
+                      <div class="nav-link d-flex align-items-start" style="padding-top: 24px; padding-bottom: 24px;">
+                        <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2"
+                          alt="Vanessa Tucker">
+                        <div class="flex-grow-1">
+                          <small class="float-right text-navy lh-36">12m ago</small>
+                          <strong class="mr-3 lh-36">Vanessa Tucker</strong>
+                          내용내용내용내용내용내용
+                        </div>
+                      </div>
+                    </li>
+        
+                    <li class="nav-item message_list">
+                      <div class="nav-link d-flex align-items-start" style="padding-top: 24px; padding-bottom: 24px;">
+                        <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2"
+                          alt="Vanessa Tucker">
+                        <div class="flex-grow-1">
+                          <small class="float-right text-navy lh-36">12m ago</small>
+                          <strong class="mr-3 lh-36">Vanessa Tucker</strong>
+                          내용내용내용내용내용내용
+                        </div>
+                      </div>
+                    </li>
+                  -->
+                  </ul>
+                  <!-- 모든 메시지 끝 -->
+                  <!-- 안읽은 메시지 시작 -->
+                  <ul class="nav nav-pills card-header-pills pull-right tab-pane fade" id="read" role="tabpanel">
+        
+                  </ul>
+                  <!-- 안읽은 메시지 끝 -->
+                </div>
+              </div>
+        
+            </div>
+          </div>
+        
+          <div class="col-xl-8">
+            <div class="card" style="height: 720px;">
+        
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-12 mb-4">
+
+                    <div class="d-flex align-items-start">
+
+                      <div class="tab-content flex-grow-1">
+                        <!-- 메시지 읽기 시작 -->
+                        <ul class="nav tab-pane fade active show" id="msg_head_read" role="tabpanel">
+
+                          <div class="d-flex float-left">
+                            <img src="img/avatars/avatar-5.jpg" width="36" height="36" class="rounded-circle mr-2" alt="Vanessa Tucker">
+                            <div class="flex-grow-1">
+                  
+                              <strong id="message_read_from">Vanessa Tucker</strong>
+                              <br>
+                              <small id="message_read_date" class="text-muted">
+                                2021-11-17 16:06:32
+                              </small><br>
+
+                            </div>
+                          </div>
+
+                          <ul class="nav cs-tab float-right nav-pills card-header-pills float-right mt-1 mr-1" role="tablist">
+                            <li class="nav-item text-center mr-2">
+                              <a id="write_head_new" class="btn btn-primary" data-toggle="tab" href="#msg_head_write">
+                                새 메시지
+                              </a>
+                            </li>
+                  
+                            <li class="nav-item text-center">
+                              <a id="write_head_reply" class="btn btn-primary" data-toggle="tab" href="#msg_head_write">
+                                회신
+                              </a>
+                            </li>
+    
+                            <li style="display: none;" class="nav-item text-center">
+                              <a id="read_body" class="btn btn-primary" data-toggle="tab" href="#msg_body_read">
+                              </a>
+                            </li>
+    
+                            <li style="display: none;" class="nav-item text-center">
+                              <a id="write_body" class="btn btn-primary" data-toggle="tab" href="#msg_body_write">
+                              </a>
+                            </li>
+                          </ul>
+
+                        </ul>
+                        <!-- 메시지 읽기 끝 -->
+                        <!-- 메시지 쓰기 시작 -->
+                        <ul class="nav tab-pane fade" id="msg_head_write" role="tabpanel">
+                          
+                          <div class="d-flex float-left">
+                            <img src="../../img/profile_init.png" width="36" height="36" class="rounded-circle mr-2" alt="profile">
+                            <div class="flex-grow-1">
+                  
+                              <div class="float-left mt-1 mb-2">
+                                <input type="email" class="form-control" id="message_write_from" placeholder="From User ID">
+                              </div>
+                            </div>
+                          </div>
+
+                          <ul class="nav cs-tab float-right nav-pills card-header-pills float-right mt-1 mr-1" role="tablist">
+                            <li class="nav-item text-center">
+                              <a id="read_head" class="btn btn-primary" data-toggle="tab" href="#msg_head_read">
+                                이전
+                              </a>
+                            </li>
+                          </ul>
+
+                        </ul>
+                        <!-- 메시지 쓰기 끝 -->
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                </div>
+        
+              </div>
+              <div id="message_content" class="card-body message-right-pd">
+                <div class="tab-content">
+                  <!-- 메시지 읽기 시작 -->
+                  <ul class="nav nav-pills tab-pane fade active show" id="msg_body_read" role="tabpanel">
+                    
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, odit. Dolor ipsa, provident eligendi
+                    incidunt voluptatibus cumque tempora dolorum iusto mollitia dolorem repellat laudantium quae quaerat
+                    repudiandae. Laborum quisquam, quas.rorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias
+                    dignissimos laudantium aspernatur rem sed, sunt voluptas consequuntur facilis corrupti ratione! Iusto nobis
+                    dolores ipsa excepturi, ullam voluptatibus recusandae pariatur facere. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Vero officiis dolorem sunt nulla, nisi explicabo magni commodi neque natus culpa. Iure dolore
+                    maiores ipsum debitis ducimus saepe, sunt reiciendis similique. Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quisquam atque quis ratione perferendis illo nam, dolore a nulla ducimus. Temporibus, aut amet
+                    molestiae aperiam ab ad vitae nisi voluptas. Qui similique ex perferendis nulla sunt reiciendis numquam, harum
+                    odit, praesentium facilis deleniti totam, tenetur ab neque illum alias adipisci rem minima iste aliquid ad in
+                    magnam nisi. Eveniet, consectetur! Fugit a, accusantium iusto.
+
+                  </ul>
+                  <!-- 메시지 읽기 끝 -->
+                  <!-- 메시지 쓰기 시작 -->
+                  <ul class="nav nav-pills tab-pane fade" id="msg_body_write" role="tabpanel">
+                    <textarea id="message_write_content" class="form-control" placeholder="Message..." style="height: 50vh; resize: none;"></textarea>
+                    <br />
+                    <button class="btn btn-primary float-right">보내기</button>
+                  </ul>
+                  <!-- 메시지 쓰기 끝 -->
+                </div>
+
+              </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById('read_head').addEventListener('click', function() {
+        this.classList.remove('active');
+        document.getElementById('read_body').click();
+      });
+      document.getElementById('write_head_new').addEventListener('click', function() {
+        document.getElementById('write_body').click();
+      });
+      document.getElementById('write_head_reply').addEventListener('click', function() {
+        document.getElementById('write_body').click();
+      });
+    </script>
+    <% if(id == "admin") { %>
+      <%-include('../admin/common/admin_scripts')%>
+    <% } else { %>
+      <%-include('../client/common/client_scripts')%>
+    <% } %>
+  </body>
+</html>

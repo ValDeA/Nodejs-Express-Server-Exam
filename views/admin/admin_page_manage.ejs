@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%-include('./common/admin_head')%>
+  </head>
+  <body>
+    <div class="wrapper">
+      <%-include('./common/admin_sidebar')%>
+      <div class="main">
+        <%-include('./common/admin_nav_main')%>
+      
+        <% if(screen === "main") { %>
+          <!-- Default Manage screen -->
+          <%-include('./manage/admin_content_manage_home')%>
+        <% } %>
+      
+        <% if(screen === "user") { %>
+          <!-- User Infomation screen -->
+          <%-include('./manage/admin_content_manage_user')%>
+        <% } %>
+      
+        <% if(screen === "device") { %>
+          <!-- Device Information screen -->
+          <%-include('./manage/admin_content_manage_device')%>
+        <% } %>
+      </div>
+    </div>
+    <%-include('./common/admin_scripts')%>
+  </body>
+</html>

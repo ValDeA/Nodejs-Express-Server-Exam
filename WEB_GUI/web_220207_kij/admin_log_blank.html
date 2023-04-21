@@ -1,0 +1,984 @@
+<html><head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+<meta name="author" content="AdminKit">
+<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+<title>AS Cloud - Admin</title>
+
+<!-- DOM CSS -->
+<link href="css/app.css" rel="stylesheet">
+<link href="css/app_add.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<!-- <link rel="stylesheet" href="/DataTables/datatables.css"> -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<!--김익재 추가-->
+<link rel="stylesheet" href="css/kij.css">
+
+<link rel="stylesheet" type="text/css" href="css/lightpick.css">
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.foundation.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.foundation.min.css">
+-->
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+    <a class="sidebar-brand" href="/admin">
+      <span class="align-middle">AS-Admin</span>
+    </a>
+
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/notice">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell align-middle"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/admin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+
+        <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/admin_manage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package align-middle"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <span class="align-middle">
+            관리
+          </span>
+        </a>
+      </li>
+
+      <!--
+        <li class="sidebar-item">
+        <a href="#notice" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">알림</span>
+        </a>
+        <ul id="notice" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=notice">공지사항</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=message">메시지</a></li>
+        </ul>
+      </li>
+      
+      <li class="sidebar-item">
+        <a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+        </a>
+        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+        </ul>
+      </li>
+    -->
+
+
+      <li class="sidebar-item">
+
+        <a class="sidebar-link" href="/message">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail align-middle"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+
+
+      <li class="sidebar-item active">
+
+        <a class="sidebar-link" href="/admin_statistics">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-database align-middle"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span class="align-middle">
+            데이터 로그
+          </span>
+        </a>
+      </li>
+
+    </ul>
+
+
+  </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 969px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+</nav>
+      <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+
+  <div class="navbar-collapse collapse">
+    <ul class="navbar-nav navbar-align">
+    
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+          <div id="container_message_indicator" class="position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <!--<span id="message_indicator" class="indicator">4</span>-->
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+          <div class="dropdown-menu-header">
+            <div id="message_dropdown_header" class="position-relative">No Messages</div>
+          </div>
+          <div id="message_dropdown_group" class="list-group">
+            <!--
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Vanessa Tucker</div>
+                  <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+                  <div class="text-muted small mt-1">15m ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">William Harris</div>
+                  <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+                  <div class="text-muted small mt-1">2h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Christina Mason</div>
+                  <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+                  <div class="text-muted small mt-1">4h ago</div>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="list-group-item">
+              <div class="row g-0 align-items-center">
+                <div class="col-2">
+                  <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
+                </div>
+                <div class="col-10 pl-2">
+                  <div class="text-dark">Sharon Lessman</div>
+                  <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
+                  <div class="text-muted small mt-1">5h ago</div>
+                </div>
+              </div>
+            </a>
+            -->
+          </div>
+          <div class="dropdown-menu-footer">
+            <a href="./message" class="text-muted">메시지 더 보기</a>
+          </div>
+        </div>
+      </li>
+    
+      <li class="nav-item dropdown">
+        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </a>
+
+        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+          <img src="img/envinode_logo.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+          <span id="user_id" class="text-dark">
+            admin
+          </span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+        
+          <a class="dropdown-item" href="/logout">Log out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+      
+        
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header card-header-padding">
+        <div class="row">
+          <div class="col-6 col-md-6 col-sm-4">
+            <h5 class="card-title mb-0">
+              데이터 로그
+            </h5>
+          </div>
+          <div class="col-6 col-md-6 col-sm-8">
+            <div class="row">
+              <div class="col-1 col-md-2 col-sm-2 mt-1">
+                Date
+              </div>
+              <div class="col-8 col-md-8 col-sm-8">
+                <input class="form-control text-center" type="text" id="datepicker" placeholder="날짜를 선택해 주세요." readonly="">
+              </div>
+              <div class="col-3 col-md-2 col-sm-2">
+                <a id="search" class="btn btn-lg btn-primary cs-btn-fill" href="#">확인</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <table id="example" class="display" style="width: 100%;"></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header card-header-padding">
+        <h5 class="card-title mb-0">
+          데이터 로그
+        </h5>
+      </div>
+      <div class="card-body">
+        <table class="table table-hover my-0">
+          <thead>
+            <tr>
+              <th>
+                Device ID
+              </th>
+              <th>
+                Device Name
+              </th>
+              <th>
+                Owner ID
+              </th>
+              <th>
+                Sensor
+              </th>
+              <th>
+                State Old
+              </th>
+              <th>
+                State Now
+              </th>
+              <th>
+                Date
+              </th>
+            </tr>
+          </thead>
+          <tbody id="container">
+  
+          </tbody>
+        </table>
+
+        <nav aria-label="breadcrumb">
+          <ol id="log_index" class="breadcrumb bg-transparent p-0 mt-1 mb-0" style="justify-content: center;">
+
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+      </div>
+    </div>
+    <!-- Bootstrap -->
+<script src="js/app.js"></script>
+<!-- Initialize -->
+<script>
+  const DEVICE_TYPE_S = "Bio-Sentinel 100";
+  const DEVICE_TYPE_S_PLUS = "Bio-Sentinel 200";
+  const DEVICE_TYPE_MINI = "Bio-Sentinel Mini";
+  const DEVICE_TYPE_PRO = "Bio-Sentinel Pro";
+
+  function handleOnInput(e, l) {
+    if(e.value.length > l) {
+      e.value = e.value.substr(0, l);
+    }
+  }
+  function getDeviceType(id) {
+    switch (id.substring(0, 1)) {
+      case "T":
+        return DEVICE_TYPE_MINI;
+      case "S":
+        return DEVICE_TYPE_S;
+      case "P":
+        return DEVICE_TYPE_S_PLUS;
+      case "M":
+        return DEVICE_TYPE_PRO;
+      default:
+        return "Device Type Error";
+    }
+  }
+  function getUrlParams() {     
+    var params = {};  
+    
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+      function(str, key, value) { 
+          params[key] = value; 
+        }
+    );     
+    
+    return params; 
+  }
+
+  // 날짜 변환 포맷함수
+  Date.prototype.format = function (f) {
+    if (!this.valueOf()) return " ";
+    var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+    var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+    var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var d = this;
+
+    return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+      switch ($1) {
+        case "yyyy": return d.getFullYear(); // 년 (4자리)
+        case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+        case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+        case "dd": return d.getDate().zf(2); // 일 (2자리)
+        case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+        case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+        case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+        case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+        case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+        case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+        case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+        case "ss": return d.getSeconds().zf(2); // 초 (2자리)
+        case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+        default: return $1;
+      }
+    });
+  };
+  String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+  String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+  Number.prototype.zf = function (len) { return this.toString().zf(len); };
+
+  function calcStartDate(endDate, num) {
+    var year = endDate.getFullYear();
+    var month = endDate.getMonth();
+    var day = endDate.getDate();
+
+    return new Date(year, month, day - num, 0, 0, 0);
+  }
+  function loadingStart() {
+    var div = document.createElement('div');
+    div.setAttribute('id', 'loading');
+    div.style.width = '100%';
+    div.style.height = '100%';
+    div.style.left = 0;
+    div.style.top = 0;
+    div.style.position = 'fixed';
+    div.style.display = 'block';
+    div.style.backgroundColor = "#ffffff";
+    div.style.zIndex = 99;
+    div.style.textAlign = 'center';
+
+    var img = document.createElement('img');
+    img.style.position = 'absolute';
+    img.style.zIndex = 100;
+    img.style.width = '50px';
+    img.style.height = '50px';
+    img.style.marginTop = '45vh';
+    img.src = './img/envinode_logo.png';
+
+    div.append(img);
+    //document.getElementsByClassName('main')[0].prepend(div);
+    document.body.prepend(div);
+  }
+  function loadingEnd() {
+    //document.getElementsByClassName('main')[0].removeChild(document.getElementById('loading'));
+    document.body.removeChild(document.getElementById('loading'));
+  }
+  function fnExcelReport(id, fileName) {
+    var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+    tab_text = tab_text + '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">';
+    tab_text = tab_text + '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
+    tab_text = tab_text + '<x:Name>Test Sheet</x:Name>';
+    tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+    tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+    tab_text = tab_text + "<table border='1px'>";
+    var exportTable = $('#' + id).clone();
+    exportTable.find('input').each(function (index, elem) { $(elem).remove(); });
+    tab_text = tab_text + exportTable.html();
+    tab_text = tab_text + '</table></body></html>';
+    var data_type = 'data:application/vnd.ms-excel';
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+    var fileName = fileName + '.xls';
+    //Explorer 환경에서 다운로드
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+      if (window.navigator.msSaveBlob) {
+        var blob = new Blob([tab_text], {
+          type: "application/csv;charset=utf-8;"
+        });
+        navigator.msSaveBlob(blob, fileName);
+      }
+    } else {
+      var blob2 = new Blob([tab_text], {
+        type: "application/csv;charset=utf-8;"
+      });
+      var filename = fileName;
+      var elem = window.document.createElement('a');
+      elem.href = window.URL.createObjectURL(blob2);
+      elem.download = filename;
+      document.body.appendChild(elem);
+      elem.click();
+      document.body.removeChild(elem);
+    }
+  }
+  function createDropdown(target, addEvent) {
+    var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+
+    for(var i=0; i<r.length; i++) {
+      var dropdown = document.getElementById(target);
+      // 자식 노드 생성
+      var child = document.createElement('div');
+      // 자식 노드 속성 입력
+      child.setAttribute('class', 'dropdown-item dropdown-nav');
+      child.setAttribute('style', 'cursor:pointer');
+      child.setAttribute('tag', r.device[i].device_id);
+      child.setAttribute('index', i);
+      child.innerText = r.device[i].device_name;
+      
+      dropdown.appendChild(child);
+
+      // 자식 노드 이벤트 추가
+      child.addEventListener('click', function() {
+        var device_name = document.getElementById('showDevice');
+        var r = JSON.parse(sessionStorage.getItem("deviceInfo"));
+        var i = r.device.findIndex((v, i, a) => v.device_name === this.innerHTML);
+
+        device_name.innerHTML = r.device[i].device_name;
+
+        var active = document.getElementsByClassName('dropdown-nav active');
+        if(active[0] != undefined) {
+          active[0].classList.remove('active');
+        }
+        this.classList.add("active");
+
+        addEvent(r.device, i);
+      });
+    }
+  }
+  function getSensorDataBetweenDate(device_id, startDate, endDate, tick, sensorArray, cb) {
+    if(device_id == undefined || tick == null || startDate == null || endDate == null) {
+      alert('올바른 시간을 선택해 주세요.');
+      clearChart();
+      return;
+    }
+    var request = {
+      device_id: device_id,
+      startDate: startDate,
+      endDate: endDate,
+      dateTick: tick,
+      length: sensorArray.length,
+      sensor: sensorArray
+    }
+
+    xhrConnect(POST, GET_RANGE_DATA, request, function(result) {
+      cb(result);
+    });
+  }
+  function modifyTimeDiff(date) {
+      var now = new Date().getTime();
+      var diff = now - date;
+      var time = 0;
+
+      if(diff / (1000 * 60) < 1) {
+        time = parseInt(diff / 1000) + "초 전";
+      } else if(diff / (1000 * 60) < 60) {
+        time = parseInt(diff / (1000 * 60)) + "분 전";
+      } else if(diff / (1000 * 60 * 60) < 24) {
+        time = parseInt(diff / (1000 * 60 * 60)) + "시간 전";
+      } else {
+        time = parseInt(diff / (1000 * 60 * 60 * 24)) + "일 전";
+      }
+      return time;
+    }
+</script>
+<script type="text/javascript" src="../js/xhr.js"></script>
+<!-- 차트 -->
+<script type="text/javascript" src="../js/chartjs_render.js"></script>
+<!-- 메시지 체크 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    //var user = JSON.parse(sessionStorage.getItem('userInfo')).user[0];
+    var request = {
+      //message_to: user.user_id,
+      message_to: sessionStorage.getItem('user_id'),
+      checked: 1,
+      count: 10
+    }
+    xhrConnect(POST, SHOW_MESSAGE, request, function(res) {
+      try {
+        if(res.length > 0) {
+          var length;
+          var indicator = document.createElement('span');
+          indicator.setAttribute('class', 'indicator');
+
+          document.getElementById('message_dropdown_header').innerText = "New " + res.length + " Messages";
+
+          if(res.length >= 4) length = 4;
+          if(res.length >= 9) {
+            indicator.innerText = "9+";
+            //length = 9;
+          } else {
+            indicator.innerText = res.length;
+            //length = res.length;
+          }
+
+          document.getElementById('container_message_indicator').append(indicator);
+
+
+          for(var i=0; i<length; i++) {
+            var a = document.createElement('a');
+            a.setAttribute('class', 'list-group-item');
+            a.setAttribute('href', './message?message_id=' + String(res.message[i].message_id).padStart(8, '0'));
+            
+            var row = document.createElement('div');
+            row.setAttribute('class', 'row g-0 align-items-center');
+            
+              var col2 = document.createElement('div');
+              col2.setAttribute('class', 'col-2');
+
+                var img = document.createElement('img');
+                img.setAttribute('class', 'avatar img-fluid rounded-circle');
+                img.setAttribute('src', '../../img/profile_init.png');
+                img.setAttribute('alt', res.message[i].message_to);
+
+              col2.append(img);
+
+              var col10 = document.createElement('div');
+              col10.setAttribute('class', 'col-10 pl-2 mt-4');
+              
+                var to = document.createElement('div');
+                to.setAttribute('class', 'text-dark');
+                to.innerText = res.message[i].message_to;
+                
+                var msg = document.createElement('div');
+                msg.setAttribute('class', 'text-muted small mt-1');
+                msg.innerText = res.message[i].message_title;
+
+                var date = document.createElement('div');
+                date.setAttribute('class', 'text-muted small mt-1 float-right');
+                date.innerText = modifyTimeDiff(new Date(res.message[i].message_date));
+
+              col10.append(to);
+              col10.append(msg);
+              col10.append(date);
+
+            row.append(col2);
+            row.append(col10);
+
+            a.append(row);
+
+            document.getElementById('message_dropdown_group').append(a);
+          }
+        } else {
+          document.getElementById('message_dropdown_header').innerText = "No Messages";
+        }
+      } catch(e) { console.log(e); }
+    });
+  })
+</script>
+
+
+
+<script src="js/lightpick.js"></script>
+<!-- Initialize Script -->
+<script>
+  const GET_DEVICE_RANGE_DATE = 14;
+  const lang_kor = {
+    "decimal": "",
+    "emptyTable": "데이터가 없습니다.",
+    "info": "_START_ - _END_ (총 _TOTAL_ 명)",
+    "infoEmpty": "0명",
+    "infoFiltered": "(전체 _MAX_ 명 중 검색결과)",
+    "infoPostFix": "",
+    "thousands": ",",
+    "lengthMenu": "_MENU_ 개씩 보기",
+    "loadingRecords": "로딩중...",
+    "processing": "처리중...",
+    "zeroRecords": "검색된 데이터가 없습니다.",
+    "select": {
+      rows: " %d 개 선택됨"
+    },
+    "paginate": {
+      "first": "첫 페이지",
+      "last": "마지막 페이지",
+      "next": "다음",
+      "previous": "이전"
+    },
+    "aria": {
+      "sortAscending": " :  오름차순 정렬",
+      "sortDescending": " :  내림차순 정렬"
+    }
+  };
+  const dt_buttons = [
+    {
+      text: '편집',
+      action: function (event, table, node, config) {
+        if (table.row('.selected').length === 0) return;
+
+
+      }
+    },
+    {
+      text: '삭제',
+      action: function (event, table, node, config) {
+        if (table.row('.selected').length === 0) return;
+
+        var result = confirm("정말로 삭제하시겠습니까?");
+        if (result == true) {
+          var request = {
+            func: "delete",
+            type: "user",
+            device_id: table.row('.selected').data()[0],
+          }
+          xhrConnect(POST, REQUEST_DATABASE, request, function (res) {
+            if (res.succsess == true) {
+              table.rows('.selected').remove().draw(false);
+            }
+          });
+        }
+      }
+    }
+  ];
+</script>
+<!-- DataTables Script -->
+<script type="text/javascript" src="/js/jquery3_6_0.js"></script>
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    /*
+    const SHOW_LOG_INDEX = 10;
+    const page = getUrlParams().page;
+    
+    var endDate = new Date();
+    var startDate = calcStartDate(endDate, 15);
+    var request = {
+      startDate: startDate.format("yyyy-MM-dd 00:00:00"),
+      endDate: endDate.format("yyyy-MM-dd 23:59:59"),
+      device_id: "",
+      user_id: "",
+      //dateTick: "day",
+      length: 6,
+      count:0,
+      sensor: [00, 01, 02, 03, 10 , 12]
+    }
+
+    xhrConnect(POST, GET_STATE, request, function(res) {
+      var ol = document.getElementById('log_index');
+      // 인덱스 계산
+      var quotient = Math.ceil(res.length / SHOW_LOG_INDEX);
+      // 인덱스 초기화
+      while ( ol.hasChildNodes() ) { ol.removeChild( ol.firstChild ); }
+      // 인덱스 생성
+      if(quotient <= 10) {
+        for(var i=0; i<quotient; i++) {
+          createLogIndex(i+1);
+        }
+      } else {
+        // 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / ...
+        if(page < SHOW_LOG_INDEX) {
+          for(var i=0; i<SHOW_LOG_INDEX; i++) {
+            createLogIndex(i+1);
+          }
+          createLogDotIndex(quotient);
+        } else if(page > quotient - 4) {
+          createLogIndex(1);
+
+          createLogDotIndex(quotient);
+
+          createLogIndex(Number(quotient)-4);
+          createLogIndex(Number(quotient)-3);
+          createLogIndex(Number(quotient)-2);
+          createLogIndex(Number(quotient)-1);
+          createLogIndex(Number(quotient));
+        } else {
+          //1 ... 4 / 5 / 6 ... n
+          createLogIndex(1);
+
+          createLogDotIndex(quotient);
+
+          createLogIndex(Number(page)-2);
+          createLogIndex(Number(page)-1);
+          createLogIndex(Number(page));
+          createLogIndex(Number(page)+1);
+          createLogIndex(Number(page)+2);
+
+          createLogDotIndex(quotient);
+
+          createLogIndex(quotient);
+        }
+      }
+
+
+      if(res.length < page * SHOW_LOG_INDEX) {
+        for(var i=(page-1) * SHOW_LOG_INDEX; i<res.length; i++) {
+          generateLogTable(
+            'container', 
+            res.state[i].device_id,
+            res.state[i].device_name,
+            res.state[i].user_id,
+            res.state[i].sensor,
+            classifyState(res.state[i].state_old),
+            classifyState(res.state[i].state_now),
+            res.state[i].state_date
+          );
+        }
+      } else {
+        for(var i=(page-1) * SHOW_LOG_INDEX; i<page * SHOW_LOG_INDEX; i++) {
+          generateLogTable(
+            'container', 
+            res.state[i].device_id,
+            res.state[i].device_name,
+            res.state[i].user_id,
+            res.state[i].sensor,
+            classifyState(res.state[i].state_old),
+            classifyState(res.state[i].state_now),
+            res.state[i].state_date
+          );
+        }
+      }
+    });
+
+    function createLogIndex(index) {
+      var container = document.getElementById('log_index');
+      var li = document.createElement('li');
+      if(index == page) {
+        li.setAttribute('class', 'breadcrumb-item active');
+        li.innerText = index;
+      } else {
+        li.setAttribute('class', 'breadcrumb-item');
+
+        var a = document.createElement('a');
+        a.setAttribute('href', '/admin_statistics?&page=' + index);
+        a.innerText = index;
+
+        li.append(a);
+      }
+      container.append(li);
+    }
+    function createLogDotIndex(quotient) {
+      var container = document.getElementById('log_index');
+      var li = document.createElement('li');
+      li.setAttribute('class', 'breadcrumb-item');
+
+      var a = document.createElement('a');
+      a.setAttribute('href', '#');
+      a.innerText = "...";
+      li.append(a);
+
+      
+      a.addEventListener('click', function() {
+        var data = prompt("이동할 페이지를 입력하세요.", page);
+        try {
+          if(data > quotient || data < 0) {
+            throw Error("잘못된 입력양식");
+          } else {
+            location.href = '/admin_statistics?&page=' + data;
+          }
+        } catch(e) {
+          alert("올바른 페이지를 입력해 주세요.");
+          console.log(e);
+        }
+      });
+
+      container.append(li);
+    }
+    function generateLogTable(target, id, name, owner, sensor, state_a, state_b, date) {
+      var table = document.getElementById(target);
+
+      id += "";
+      id = id.padStart(8, '0');
+
+      var tr = '<tr>';
+      var tr_close = '</tr>';
+      var td = '<td>';
+      var td_close = '</td>';
+      var a_device = "<a href='admin_manage?screen=device&device_id=" + id + "'>";
+      var a_device_close = "</a>";
+      var a_user = "<a href='admin_manage?screen=user&user_id=" + owner + "'>";
+      var a_user_close = "</a>";
+
+      var table_content = tr;
+      table_content += td + a_device + id + a_device_close + td_close;
+      table_content += td + name + td_close;
+      table_content += td + a_user + owner + a_user_close + td_close;
+      table_content += td + sensor + td_close;
+      table_content += td + state_a + td_close;
+      table_content += td + state_b + td_close;
+      table_content += td + date + td_close;
+      table_content += tr_close;
+
+      table.innerHTML += table_content;
+    }
+    */
+
+    // Date Picker 생성
+    let datepicker = new Lightpick({
+      field: document.getElementById('datepicker'),
+      singleDate: false,
+      //numberOfMonths: 2,
+      maxDate: new Date(),
+      lang: 'ko',
+      format: "YYYY/MM/DD",
+      //onClose: function() {
+      //  var label = document.getElementsByClassName('cs-nav-label');
+      //  for(var i=0; i<label.length; i++) {
+      //    label[i].childNodes[1].disabled = false;
+      //    label[i].childNodes[1].checked = false;
+      //  }
+      //}
+    });
+
+    
+    let col_kor = [
+      { title: "Index" },
+      { title: "Device S/N" },
+      { title: "Device Name" },
+      { title: "Device Owner" },
+      { title: "Sensor" },
+      { title: "Old State" },
+      { title: "New State" },
+      { title: "Time of Change" }
+    ];
+    // idx, device_id, device_name, user_id, sensor, state a, state b, date
+    let dt_data = new Array();
+    let table = null;
+
+    
+    document.getElementById('search').addEventListener('click', function() {
+      loadingStart();
+
+      if(table != null) {
+        dt_data = new Array();
+        table.destroy();
+      }
+
+      //var endDate = new Date();
+      //var startDate = calcStartDate(endDate, 15);
+      var endDate = new Date(datepicker.getEndDate());
+      var startDate = new Date(datepicker.getStartDate());
+      var request = {
+        startDate: startDate.format("yyyy-MM-dd 00:00:00"),
+        endDate: endDate.format("yyyy-MM-dd 23:59:59"),
+        device_id: "",
+        user_id: "",
+        //dateTick: "day",
+        length: 6,
+        count:0,
+        sensor: [00, 01, 02, 03, 10 , 12]
+      }
+      xhrConnect(POST, GET_STATE, request, function(res) {
+        console.log(res);
+
+        for(var i=0; i<res.length; i++) {
+          dt_data.push(
+            [
+              i,
+              "<a href='/admin_manage?screen=device&device_id=" + res.state[i].device_id + "'>" + res.state[i].device_id + "</a>",
+              res.state[i].device_name,
+              "<a href='/admin_manage?screen=user&user_id=" + res.state[i].user_id + "'>" + res.state[i].user_id + "</a>",
+              res.state[i].sensor,
+              classifyState(res.state[i].state_old),
+              classifyState(res.state[i].state_now),
+              res.state[i].state_date
+            ]
+          )
+        }
+        // DT 생성
+        table = new DataTable('#example', {
+          data: dt_data,
+          columns: col_kor,
+          language: lang_kor,
+          lengthMenu: [5, 10, 25, 50, 100],
+          displayLength: 10,
+          dom: 'lfrtBp',
+          buttons: ['copy', 'excel', 'pdf'],
+          select: false, // 'single', 'multi', false
+          responsive: true,
+          createdRow: function(row, data, i) {
+            try { loadingEnd(); } 
+            catch (e) { }
+          },
+          drawCallback: function(settings) {
+            var paginate = document.getElementsByClassName('paginate_button unavailable disabled');
+
+            for(var i in paginate) {
+              try {
+                if(!paginate[i].classList.contains("previous") && !paginate[i].classList.contains("next")) {
+                  var max_page = Math.ceil(settings.aiDisplay.length / settings._iDisplayLength) - 1;
+                  try {
+                    paginate[i].addEventListener('click', function() {
+                      var dt_page = Number(prompt("페이지 입력") - 1);
+                      if(dt_page < 0 || dt_page > max_page) throw Error("잘못된 페이지 양식");
+                      table.page(dt_page).draw('page');
+                    });
+                  } catch(e) { }
+                }
+              } catch(e) { }
+            }
+          }
+        });
+      });
+    })
+    
+
+    function classifyState(state_code) {
+      var state;
+      switch(state_code) {
+        case 00:
+          state = "Good";
+          break;
+        case 01:
+          state = "Normal";
+          break;
+        case 02:
+          state = "Bad";
+          break;
+        case 03:
+          state = "Hazard";
+          break;
+        case 10:
+          state = "Connect";
+          break;
+        case 11:
+          state = "Delay";
+          break;
+        case 12:
+          state = "Disconnect";
+          break;
+      }
+      return state;
+    }
+  })
+</script>
+
+  
+<section class="lightpick lightpick--1-columns is-hidden"><div class="lightpick__inner"><div class="lightpick__months"></div><div class="lightpick__tooltip" style="visibility: hidden"></div></div></section></body></html>

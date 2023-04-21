@@ -1,0 +1,103 @@
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" href="/">
+
+      <!--     로고 SVG-->
+      <svg id="그룹_2" data-name="그룹 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="32.948" height="20.964" viewBox="0 0 32.948 20.964">
+        <defs>
+          <clipPath id="clip-path">
+            <rect id="사각형_1" data-name="사각형 1" width="32.948" height="20.964" fill="none" />
+          </clipPath>
+        </defs>
+        <g id="그룹_1" data-name="그룹 1" clip-path="url(#clip-path)">
+          <path id="패스_1" data-name="패스 1"
+            d="M16.045,20.962H7.41A7.033,7.033,0,0,1,3.7,19.956,7.2,7.2,0,0,1,0,13.2,7.352,7.352,0,0,1,6.277,6.225a.663.663,0,0,0,.571-.4A10.263,10.263,0,0,1,14.631.134a10.417,10.417,0,0,1,10.6,5.011.562.562,0,0,0,.515.323,7.752,7.752,0,0,1,1.779,15.125,8.178,8.178,0,0,1-2.433.368q-4.523.007-9.047,0"
+            transform="translate(0 0)" fill="#4360ed" />
+          <path id="패스_2" data-name="패스 2"
+            d="M191.852,7.765a1.444,1.444,0,0,1-1.468-1.449,1.459,1.459,0,1,1,2.917.008,1.436,1.436,0,0,1-1.449,1.441"
+            transform="translate(-162.648 -4.148)" fill="#4361ed" />
+        </g>
+      </svg>
+      <!--      로고 SVG 끝-->
+
+      <span class="align-middle">AS-CLOUD</span>
+    </a>
+
+    <!-- 페이지 네비게이트 -->
+    <ul class="sidebar-nav">
+
+      <% if(idx == 10) { %>
+      <li class="sidebar-item active">
+      <% } else { %>
+      <li class="sidebar-item">
+      <% } %>
+
+        <a class="sidebar-link" href="/">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+      <% if(idx == 00) { %>
+      <li class="sidebar-item active">
+      <% } else { %>
+      <li class="sidebar-item">
+      <% } %>
+
+        <a class="sidebar-link" href="/notice">
+          <i class="align-middle" data-feather="bell"></i>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+      <% if(idx == 50) { %>
+      <li class="sidebar-item active">
+      <% } else { %>
+      <li class="sidebar-item">
+      <% } %>
+
+        <a class="sidebar-link" href="/analytics">
+          <i class="align-middle" data-feather="bar-chart-2"></i>
+          <span class="align-middle">
+            통계분석
+          </span>
+        </a>
+      </li>
+
+
+      <% if(idx == 60) { %>
+      <li class="sidebar-item active">
+      <% } else { %>
+      <li class="sidebar-item">
+      <% } %>
+
+        <a class="sidebar-link" href="/control">
+          <i class="align-middle" data-feather="activity"></i>
+          <span class="align-middle">
+            원격제어
+          </span>
+        </a>
+      </li>
+
+      <% if(idx == 30) { %>
+      <li class="sidebar-item active">
+      <% } else { %>
+      <li class="sidebar-item">
+      <% } %>
+
+        <a class="sidebar-link" href="/message">
+          <i class="align-middle" data-feather="mail"></i>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

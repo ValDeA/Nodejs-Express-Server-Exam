@@ -1,0 +1,622 @@
+<html><head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+<meta name="author" content="AdminKit">
+<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+<title>Air Signal</title>
+
+<!-- DOM CSS -->
+<link href="css/app.css" rel="stylesheet">
+<link href="css/app_add.css" rel="stylesheet">
+<!-- DataTables CSS -->
+<!-- <link rel="stylesheet" href="/DataTables/datatables.css"> -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+<!--김익재 추가-->
+<link rel="stylesheet" href="css/kij.css">
+
+
+</head>
+<body>
+  <div class="wrapper">
+    <nav id="sidebar" class="sidebar">
+<div class="sidebar-content js-simplebar" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden;"><div class="simplebar-content" style="padding: 0px;">
+  <a class="sidebar-brand" href="/admin">
+    <span class="align-middle">AS-Admin</span>
+  </a>
+
+  <ul class="sidebar-nav">
+    <li class="sidebar-header">
+      Pages
+    </li>
+
+    <li class="sidebar-item">
+
+      <a class="sidebar-link" href="./admin_index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+        <span class="align-middle">
+          메인화면
+        </span>
+      </a>
+    </li>
+
+
+      <li class="sidebar-item active">
+
+      <a class="sidebar-link" href="./admin_manage.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card align-middle"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+        <span class="align-middle">
+          관리
+        </span>
+      </a>
+    </li>
+
+    <!--
+      <li class="sidebar-item">
+      <a href="#notice" data-toggle="collapse" class="sidebar-link collapsed">
+        <i class="align-middle" data-feather="users"></i> <span class="align-middle">알림</span>
+      </a>
+      <ul id="notice" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+        <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=notice">공지사항</a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=message">메시지</a></li>
+      </ul>
+    </li>
+    
+    <li class="sidebar-item">
+      <a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
+        <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+      </a>
+      <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+        <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+      </ul>
+    </li>
+  -->
+
+
+    <li class="sidebar-item">
+
+      <a class="sidebar-link" href="/admin_message">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2 align-middle"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span class="align-middle">
+          메시지
+        </span>
+      </a>
+    </li>
+
+
+    <li class="sidebar-item">
+
+      <a class="sidebar-link" href="/admin_statistics">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2 align-middle"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <span class="align-middle">
+          데이터 로그
+        </span>
+      </a>
+    </li>
+
+  </ul>
+
+
+</div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 969px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar" style="height: 0px; display: none;"></div></div></div>
+</nav>
+    <div class="main">
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+
+<div class="navbar-collapse collapse">
+  <h3 class="text-center logo ml-5 mt-2 h">
+    <strong>메인화면</strong>
+  </h3>
+
+  <ul class="navbar-nav navbar-align">
+  <!--
+    <li class="nav-item dropdown">
+      <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+        <div class="position-relative">
+          <i class="align-middle" data-feather="bell"></i>
+          <span class="indicator">4</span>
+        </div>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
+        <div class="dropdown-menu-header">
+          4 New Notifications
+        </div>
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <i class="text-danger" data-feather="alert-circle"></i>
+              </div>
+              <div class="col-10">
+                <div class="text-dark">Update completed</div>
+                <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
+                <div class="text-muted small mt-1">30m ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <i class="text-warning" data-feather="bell"></i>
+              </div>
+              <div class="col-10">
+                <div class="text-dark">Lorem ipsum</div>
+                <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
+                <div class="text-muted small mt-1">2h ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <i class="text-primary" data-feather="home"></i>
+              </div>
+              <div class="col-10">
+                <div class="text-dark">Login from 192.186.1.8</div>
+                <div class="text-muted small mt-1">5h ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <i class="text-success" data-feather="user-plus"></i>
+              </div>
+              <div class="col-10">
+                <div class="text-dark">New connection</div>
+                <div class="text-muted small mt-1">Christina accepted your request.</div>
+                <div class="text-muted small mt-1">14h ago</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown-menu-footer">
+          <a href="#" class="text-muted">Show all notifications</a>
+        </div>
+      </div>
+    </li>
+  
+    <li class="nav-item dropdown">
+      <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+        <div class="position-relative">
+          <i class="align-middle" data-feather="message-square"></i>
+        </div>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+        <div class="dropdown-menu-header">
+          <div class="position-relative">
+            4 New Messages
+          </div>
+        </div>
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
+              </div>
+              <div class="col-10 pl-2">
+                <div class="text-dark">Vanessa Tucker</div>
+                <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+                <div class="text-muted small mt-1">15m ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
+              </div>
+              <div class="col-10 pl-2">
+                <div class="text-dark">William Harris</div>
+                <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+                <div class="text-muted small mt-1">2h ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
+              </div>
+              <div class="col-10 pl-2">
+                <div class="text-dark">Christina Mason</div>
+                <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+                <div class="text-muted small mt-1">4h ago</div>
+              </div>
+            </div>
+          </a>
+          <a href="#" class="list-group-item">
+            <div class="row g-0 align-items-center">
+              <div class="col-2">
+                <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
+              </div>
+              <div class="col-10 pl-2">
+                <div class="text-dark">Sharon Lessman</div>
+                <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
+                <div class="text-muted small mt-1">5h ago</div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="dropdown-menu-footer">
+          <a href="#" class="text-muted">Show all messages</a>
+        </div>
+      </div>
+    </li>
+  -->
+    <li class="nav-item dropdown">
+      <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </a>
+
+      <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+        <img src="img/Envinode.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+        <span id="user_id" class="text-dark">
+          admin
+        </span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <a class="dropdown-item" href="pages-profile.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle mr-1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile</a>
+        <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart align-middle mr-1"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg> Analytics</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="pages-settings.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings align-middle mr-1"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg> Settings &amp; Privacy</a>
+        <a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle align-middle mr-1"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Help Center</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/logout">Log out</a>
+      </div>
+    </li>
+  </ul>
+</div>
+</nav>
+<main class="content">
+  
+
+  
+    <!-- Default Manage Page -->
+    <div class="row">
+<div class="col-12">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-6">
+          모든 디바이스
+        </div>
+        <div id="btnContainer" class="col-6">
+
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="example_wrapper" class="dataTables_wrapper dt-foundation no-footer"><div class="dataTables_length" id="example_length"><label><select name="example_length" aria-controls="example" class=""><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> 개씩 보기</label></div><div id="example_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="example"></label></div><table id="example" class="display dataTable no-footer dtr-inline" style="width: 100%;" aria-describedby="example_info"><thead><tr><th class="cs-td-pointer sorting sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 110px;" aria-sort="ascending" aria-label="User ID :  내림차순 정렬">User ID</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 128px;" aria-label="유저 이름 :  오름차순 정렬">유저 이름</th><th class="cs-td-pointer sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 131px;" aria-label="S/N :  오름차순 정렬">S/N</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 175px;" aria-label="Device Name :  오름차순 정렬">Device Name</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 163px;" aria-label="Device Type :  오름차순 정렬">Device Type</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 102px;" aria-label="소속 :  오름차순 정렬">소속</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 128px;" aria-label="연결 상태 :  오름차순 정렬">연결 상태</th></tr></thead><tbody><tr class="odd"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"></td><td></td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=TAS003000">TAS003000</a></td><td>거실</td><td>Mini</td><td></td><td>정상</td></tr><tr class="even"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"></td><td></td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=TAS005000">TAS005000</a></td><td>택시</td><td>Mini</td><td></td><td>정상</td></tr><tr class="odd"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"><a href="/admin_manage?page=user&amp;user_id=AirSignal">AirSignal</a></td><td>진달래</td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=SAS001000">SAS001000</a></td><td>AS</td><td>S</td><td>AS</td><td>정상</td></tr><tr class="even"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"><a href="/admin_manage?page=user&amp;user_id=AS_TECH">AS_TECH</a></td><td>무궁화</td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=NAS002000">NAS002000</a></td><td>안방</td><td>Error</td><td>AS</td><td>비정상</td></tr><tr class="odd"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"><a href="/admin_manage?page=user&amp;user_id=Env Index">Env Index</a></td><td>삼김</td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=SAS004000">SAS004000</a></td><td>부엌</td><td>S</td><td>개인</td><td>정상</td></tr><tr class="even"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"><a href="/admin_manage?page=user&amp;user_id=Envinode">Envinode</a></td><td>홍노드</td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=NAS006000">NAS006000</a></td><td>화장실</td><td>Error</td><td>Envinode</td><td>비정상</td></tr><tr class="odd"><td class="cs-td-pointer dtr-control sorting_1" tabindex="0"><a href="/admin_manage?page=user&amp;user_id=Envinode">Envinode</a></td><td>홍노드</td><td class=" cs-td-pointer"><a href="/admin_manage?page=device&amp;device_id=TAG007000">TAG007000</a></td><td>사무실</td><td>Mini</td><td>Envinode</td><td>정상</td></tr></tbody></table><div class="dataTables_info" id="example_info" role="status" aria-live="polite">1 - 7 (총 7 명)</div><div class="dataTables_paginate paging_simple_numbers" id="example_paginate"><ul class="pagination"><li class="paginate_button previous unavailable disabled" aria-controls="example" tabindex="0" id="example_previous"><a href="#">이전</a></li><li class="paginate_button current" aria-controls="example" tabindex="0"><a href="#">1</a></li><li class="paginate_button next unavailable disabled" aria-controls="example" tabindex="0" id="example_next"><a href="#">다음</a></li></ul></div></div>
+    </div>
+  </div>
+</div>
+</div>
+  
+
+  
+
+  
+
+</main>
+</div>
+  </div>
+  <!-- Bootstrap -->
+<script src="js/app.js"></script>
+<!-- Initialize -->
+<script>
+const DEVICE_TYPE_S = "S";
+const DEVICE_TYPE_S_PLUS = "S+";
+const DEVICE_TYPE_MINI = "Mini";
+
+function getDeviceType(id) {
+  switch (id.substring(0, 1)) {
+    case "S":
+      return DEVICE_TYPE_S;
+    case "N":
+      return DEVICE_TYPE_S_PLUS;
+    case "T":
+      return DEVICE_TYPE_MINI;
+    default:
+      return "Device Type Error";
+  }
+}
+function getUrlParams() {     
+  var params = {};  
+  
+  window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+    function(str, key, value) { 
+        params[key] = value; 
+      }
+  );     
+  
+  return params; 
+}
+
+// 날짜 변환 포맷함수
+Date.prototype.format = function (f) {
+  if (!this.valueOf()) return " ";
+  var weekKorName = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+  var weekKorShortName = ["일", "월", "화", "수", "목", "금", "토"];
+  var weekEngName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  var weekEngShortName = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var d = this;
+
+  return f.replace(/(yyyy|yy|MM|dd|KS|KL|ES|EL|HH|hh|mm|ss|a\/p)/gi, function ($1) {
+    switch ($1) {
+      case "yyyy": return d.getFullYear(); // 년 (4자리)
+      case "yy": return (d.getFullYear() % 1000).zf(2); // 년 (2자리)
+      case "MM": return (d.getMonth() + 1).zf(2); // 월 (2자리)
+      case "dd": return d.getDate().zf(2); // 일 (2자리)
+      case "KS": return weekKorShortName[d.getDay()]; // 요일 (짧은 한글)
+      case "KL": return weekKorName[d.getDay()]; // 요일 (긴 한글)
+      case "ES": return weekEngShortName[d.getDay()]; // 요일 (짧은 영어)
+      case "EL": return weekEngName[d.getDay()]; // 요일 (긴 영어)
+      case "HH": return d.getHours().zf(2); // 시간 (24시간 기준, 2자리)
+      case "hh": return ((h = d.getHours() % 12) ? h : 12).zf(2); // 시간 (12시간 기준, 2자리)
+      case "mm": return d.getMinutes().zf(2); // 분 (2자리)
+      case "ss": return d.getSeconds().zf(2); // 초 (2자리)
+      case "a/p": return d.getHours() < 12 ? "오전" : "오후"; // 오전/오후 구분
+      default: return $1;
+    }
+  });
+};
+String.prototype.string = function (len) { var s = '', i = 0; while (i++ < len) { s += this; } return s; };
+String.prototype.zf = function (len) { return "0".string(len - this.length) + this; };
+Number.prototype.zf = function (len) { return this.toString().zf(len); };
+
+function createLoading() {
+  var spinner = document.getElementById('loading-spinner');
+  if(spinner == undefined) {
+    spinner = document.createElement('div');
+    spinner.setAttribute('id', 'loading-spinner');
+    spinner.setAttribute('class', 'spinner-border text-primary');
+    spinner.setAttribute('role', 'status');
+    spinner.setAttribute('style', 'align-items: center; position: fixed; top: 45%; left: 50%;');
+    document.body.appendChild(spinner);
+  } else {
+    return undefined;
+  }
+
+  return spinner;
+}
+function fnExcelReport(id, fileName) {
+  var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
+  tab_text = tab_text + '<head><meta http-equiv="content-type" content="application/vnd.ms-excel; charset=UTF-8">';
+  tab_text = tab_text + '<xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>'
+  tab_text = tab_text + '<x:Name>Test Sheet</x:Name>';
+  tab_text = tab_text + '<x:WorksheetOptions><x:Panes></x:Panes></x:WorksheetOptions></x:ExcelWorksheet>';
+  tab_text = tab_text + '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
+  tab_text = tab_text + "<table border='1px'>";
+  var exportTable = $('#' + id).clone();
+  exportTable.find('input').each(function (index, elem) { $(elem).remove(); });
+  tab_text = tab_text + exportTable.html();
+  tab_text = tab_text + '</table></body></html>';
+  var data_type = 'data:application/vnd.ms-excel';
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
+  var fileName = fileName + '.xls';
+  //Explorer 환경에서 다운로드
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    if (window.navigator.msSaveBlob) {
+      var blob = new Blob([tab_text], {
+        type: "application/csv;charset=utf-8;"
+      });
+      navigator.msSaveBlob(blob, fileName);
+    }
+  } else {
+    var blob2 = new Blob([tab_text], {
+      type: "application/csv;charset=utf-8;"
+    });
+    var filename = fileName;
+    var elem = window.document.createElement('a');
+    elem.href = window.URL.createObjectURL(blob2);
+    elem.download = filename;
+    document.body.appendChild(elem);
+    elem.click();
+    document.body.removeChild(elem);
+  }
+}
+function createDropdown(target, addEvent) {
+  var r = JSON.parse(sessionStorage.getItem("deviceList"));
+
+  for(var i=0; i<r.length; i++) {
+    var dropdown = document.getElementById(target);
+    // 자식 노드 생성
+    var child = document.createElement('div');
+    // 자식 노드 속성 입력
+    child.setAttribute('class', 'dropdown-item');
+    child.setAttribute('style', 'cursor:pointer');
+    child.setAttribute('tag', r.device_id[i]);
+    child.setAttribute('index', i);
+    child.innerText = r.device_name[i];
+
+    // 자식 노드 이벤트 추가
+    child.addEventListener('click', function() {
+      var device_name = document.getElementById('showDevice')
+      device_name.innerHTML = this.innerHTML;
+
+      addEvent(this);
+    })
+    
+    dropdown.appendChild(child);
+  }
+}
+</script>
+<script type="text/javascript" src="../js/xhr.js"></script>
+<!-- 차트 -->
+<script type="text/javascript" src="../js/chartjs_render.js"></script>
+<!-- DataTables Script -->
+<script type="text/javascript" src="/js/jquery3_6_0.js"></script>
+<script type="text/javascript" charset="utf8" src="/DataTables/datatables.js"></script>
+
+<!-- Initialize Script -->
+<script>
+const lang_kor = {
+  "decimal": "",
+  "emptyTable": "데이터가 없습니다.",
+  "info": "_START_ - _END_ (총 _TOTAL_ 명)",
+  "infoEmpty": "0명",
+  "infoFiltered": "(전체 _MAX_ 명 중 검색결과)",
+  "infoPostFix": "",
+  "thousands": ",",
+  "lengthMenu": "_MENU_ 개씩 보기",
+  "loadingRecords": "로딩중...",
+  "processing": "처리중...",
+  "zeroRecords": "검색된 데이터가 없습니다.",
+  "select": {
+    rows: " %d 개 선택됨"
+  },
+  "paginate": {
+    "first": "첫 페이지",
+    "last": "마지막 페이지",
+    "next": "다음",
+    "previous": "이전"
+  },
+  "aria": {
+    "sortAscending": " :  오름차순 정렬",
+    "sortDescending": " :  내림차순 정렬"
+  }
+};
+const dt_buttons = [
+  {
+    text: '편집',
+    action: function (event, table, node, config) {
+      if (table.row('.selected').length === 0) return;
+
+
+    }
+  },
+  {
+    text: '삭제',
+    action: function (event, table, node, config) {
+      if (table.row('.selected').length === 0) return;
+
+      var result = confirm("정말로 삭제하시겠습니까?");
+      if (result == true) {
+        var request = {
+          func: "delete",
+          type: "user",
+          device_id: table.row('.selected').data()[0],
+        }
+        xhrConnect(POST, REQUEST_DATABASE, request, function (res) {
+          if (res.succsess == true) {
+            table.rows('.selected').remove().draw(false);
+          }
+        });
+      }
+    }
+  }
+];
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var request = {
+    device_id: "",
+    user_id: ""
+  }
+  function getDeviceType(id) {
+    switch (id.substring(0, 1)) {
+      case "S":
+        return "S";
+      case "M":
+        return "S+";
+      case "T":
+        return "Mini";
+      default:
+        return "Error";
+    }
+  }
+  // 디바이스 List 가져오기
+  xhrConnect(POST, DEVICE_INFO, request, function (resDevice) {
+    var request = {
+      user_id: ""
+    }
+    // User Info 가져오기
+    xhrConnect(POST, USER_INFO, request, function (resUser) {
+      let dt_data = new Array();
+      let col_kor = [
+        { title: "User ID", className: "cs-td-pointer" },
+        { title: "유저 이름" },
+        { title: "S/N", className: "cs-td-pointer" },
+        { title: "Device Name" },
+        { title: "Device Type" },
+        { title: "소속" },
+        { title: "연결 상태" }
+      ]
+
+      for (var i = 0; i < resDevice.length; i++) {
+        var user_id = "", user_name = "", user_group = "";
+
+        resUser.items.filter(function(object) { 
+          if(object['user_id'] === resDevice.items[i].user_id) {
+            user_id = "<a href='./admin_manage_user.html'>" +
+                      resDevice.items[i].user_id + "</a>";
+            user_name = object['user_name'];
+            user_group = object['user_group'];
+          }
+        });
+
+        var device_id = "<a href='./admin_manage_device.html'>" +
+                        resDevice.items[i].device_id + "</a>";
+
+        // DT Data 구성
+        dt_data.push([
+          user_id,
+          user_name,
+          device_id,
+          resDevice.items[i].device_name,
+          getDeviceType(resDevice.items[i].device_id),
+          user_group,
+          resDevice.items[i].device_connect_state == 0 ? "정상" : "비정상"
+        ])
+      }
+
+      // DT 생성
+      let table = new DataTable('#example', {
+        data: dt_data,
+        columns: col_kor,
+        language: lang_kor,
+        lengthMenu: [5, 10, 25, 50, 100],
+        displayLength: 25,
+        dom: 'lfrtip',
+        //buttons: dt_buttons,
+        select: false, // 'single', 'multi', false
+        responsive: true
+      });
+      // DT 버튼 삽입
+      //table.buttons().container().appendTo($('#btnContainer'));
+      // DT DeSelect 이벤트 삽입
+      table.on('length.dt', function (e, settings, len) {
+        var rowCount = table.rows().count();
+
+        for (var i = 1; i < rowCount + 1; i++) {
+          if (len < i) {
+            table.row(':eq(' + i + ')', { page: 'all' }).deselect();
+          }
+        }
+      })
+    });
+  });
+
+
+  // DT 새로운 Data 집어넣기
+  function dtRedrawNewData(dt, data) {
+      dt.clear().draw();
+      dt.rows.add(data);
+      dt.columns.adjust().draw();
+    }
+})
+</script>
+
+
+
+</body></html>

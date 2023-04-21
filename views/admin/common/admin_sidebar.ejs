@@ -1,0 +1,99 @@
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" href="/admin">
+      <span class="align-middle">AS-Admin</span>
+    </a>
+
+    <ul class="sidebar-nav">
+<% if(idx == 00) { %>
+      <li class="sidebar-item active">
+<% } else { %>
+      <li class="sidebar-item">
+<% } %>
+        <a class="sidebar-link" href="/notice">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">
+            공지사항
+          </span>
+        </a>
+      </li>
+
+<% if(idx == 10) { %>
+      <li class="sidebar-item active">
+<% } else { %>
+      <li class="sidebar-item">
+<% } %>
+        <a class="sidebar-link" href="/admin">
+          <i class="align-middle" data-feather="sliders"></i>
+          <span class="align-middle">
+            메인화면
+          </span>
+        </a>
+      </li>
+
+<% if(idx == 20) { %>
+        <li class="sidebar-item active">
+<% } else { %>
+        <li class="sidebar-item">
+<% } %>
+        <a class="sidebar-link" href="/admin_manage">
+          <i class="align-middle" data-feather="credit-card"></i>
+          <span class="align-middle">
+            관리
+          </span>
+        </a>
+      </li>
+
+      <!--
+        <li class="sidebar-item">
+        <a href="#notice" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="users"></i> <span class="align-middle">알림</span>
+        </a>
+        <ul id="notice" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=notice">공지사항</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="/admin_notification?page=message">메시지</a></li>
+        </ul>
+      </li>
+      
+      <li class="sidebar-item">
+        <a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
+          <i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+        </a>
+        <ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+        </ul>
+      </li>
+    -->
+
+<% if(idx == 30) { %>
+      <li class="sidebar-item active">
+<% } else { %>
+      <li class="sidebar-item">
+<% } %>
+        <a class="sidebar-link" href="/message">
+          <i class="align-middle" data-feather="bar-chart-2"></i>
+          <span class="align-middle">
+            메시지
+          </span>
+        </a>
+      </li>
+
+<% if(idx == 40) { %>
+      <li class="sidebar-item active">
+<% } else { %>
+      <li class="sidebar-item">
+<% } %>
+        <a class="sidebar-link" href="/admin_statistics">
+          <i class="align-middle" data-feather="bar-chart-2"></i>
+          <span class="align-middle">
+            데이터 로그
+          </span>
+        </a>
+      </li>
+
+    </ul>
+
+
+  </div>
+</nav>

@@ -1,0 +1,621 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+	<meta name="author" content="AdminKit">
+	<meta name="keywords"
+		content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png">
+
+	<title>Air Signal</title>
+
+	<!-- DOM CSS -->
+	<link href="css/app.css" rel="stylesheet">
+	<link href="css/app_add.css" rel="stylesheet">
+	<!-- DataTables CSS -->
+	<!-- <link rel="stylesheet" href="/DataTables/datatables.css"> -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
+	<!--김익재 추가-->
+	<link rel="stylesheet" href="css/kij.css">
+
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="/admin">
+					<span class="align-middle">AS-Admin</span>
+				</a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Pages
+					</li>
+
+					<li class="sidebar-item">
+
+						<a class="sidebar-link" href="admin_index2.html">
+							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">메인화면</span>
+						</a>
+					</li>
+
+
+					<li class="sidebar-item active">
+
+						<a class="sidebar-link" href="admin_menu2.html">
+							<i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">관리</span>
+						</a>
+					</li>
+
+					<!--
+		<li class="sidebar-item">
+			<a href="#auth" data-toggle="collapse" class="sidebar-link collapsed">
+				<i class="align-middle" data-feather="users"></i> <span class="align-middle">관리</span>
+			</a>
+			<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+				<li class="sidebar-item"><a class="sidebar-link" href="#">사용자</a></li>
+				<li class="sidebar-item"><a class="sidebar-link" href="#">디바이스</a></li>
+			</ul>
+		</li>
+
+		<li class="sidebar-item">
+			<a data-target="#forms" data-toggle="collapse" class="sidebar-link collapsed">
+				<i class="align-middle" data-feather="check-circle"></i> <span class="align-middle">Forms</span>
+			</a>
+			<ul id="forms" class="sidebar-dropdown list-unstyled collapse " data-parent="#sidebar">
+				<li class="sidebar-item"><a class="sidebar-link" href="forms-layouts.html">Form Layouts</a></li>
+				<li class="sidebar-item"><a class="sidebar-link" href="forms-basic-inputs.html">Basic Inputs</a></li>
+			</ul>
+		</li>
+		-->
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="#">
+							<i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">메시지</span>
+						</a>
+					</li>
+
+				</ul>
+
+
+			</div>
+		</nav>
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+
+				<div class="navbar-collapse collapse">
+					<h3 class="text-center logo ml-5 mt-2 h">
+						<strong>메인화면</strong>
+					</h3>
+
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="bell"></i>
+									<span class="indicator">4</span>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="alertsDropdown">
+								<div class="dropdown-menu-header">
+									4 New Notifications
+								</div>
+								<div class="list-group">
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-danger" data-feather="alert-circle"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Update completed</div>
+												<div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
+												<div class="text-muted small mt-1">30m ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-warning" data-feather="bell"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Lorem ipsum</div>
+												<div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
+												<div class="text-muted small mt-1">2h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-primary" data-feather="home"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">Login from 192.186.1.8</div>
+												<div class="text-muted small mt-1">5h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<i class="text-success" data-feather="user-plus"></i>
+											</div>
+											<div class="col-10">
+												<div class="text-dark">New connection</div>
+												<div class="text-muted small mt-1">Christina accepted your request.</div>
+												<div class="text-muted small mt-1">14h ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">Show all notifications</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
+								<div class="position-relative">
+									<i class="align-middle" data-feather="message-square"></i>
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right py-0" aria-labelledby="messagesDropdown">
+								<div class="dropdown-menu-header">
+									<div class="position-relative">
+										4 New Messages
+									</div>
+								</div>
+								<div class="list-group">
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle"
+													alt="Vanessa Tucker">
+											</div>
+											<div class="col-10 pl-2">
+												<div class="text-dark">Vanessa Tucker</div>
+												<div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
+												<div class="text-muted small mt-1">15m ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle"
+													alt="William Harris">
+											</div>
+											<div class="col-10 pl-2">
+												<div class="text-dark">William Harris</div>
+												<div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
+												<div class="text-muted small mt-1">2h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle"
+													alt="Christina Mason">
+											</div>
+											<div class="col-10 pl-2">
+												<div class="text-dark">Christina Mason</div>
+												<div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
+												<div class="text-muted small mt-1">4h ago</div>
+											</div>
+										</div>
+									</a>
+									<a href="#" class="list-group-item">
+										<div class="row g-0 align-items-center">
+											<div class="col-2">
+												<img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle"
+													alt="Sharon Lessman">
+											</div>
+											<div class="col-10 pl-2">
+												<div class="text-dark">Sharon Lessman</div>
+												<div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.
+												</div>
+												<div class="text-muted small mt-1">5h ago</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-menu-footer">
+									<a href="#" class="text-muted">Show all messages</a>
+								</div>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+								<i class="align-middle" data-feather="settings"></i>
+							</a>
+
+							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+								<img src="img/Envinode.png" class="avatar img-fluid rounded mr-1" alt="Envinode Demo">
+								<span id="user_id" class="text-dark">
+									admin
+								</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle mr-1" data-feather="user"></i>
+									Profile</a>
+								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="pie-chart"></i>
+									Analytics</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="pages-settings.html"><i class="align-middle mr-1"
+										data-feather="settings"></i> Settings &amp; Privacy</a>
+								<a class="dropdown-item" href="#"><i class="align-middle mr-1" data-feather="help-circle"></i> Help
+									Center</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/logout">Log out</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<main class="content" >
+				<div class="row">
+					<div class="col-6">
+					    <div class="row" style="margin-bottom: 20px;">
+					        <h5 class="card-title" style="font-size: 20px;">유저 정보</h5>
+					    </div>
+					    <div class="card flex-fill w-100" style="overflow: hidden;">
+					        <div class="row row-info">
+					            <div class="col-6">
+					                <p class="info_type">ID</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="AS001000">
+					                </div>
+
+					            </div>
+					            <div class="col-6">
+					                <p class="info_type">장치이름</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="안방">
+					                </div>
+
+					            </div>
+					        </div>
+					        <div class="row row-info" style="border-bottom: 1px solid #eaeaea;">
+					            <div class="col-6">
+					                <p class="info_type">장치타입</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="S">
+					                </div>
+
+					            </div>
+					            <div class="col-6">
+					                <p class="info_type">공개여부</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="Y">
+					                </div>
+					            </div>
+
+					        </div>
+					        <div class="row row-info" style="border-bottom: 1px solid #eaeaea;">
+					            <div class="col-6">
+					                <p class="info_type">장치현황</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="null">
+					                </div>
+					            </div>
+					            <div class="col-6">
+					                <p class="info_type">위치</p>
+					                <div class="input_wrap">
+					                    <input class="info_input" type="text" placeholder="37.054255, 127.151678">
+					                </div>
+
+					            </div>
+					        </div>
+
+
+
+
+
+
+					    </div>
+					</div>
+                    <div class="col-6">
+                        <div class="row" style="margin-bottom: 20px;">
+                            <h5 class="card-title"style="font-size: 20px;">센서리스트</h5>
+                        </div>
+                        <div class="row" style="display: flex; justify-content: center;">
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 10</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>37.2</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 0.5</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>10.6</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">CO</div>
+												<div class="card-header-text-right">ppm</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>0.2</h1>
+											</div>
+										</div>
+					
+									</div>
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 10</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>37.2</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 0.5</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>10.6</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">CO</div>
+												<div class="card-header-text-right">ppm</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>0.2</h1>
+											</div>
+										</div>
+					
+									</div>
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 2.5</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>16.58</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 0.3</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>8.24</h1>
+											</div>
+										</div>
+										
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">CO<sub>2</sub></div>
+												<div class="card-header-text-right">ppm</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>1239.48</h1>
+											</div>
+										</div>
+					
+									</div>
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 1.0</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>38.7</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">Temperature</div>
+												<div class="card-header-text-right">℃</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>25.2</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">Humidity</div>
+												<div class="card-header-text-right">%RH</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>47.1</h1>
+											</div>
+										</div>
+										
+									</div>
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 10</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>37.2</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 0.5</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>10.6</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">CO</div>
+												<div class="card-header-text-right">ppm</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>0.2</h1>
+											</div>
+										</div>
+					
+									</div>
+									<div class="col-4">
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 10</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>37.2</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">PM 0.5</div>
+												<div class="card-header-text-right">ug/m<sup>3</sup></div>
+											</div>
+											<div class="card-body text-right">
+												<h1>10.6</h1>
+											</div>
+										</div>
+					
+										<div class="card pointer" onclick="change_chart_name(this)">
+											<div class="card-header">
+												<div class="card-header-text-left">CO</div>
+												<div class="card-header-text-right">ppm</div>
+											</div>
+											<div class="card-body text-right">
+												<h1>0.2</h1>
+											</div>
+										</div>
+					
+									</div>
+								</div>
+                    </div>
+				</div>
+				<div class="row btn_row">
+				    <button class="btn_admin btn_check">확인</button>
+				    <button class="btn_admin btn_modify">수정</button>
+				    <button class="btn_admin btn_delete">삭제</button>
+				</div>
+
+			</main>
+
+		</div>
+	</div>
+
+
+	<!-- Dom Script -->
+	<script type="text/javascript" src="./js/app.js"></script>
+	<!-- DataTables Script -->
+	<script type="text/javascript" src="./js/jquery3_6_0.js"></script>
+	<script type="text/javascript" charset="utf8" src="./DataTables/datatables.js"></script>
+	<script>
+		const lang_kor = {
+			"decimal": "",
+			"emptyTable": "데이터가 없습니다.",
+			"info": "_START_ - _END_ (총 _TOTAL_ 명)",
+			"infoEmpty": "0명",
+			"infoFiltered": "(전체 _MAX_ 명 중 검색결과)",
+			"infoPostFix": "",
+			"thousands": ",",
+			"lengthMenu": "_MENU_ 개씩 보기",
+			"loadingRecords": "로딩중...",
+			"processing": "처리중...",
+			"search": "검색 : ",
+			"zeroRecords": "검색된 데이터가 없습니다.",
+			"paginate": {
+				"first": "첫 페이지",
+				"last": "마지막 페이지",
+				"next": "다음",
+				"previous": "이전"
+			},
+			"aria": {
+				"sortAscending": " :  오름차순 정렬",
+				"sortDescending": " :  내림차순 정렬"
+			}
+		};
+		const dt_buttons = [
+			{
+				text: '편집',
+				action: function (event, table, node, config) {
+					alert('Edit Button Activated');
+				}
+			},
+			{
+				text: '삭제',
+				action: function (event, table, node, config) {
+					var e = table.rows('.selected').data();
+
+					for (var i = 0; i < e.length; i++) {
+						console.log(e[i][0]);
+					}
+				}
+			}
+		];
+		const col_kor = [
+			{ title: "User ID" },
+			{ title: "유저 이름" },
+			{ title: "S/N" },
+			{ title: "Device Type" },
+			{ title: "Device Name" },
+			{ title: "소속" }
+		]
+		const dt_data = [
+			["AirSignal", "홍길동", "AS001000", "S", "안방", "개인"],
+			["AirSignal", "홍길동", "AS002000", "S+", "안방", "개인"],
+			["Murray", "개나리", "AS003000", "Mini", "안방", "개인"],
+			["Envinode", "김목화", "AS004000", "S+", "안방", "(주)Envinode"],
+			["Envinode", "진달래", "AS004001", "S+", "안방", "(주)Envinode"],
+			["Envinode", "무궁화", "AS004002", "S", "안방", "(주)Envinode"],
+			["Envinode", "다람쥐", "AS004003", "S", "안방", "(주)Envinode"],
+		]
+	</script>
+	<script>
+		let table = new DataTable('#example', {
+			data: dt_data,
+			columns: col_kor,
+			language: lang_kor,
+			lengthMenu: [5, 10, 25, 50, 100],
+			displayLength: 10,
+			// <"class-name"attribut><"clear">
+			// ex) <"wrapper"<"col-12"f>><"clear">
+			dom: 'Blfrtip',
+			buttons: dt_buttons,
+			select: 'multi',
+			responsive: true
+		});
+	</script>
+
+</body>
+
+</html>
